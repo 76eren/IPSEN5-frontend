@@ -32,6 +32,7 @@ export class DeleteModalComponent {
   cancelReservation(reservationId: string) {
     this.reservationService.cancelReservation(reservationId).subscribe(
       data => {
+        window.location.reload();
         //Hier wil ik later een modal tonen met een succes bericht
       }
     );
