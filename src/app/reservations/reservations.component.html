@@ -12,27 +12,22 @@
       </tr>
       </thead>
       <tbody class="divide-y divide-gray-100">
-      <tr class="text-left text-xl h-16 text-gray-800">
-        <td class="pl-2">Apr 19, 2024</td>
-        <td>10:10</td>
-        <td>Lokaal</td>
-        <td>Gebouw Amsterdam</td>
-        <td><button (click)="openDeleteModal()"
-                    class="font-bold py-1 px-4 rounded-full bg-primary-red text-white hover:bg-red-700">Annuleer</button></td>
-      </tr>
-      <tr class="text-left text-xl h-16 text-gray-800">
-        <td class="pl-2">Apr 19, 2024</td>
-        <td>10:10</td>
-        <td>Lokaal</td>
-        <td>Gebouw Amsterdam</td>
-        <td><button (click)="openDeleteModal()"
-          class=" font-bold py-1 px-4 rounded-full bg-primary-red text-white hover:bg-red-700">Annuleer</button></td>
-      </tr>
+        @for (reservation of reservations; track reservation){
+          <tr class="text-left text-xl h-16 text-gray-800">
+            <td class="pl-2">{{getDate(reservation.startDateTime)}}</td>
+            <td>{{getTime(reservation.startDateTime)}}</td>
+            <td>Lokaal</td>
+            <td>Gebouw Amsterdam</td>
+            <td><button (click)="openDeleteModal(); selectedReservationId = reservation.id"
+                        class="font-bold py-1 px-4 rounded-full bg-primary-red text-white hover:bg-red-700">Annuleer</button></td>
+          </tr>
+        }
       </tbody>
     </table>
   </div>
   @if (isDeleteModalVisible){
     <app-delete-modal (closeModalEvent)="openDeleteModal()"
+                      [selectedReservationId]="selectedReservationId"
     ></app-delete-modal>
   }
 </div>
