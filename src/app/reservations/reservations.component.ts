@@ -19,13 +19,15 @@ import { RouterModule } from '@angular/router';
   styleUrl: './reservations.component.scss',
 })
 export class ReservationsComponent implements OnInit {
+  selectedReservation!: Reservation;
   reservations: Reservation[] = [];
 
   constructor(private reservationService: ReservationService) {}
 
   isDeleteModalVisible: boolean = false;
 
-  openDeleteModal() {
+  openDeleteModal(reservation: Reservation) {
+    this.selectedReservation = reservation;
     this.isDeleteModalVisible = !this.isDeleteModalVisible;
   }
 

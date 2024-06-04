@@ -1,28 +1,56 @@
-<article class="rounded-lg p-4 border-2 border-secondary-purple-light space-y-4 mb-5">
+<article
+  class="rounded-lg p-4 border-2 border-secondary-purple-light space-y-4 mb-5"
+>
   <div class="flex justify-between items-center">
     <h2 class="text-xl font-semibold">Aankomende reserveringen</h2>
   </div>
   <ul class="space-y-4">
-    <li class="flex justify-between flex-row items-center p-4 border-2 border-secondary-purple-light rounded-lg" *ngFor="let reservation of reservations">
+    <li
+      class="flex justify-between flex-row items-center p-4 border-2 border-secondary-purple-light rounded-lg"
+      *ngFor="let reservation of reservations let i = index"
+    >
       <div>
-        <h3 class="font-bold">{{ reservation.startDateTime | date:'longDate' }}</h3>
-        <p>Tijd: {{ reservation.startDateTime | date:'shortTime' || "Onbekende startdatum" }}</p>
-        <p>Locatie: {{ reservation.location.wing.floor.building.name || "Onbekende locatie" }}</p>
+        <h3 class="font-bold">
+          {{ reservation.startDateTime | date : "longDate" }}
+        </h3>
+        <p>
+          Tijd:
+          {{
+            reservation.startDateTime
+              | date : "shortTime" || "Onbekende startdatum"
+          }}
+        </p>
+        <p>
+          Locatie:
+          {{
+            reservation.location.wing.floor.building.name || "Onbekende locatie"
+          }}
+        </p>
       </div>
       <div class="flex flex-col space-y-2 md:space-y-4">
-      <button [routerLink]="'/reservation/details/' + reservation.id" class="flex bg-secondary-purple-light p-2 rounded-lg space-x-2 hover:bg-gray-300 duration-300">
-        <p>Meer info</p>
-        <lucide-icon name="move-right"></lucide-icon>
-      </button>
-      <button (click)="openDeleteModal()" class="flex bg-red-300 p-2 rounded-lg space-x-2 hover:bg-red-500 duration-300">
-        <p>Annuleer Afspraak</p>
-        <lucide-icon name="ban"></lucide-icon>
-      </button>
-    </div>
-    @if (isDeleteModalVisible){
-      <app-delete-modal (closeModalEvent)="openDeleteModal()" class="fixed inset-0 z-50 duration-300 backdrop-blur-sm" [reservation]="reservation"
-      ></app-delete-modal>
-    }
+        <button
+          [routerLink]="'/reservation/details/' + reservation.id"
+          class="flex bg-secondary-purple-light p-2 rounded-lg space-x-2 hover:bg-gray-300 duration-300"
+        >
+          <p>Meer info</p>
+          <lucide-icon name="move-right"></lucide-icon>
+        </button>
+        <button
+          (click)="openDeleteModal(reservation)"
+          class="flex bg-red-300 p-2 rounded-lg space-x-2 hover:bg-red-500 duration-300"
+        >
+          <p>Annuleer Afspraak</p>
+          <lucide-icon name="ban"></lucide-icon>
+        </button>
+      </div>
     </li>
   </ul>
 </article>
+
+@if (isDeleteModalVisible){
+  <app-delete-modal
+    (closeModalEvent)="this.isDeleteModalVisible = false"
+    class="fixed inset-0 z-50 duration-300 backdrop-blur-sm"
+    [reservation]="this.selectedReservation"
+  ></app-delete-modal>
+  }

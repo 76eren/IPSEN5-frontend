@@ -15,8 +15,6 @@ import { ReservationsComponent } from '../reservations.component';
 })
 export class DeleteModalComponent {
   @Output() closeModalEvent = new EventEmitter<void>();
-  @Input() message: string =
-    'Weet u het zeker dat u de reservering wilt annuleren?';
   @Input() deleteFunction!: () => void;
   @Input() reservation!: Reservation;
 
@@ -27,6 +25,10 @@ export class DeleteModalComponent {
     private reservationService: ReservationService,
     private reservationComponent: ReservationsComponent
   ) {}
+
+  public getReservationStartTimeToString() {
+    return new Date(this.reservation.startDateTime).toLocaleString();
+  }
 
   public closeModal() {
     this.closeModalEvent.emit();
