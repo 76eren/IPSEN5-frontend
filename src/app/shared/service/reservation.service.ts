@@ -3,6 +3,7 @@ import { ApiService, ApiResponse } from './api.service';
 import { Reservation } from '../model/reservation.model';
 import { User } from '../model/user.model';
 import { ToastrService } from 'ngx-toastr';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable()
 export class ReservationService {
@@ -31,5 +32,15 @@ export class ReservationService {
         error.error ? this.toastr.error(error.error.message) : this.toastr.error('Fout bij het ophalen van reservering');
         return [];
       });
+  }
+
+  deleteReservation(id: string): Observable<ApiResponse<any>> {
+    return this.apiService.post<ApiResponse<any>>(`/reservations/${id}/cancel`)
+    .pipe(
+      catchError((error) => {
+        this.toastr.error('Fout bij het annuleren van reservering');
+        return [];
+      }
+    ));
   }
 }

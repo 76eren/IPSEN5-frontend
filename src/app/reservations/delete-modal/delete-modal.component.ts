@@ -33,10 +33,15 @@ export class DeleteModalComponent {
   }
 
   deletionPressed() {
-    this.toastr.success('Reservering is geannuleerd');
-    
-    this.reservationComponent.getUpcomingReservations();
-
-    this.closeModal();
+    this.reservationService.deleteReservation(this.reservation.id).subscribe(
+      (response) => {
+        this.toastr.success('Reservering is geannuleerd');
+        this.reservationComponent.getUpcomingReservations();
+        this.closeModal();
+      },
+      (error) => {
+        this.toastr.error('Fout bij het annuleren van reservering');
+      }
+    );
   }
 }
