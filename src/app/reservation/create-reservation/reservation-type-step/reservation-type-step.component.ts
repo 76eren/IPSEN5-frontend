@@ -34,7 +34,7 @@ export class ReservationTypeStepComponent {
     }
 
   protected checkValidReservationType() {
-    if (!this.selectedType) {
+    if (!this.typeFormGroup.get('reservationType')?.valid) {
       this.toastr.error('Een type is verplicht!', 'Validatie Error');
       return;
     }
