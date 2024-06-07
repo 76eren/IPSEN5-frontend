@@ -9,7 +9,6 @@ import { Wing } from '../../shared/model/wing.model';
 import { ApiResponse } from '../../shared/service/api.service';
 import { ToastrService } from 'ngx-toastr';
 import { WingService } from '../../shared/service/wing.service';
-import { DeleteModalComponent } from '../../reservations/delete-modal/delete-modal.component';
 
 @Component({
   selector: 'app-location',
@@ -20,7 +19,6 @@ import { DeleteModalComponent } from '../../reservations/delete-modal/delete-mod
     CommonModule, 
     FormsModule, 
     ReactiveFormsModule, 
-    DeleteModalComponent,
   ],
   templateUrl: './location.component.html',
   styleUrl: './location.component.scss'

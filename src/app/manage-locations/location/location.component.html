@@ -18,11 +18,11 @@
 
   <ng-template #edit>
     <form [formGroup]="locationForm" (ngSubmit)="onSubmitForm()" class="flex w-full justify-between bg-white rounded-md p-4">
-      <input type="text" id="locationName" formControlName="locationName" class="w-[150px] p-2 rounded-lg border-2 border-secondary-purple-light"
+      <input type="text" id="locationName" formControlName="locationName" class="w-[150px] p-2 rounded-lg border-2 "
       [ngClass]="locationForm.get('locationName')?.invalid ? 'border-primary-red' : 'border-secondary-purple-light'">
       <div class="relative w-[150px]">
         <select name="locationType" id="locationType"
-        formControlName="locationType" class=" appearance-none p-2 rounded-lg border-2 border-secondary-purple-light w-full"
+        formControlName="locationType" class=" appearance-none p-2 rounded-lg border-2 w-full"
         [ngClass]="locationForm.get('locationType')?.invalid ? 'border-primary-red' : 'border-secondary-purple-light'">
           <option *ngFor="let type of locationTypes" [ngValue]="type">{{ type }}</option>
         </select>
@@ -32,7 +32,7 @@
       </div>
       <p class="w-[150px] p-2">{{ location.wing.floor.building.name }}</p>
       <div class="relative w-[150px]">
-        <select name="wing" id="wing" formControlName="wing" class="w-full p-2 rounded-lg border-2 border-secondary-purple-light appearance-none" 
+        <select name="wing" id="wing" formControlName="wing" class="w-full p-2 rounded-lg border-2 appearance-none" 
         [ngClass]="locationForm.get('wing')?.invalid ? 'border-primary-red' : 'border-secondary-purple-light'">
           <option disabled selected [ngValue]="location.wing">{{ location.wing.floor.number }}.{{ location.wing.name }}</option>
           <option *ngFor="let wing of wings" [ngValue]="wing">{{ wing.floor.number }}.{{ wing.name }}</option>
@@ -41,7 +41,7 @@
           <lucide-icon name="chevron-down"></lucide-icon>
         </div>
       </div>
-      <input type="number" min="1" id="capacity" formControlName="capacity" class="w-[150px] p-2 rounded-lg border-2 border-secondary-purple-light"
+      <input type="number" min="1" id="capacity" formControlName="capacity" class="w-[150px] p-2 rounded-lg border-2"
       [ngClass]="locationForm.get('capacity')?.invalid ? 'border-primary-red' : 'border-secondary-purple-light'">
       <p class="w-[150px] p-2">{{ location.createdAt | date:'shortDate' }}</p>
       <div class="flex space-x-5 ">
