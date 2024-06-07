@@ -9,9 +9,14 @@
     <div class="flex space-x-2">
       <div class="flex space-x-2 items-center">
         <label for="building">Locatie:</label>
-        <select name="building" id="building" [(ngModel)]="selectedBuilding" class="p-2 border-2 border-secondary-purple-light focus:border-primary-dark-purple rounded-lg" (change)="onChangeFilter()">
-          <option *ngFor="let building of buildings" [ngValue]="building">{{ building.name }}</option>
-        </select>
+        <div class="relative w-[150px]">
+          <select name="building" id="building" [(ngModel)]="selectedBuilding" class="p-2 border-2 border-secondary-purple-light focus:border-primary-dark-purple rounded-lg w-full appearance-none" (change)="onChangeFilter()">
+            <option *ngFor="let building of buildings" [ngValue]="building">{{ building.name }}</option>
+          </select>
+          <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+            <lucide-icon name="chevron-down"></lucide-icon>
+          </div>
+        </div>
       </div>
       <button class="bg-primary-dark-purple text-white p-2 rounded-lg" (click)="onChangeCreateMode()">
         <lucide-icon name="plus" title="werkplek toevoegen"></lucide-icon>
@@ -20,12 +25,12 @@
   </section>
   <app-create-location *ngIf="isCreateMode" [buildings]="buildings" (exitCreateMode)="onChangeCreateMode()"></app-create-location>
   <section class="flex pl-5 justify-between w-full font-bold">
-    <p class="min-w-[100px]">Naam</p>
-    <p class="min-w-[100px]">Type</p>
-    <p class="min-w-[100px]">Gebouw</p>
-    <p class="min-w-[100px]">Vleugel</p>
-    <p class="min-w-[100px]">Capaciteit</p>
-    <p class="min-w-[100px]">Gemaakt op</p>
+    <p class="min-w-[150px]">Naam</p>
+    <p class="min-w-[150px]">Type</p>
+    <p class="min-w-[150px]">Gebouw</p>
+    <p class="min-w-[150px]">Vleugel</p>
+    <p class="min-w-[150px]">Capaciteit</p>
+    <p class="min-w-[150px]">Gemaakt op</p>
     <p class="min-w-[100px]"></p>
   </section>
   <ul *ngIf="filteredLocations().length > 0; else noLocations" class="h-[500px] overflow-auto">
