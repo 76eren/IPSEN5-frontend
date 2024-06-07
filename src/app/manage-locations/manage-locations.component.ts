@@ -49,8 +49,9 @@ export class ManageLocationsComponent implements OnInit {
 
     public filteredLocations(): Location[] {
         return this.locations.filter(location => 
-            location.name.toLowerCase().includes(this.searchQuery.toLowerCase()
-        ));
+            location.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+            location.type.toLowerCase().includes(this.searchQuery.toLocaleLowerCase())
+        );
     }
 
     public onChangeFilter(): void {
