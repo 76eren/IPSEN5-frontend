@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
 import { Location, LocationType } from '../../shared/model/location.model';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -9,11 +9,19 @@ import { Wing } from '../../shared/model/wing.model';
 import { ApiResponse } from '../../shared/service/api.service';
 import { ToastrService } from 'ngx-toastr';
 import { WingService } from '../../shared/service/wing.service';
+import { DeleteModalComponent } from '../../reservations/delete-modal/delete-modal.component';
 
 @Component({
   selector: 'app-location',
   standalone: true,
-  imports: [LucideAngularModule, DatePipe, CommonModule, FormsModule, ReactiveFormsModule, ],
+  imports: [
+    LucideAngularModule, 
+    DatePipe, 
+    CommonModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    DeleteModalComponent,
+  ],
   templateUrl: './location.component.html',
   styleUrl: './location.component.scss'
 })
@@ -26,7 +34,12 @@ export class LocationComponent implements OnInit {
     LocationType.ROOM
   ]
 
-  constructor(private locationService: LocationService, private wingService: WingService, private toastr: ToastrService) {}
+  constructor(
+    private locationService: LocationService, 
+    private wingService: WingService, 
+    private toastr: ToastrService, 
+    private elementRef: ElementRef
+  ) {}
 
   ngOnInit(): void {
     this.getWings();
@@ -68,6 +81,14 @@ export class LocationComponent implements OnInit {
       this.locationForm.get('wing')?.setValue(this.location.wing)
       this.location.isEdit = false;
       this.toastr.success('De werkplek is opgeslagen', 'Succes')
+    })
+  }
+
+  public onDelete(): void {
+    this.locationService.deleteLocation(this.location.id).subscribe(() => {
+      this.toastr.success('De locatie is verwijderd', 'Succes');
+      const dialog = this.elementRef.nativeElement.querySelector('dialog');
+      dialog.close();
     })
   }
 }

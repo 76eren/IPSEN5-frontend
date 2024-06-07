@@ -113,9 +113,9 @@ export class ApiService {
    * This function appends an 'Authorization' header to the request using the JWT token retrieved from the cookies.
    * If the headers or a body are not provided, default values will be used.
    */
-  public delete<T>(path: string, options?: { headers?: HttpHeaders }): Observable<ApiResponse<T>> {
+  public delete<T>(path: string, options?: { headers?: HttpHeaders }): Observable<T> {
     let requestHeaders: HttpHeaders = options?.headers ?? new HttpHeaders();
 
-    return this.http.delete<ApiResponse<T>>(`${ApiService.API_URL}${path}`, { headers: requestHeaders, withCredentials: true })
+    return this.http.delete<T>(`${ApiService.API_URL}${path}`, { headers: requestHeaders, withCredentials: true })
   }
 }

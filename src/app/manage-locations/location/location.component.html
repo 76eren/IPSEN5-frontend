@@ -10,7 +10,7 @@
       <button (click)="location.isEdit = true">
         <lucide-icon name="pencil" title="bewerken"></lucide-icon>
       </button>
-      <button>
+      <button (click)="deletionDialog.show()">
         <lucide-icon name="trash-2" title="verwijderen"></lucide-icon>
       </button>
     </div>
@@ -41,3 +41,22 @@
     </form>
   </ng-template>
 </li>
+
+<dialog #deletionDialog class="w-1/3 h-1/3 bg-white rounded-lg border-2 border-black absolute top-1/3 p-4 shadow-md">
+  <div class="flex flex-col items-center space-y-4">
+    <button (click)="deletionDialog.close()" class="self-end">
+      <lucide-icon name="x" label="close"></lucide-icon>
+    </button>
+    <div class="flex flex-col items-center space-y-10">
+      <div class="flex flex-col items-center space-y-2">
+        <p>Weet je zeker dat je de locatie wilt verwijderen?</p>
+      </div>
+      <div class="flex space-x-4">
+        <button class="rounded-lg p-2 text-white bg-primary-red" (click)="onDelete()">Verwijder</button>
+        <button class="border-2 border-secondary-purple-light rounded-lg p-2" (click)="deletionDialog.close()">Annuleer</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+
