@@ -29,7 +29,7 @@
       </button>
     </div>
   </section>
-  <app-create-location *ngIf="isCreateMode" [buildings]="buildings" (exitCreateMode)="onChangeCreateMode()"></app-create-location>
+  <app-create-location *ngIf="isCreateMode" [buildings]="buildings" (exitCreateMode)="onChangeCreateMode()" (location)="onCreateLocation($event)"></app-create-location>
   <section class="flex pl-5 justify-between w-full font-bold">
     <p class="min-w-[150px]">Naam</p>
     <p class="min-w-[150px]">Type</p>
@@ -40,7 +40,7 @@
     <p class="min-w-[100px]"></p>
   </section>
   <ul *ngIf="filteredLocations().length > 0; else noLocations" class="h-[500px] overflow-auto">
-    <app-location *ngFor="let location of filteredLocations()" [location]="location"></app-location>
+    <app-location *ngFor="let location of filteredLocations()" [location]="location" (deletedLocation)="onDeleteLocation($event)"></app-location>
   </ul>
   <ng-template #noLocations>
     <div class="flex justify-center items-center w-full h-full">

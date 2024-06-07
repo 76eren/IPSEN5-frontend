@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
 import { Location, LocationType } from '../../shared/model/location.model';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -27,6 +27,7 @@ import { DeleteModalComponent } from '../../reservations/delete-modal/delete-mod
 })
 export class LocationComponent implements OnInit {
   @Input() location!: Location;
+  @Output() deletedLocation: EventEmitter<Location> = new EventEmitter<Location>();
   public locationForm!: FormGroup;
   public wings: Wing[] = [];
   public locationTypes: LocationType[] = [
@@ -47,7 +48,7 @@ export class LocationComponent implements OnInit {
       'locationName': new FormControl(this.location.name, Validators.required),
       'locationType': new FormControl(this.location.type, Validators.required),
       'wing': new FormControl(this.location.wing, Validators.required),
-      'capacity': new FormControl(this.location.capacity, Validators.required)
+      'capacity': new FormControl(this.location.capacity, Validators.compose([Validators.required, Validators.min(1)]))
     });
   }
 
@@ -86,6 +87,7 @@ export class LocationComponent implements OnInit {
 
   public onDelete(): void {
     this.locationService.deleteLocation(this.location.id).subscribe(() => {
+      this.deletedLocation.emit(this.location);
       this.toastr.success('De locatie is verwijderd', 'Succes');
       const dialog = this.elementRef.nativeElement.querySelector('dialog');
       dialog.close();

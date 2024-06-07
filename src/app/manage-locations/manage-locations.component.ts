@@ -61,4 +61,14 @@ export class ManageLocationsComponent implements OnInit {
     public onChangeCreateMode(): void {
         this.isCreateMode = !this.isCreateMode;
     }
+
+    public onCreateLocation(event: Location): void {
+        this.locations.push(event);
+    }
+
+    public onDeleteLocation(event: Location): void {
+        this.locations = this.locations.filter(location => 
+            event.id !== location.id
+        );
+    }
 }
