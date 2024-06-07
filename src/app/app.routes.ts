@@ -67,10 +67,12 @@ export const routes: Routes = [
       {
         path: 'reports',
         component: ReportDashboardComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'manage/locations',
         component: ManageLocationsComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'favorites',
