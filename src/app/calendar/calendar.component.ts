@@ -12,6 +12,9 @@ import {FullCalendarModule} from "@fullcalendar/angular";
 import timeGridPlugin from '@fullcalendar/timegrid';
 import nlLocale from '@fullcalendar/core/locales/nl';
 import {CalendarEvent, FRIEND_EVENTS, INITIAL_EVENTS} from "./event-utils";
+import {User} from "../shared/model/user.model";
+import {FavoriteUserService} from "../shared/service/favorite-user.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-calendar',
@@ -23,6 +26,8 @@ import {CalendarEvent, FRIEND_EVENTS, INITIAL_EVENTS} from "./event-utils";
   styleUrl: './calendar.component.scss'
 })
 export class CalendarComponent implements OnInit{
+  public favoriteColleagues: User[] = [];
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     const newView = window.innerWidth < 700 ? 'timeGridDay' : 'dayGridMonth';
@@ -68,12 +73,25 @@ export class CalendarComponent implements OnInit{
     eventRemove:
     */
   });
-  constructor(private changeDetector: ChangeDetectorRef) {
+
+  constructor(private changeDetector: ChangeDetectorRef, private favoriteUserService: FavoriteUserService, private toastr: ToastrService) {
     this.updateViewBasedOnWidth();
   }
 
   ngOnInit() {
+    this.getFavoriteUsers();
     this.updateViewBasedOnWidth();
+  }
+
+  getFavoriteUsers(): void {
+    this.favoriteUserService.getFavoriteColleagues().subscribe(
+      (response) => {
+        this.favoriteColleagues = response.payload;
+      },
+      (error) => {
+        this.toastr.error("Probeer het later nog een keer", "Fout bij ophalen van favoriete collega's")
+      }
+    );
   }
 
   updateViewBasedOnWidth() {
