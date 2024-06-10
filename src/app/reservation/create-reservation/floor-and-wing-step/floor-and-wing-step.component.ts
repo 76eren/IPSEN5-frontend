@@ -85,7 +85,7 @@ export class FloorAndWingStepComponent{
   }
 
   checkValidReservationType() {
-    if (!this.floorAndWingFormGroup.get('selectedFloor')?.valid || !this.floorAndWingFormGroup.get('selectedWing')?.valid) {
+    if (!this.floorAndWingFormGroup.valid) {
       this.toastr.error('Alle velden zijn verplicht!', 'Validatie Error');
       return;
     }
