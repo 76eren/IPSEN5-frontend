@@ -15,18 +15,24 @@ import {CalendarEvent, FRIEND_EVENTS, INITIAL_EVENTS} from "./event-utils";
 import {User} from "../shared/model/user.model";
 import {FavoriteUserService} from "../shared/service/favorite-user.service";
 import {ToastrService} from "ngx-toastr";
+import {NgForOf} from "@angular/common";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-calendar',
   standalone: true,
   imports: [
     FullCalendarModule,
+    NgForOf,
+    ReactiveFormsModule,
   ],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss'
 })
 export class CalendarComponent implements OnInit{
   public favoriteColleagues: User[] = [];
+  public personSelectForm!: FormGroup;
+
 
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -79,6 +85,11 @@ export class CalendarComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.personSelectForm = new FormGroup({
+      'favourite-user': new FormControl(null, Validators.required)
+    });
+
+
     this.getFavoriteUsers();
     this.updateViewBasedOnWidth();
   }
@@ -87,6 +98,7 @@ export class CalendarComponent implements OnInit{
     this.favoriteUserService.getFavoriteColleagues().subscribe(
       (response) => {
         this.favoriteColleagues = response.payload;
+
       },
       (error) => {
         this.toastr.error("Probeer het later nog een keer", "Fout bij ophalen van favoriete collega's")
@@ -120,5 +132,13 @@ export class CalendarComponent implements OnInit{
   handleEvents(events: EventApi[]) {
     this.currentEvents.set(events);
     this.changeDetector.detectChanges();
+  }
+
+  onChangePerson() {
+
+  }
+
+  onSubmitForm() {
+
   }
 }
