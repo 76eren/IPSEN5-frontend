@@ -17,6 +17,8 @@ import {FavoriteUserService} from "../shared/service/favorite-user.service";
 import {ToastrService} from "ngx-toastr";
 import {NgForOf} from "@angular/common";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {ReservationService} from "../shared/service/reservation.service";
+import {Reservation} from "../shared/model/reservation.model";
 
 @Component({
   selector: 'app-calendar',
@@ -32,7 +34,8 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 export class CalendarComponent implements OnInit{
   public favoriteColleagues: User[] = [];
   public personSelectForm!: FormGroup;
-
+  private selectedUser?: User;
+  private reservationOfSelectedUser: Reservation[] = [];
 
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -80,7 +83,13 @@ export class CalendarComponent implements OnInit{
     */
   });
 
-  constructor(private changeDetector: ChangeDetectorRef, private favoriteUserService: FavoriteUserService, private toastr: ToastrService) {
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+    private favoriteUserService: FavoriteUserService,
+    private toastr: ToastrService,
+    private reservationService: ReservationService
+  ) {
+
     this.updateViewBasedOnWidth();
   }
 
@@ -135,7 +144,17 @@ export class CalendarComponent implements OnInit{
   }
 
   onChangePerson() {
+    this.selectedUser = this.personSelectForm.get('favourite-user')?.value
+    let userId: string = this.selectedUser!.id!;
 
+    this.reservationService.getReservationsByUserId(userId).subscribe(
+      (reservations) => {
+        this.reservationOfSelectedUser = reservations;
+      },
+      (error) => {
+        console.error('Error fetching reservations: ', error);
+      }
+    );
   }
 
   onSubmitForm() {
