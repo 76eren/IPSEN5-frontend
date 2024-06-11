@@ -1,7 +1,15 @@
 <section>
   <h1>Gebouw: <strong>{{building.name}}</strong></h1>
-  <h1>Verdieping: <strong>{{floor.number}}</strong></h1>
-  <h1>Vleugel: <strong>{{wing.name}}</strong></h1>
+  @if (reservationType == ReservationType.VERGADERRUIMTE){
+    <h1>Verdieping: <strong>{{location.wing.floor.number}}</strong></h1>
+    <h1>Vleugel: <strong>{{location.wing.name}}</strong></h1>
+    <h1>Vergaderruimte naam: <strong>{{location.name}}</strong></h1>
+    <h1>Aantal personen: <strong>{{numberOfPersons}}</strong></h1>
+  }
+  @if (reservationType == ReservationType.FLEXPLEK){
+    <h1>Verdieping: <strong>{{floor?.number}}</strong></h1>
+    <h1>Vleugel: <strong>{{wing?.name}}</strong></h1>
+  }
   <h1>Start Datum en Tijd: <strong>{{formatDate(startDate)}}, {{formatTime(startDate)}}</strong></h1>
   <h1>Eind Datum en Tijd: <strong>{{formatDate(endDate)}}, {{formatTime(endDate)}}</strong></h1>
   <h1>Reservering Type: <strong>{{reservationType}}</strong></h1>

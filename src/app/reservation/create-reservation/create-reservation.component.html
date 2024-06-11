@@ -8,17 +8,50 @@
     <ng-template matStepLabel>Kies type ruimte</ng-template>
     <app-reservation-type-step (reservationType)="addReservationType($event)" #step2></app-reservation-type-step>
   </mat-step>
-  <mat-step [stepControl]="step3.floorAndWingFormGroup">
-    <ng-template matStepLabel>Kies verdieping en vleugel</ng-template>
-    <app-floor-and-wing-step [selectedBuilding]="selectedBuilding.getValue()!"
-                             (selectedWing)="addSelectedWing($event)"
-                             (selectedFloor)="addSelectedFloor($event)" #step3></app-floor-and-wing-step>
-  </mat-step>
-  <mat-step [stepControl]="step4.dateAndTimeFormGroup">
-    <ng-template matStepLabel>Kies datum en tijd</ng-template>
-    <app-date-and-time-step (reservationDateAndTime)="addReservationDateAndTime($event)" #step4></app-date-and-time-step>
-  </mat-step>
-  @if (allAssigned | async) {
+  @if ((reservationType | async) == ReservationType.FLEXPLEK){
+    <mat-step [stepControl]="step3.floorAndWingFormGroup">
+      <ng-template matStepLabel>Kies verdieping en vleugel</ng-template>
+      <app-floor-and-wing-step [selectedBuilding]="selectedBuilding.getValue()!"
+                               (selectedWing)="addSelectedWing($event)"
+                               (selectedFloor)="addSelectedFloor($event)" #step3></app-floor-and-wing-step>
+    </mat-step>
+    <mat-step [stepControl]="step4.dateAndTimeFormGroup">
+      <ng-template matStepLabel>Kies datum en tijd</ng-template>
+      <app-date-and-time-step (reservationDateAndTime)="addReservationDateAndTime($event)" #step4></app-date-and-time-step>
+    </mat-step>
+  } @else if ((reservationType | async) == ReservationType.VERGADERRUIMTE){
+    <mat-step [stepControl]="step3.propertiesFormGroup">
+      <ng-template matStepLabel>Kies eigenschappen</ng-template>
+      <app-meetingroom-properties (numberOfPersonsChange)="addNumberOfPersons($event)" #step3></app-meetingroom-properties>
+    </mat-step>
+    <mat-step [stepControl]="step4.dateAndTimeFormGroup">
+      <ng-template matStepLabel>Kies datum en tijd</ng-template>
+      <app-date-and-time-step (reservationDateAndTime)="addReservationDateAndTime($event)" #step4></app-date-and-time-step>
+    </mat-step>
+    <mat-step [stepControl]="step5.roomsFormGroup">
+      <ng-template matStepLabel>Kies Vergaderruimte</ng-template>
+      <app-meeting-room-step [numberOfPersons]="numberOfPersons.getValue()!"
+                             [buildingId]="selectedBuilding.getValue()?.id!"
+                             [startDate]="(reservationDateAndTime | async)?.startDate!"
+                             [endDate]="(reservationDateAndTime | async)?.endDate!"
+                             (selectedMeetingRoom)="addSelectedLocation($event)" #step5
+      ></app-meeting-room-step>
+    </mat-step>
+    @if (allAssignedMeetingRoom | async) {
+      <mat-step>
+        <ng-template matStepLabel>Reservering bevestigen</ng-template>
+        <app-verify-reservation-step
+          [building]="(selectedBuilding | async)!"
+          [startDate]="(reservationDateAndTime | async)?.startDate!"
+          [endDate]="(reservationDateAndTime | async)?.endDate!"
+          [reservationType]="(reservationType | async)!"
+          [location]="(selectedLocation | async)!"
+          [numberOfPersons]="(numberOfPersons | async)!"
+        ></app-verify-reservation-step>
+      </mat-step>
+    }
+  }
+  @if (allAssignedWorkplace | async) {
     <mat-step>
       <ng-template matStepLabel>Reservering bevestigen</ng-template>
       <app-verify-reservation-step

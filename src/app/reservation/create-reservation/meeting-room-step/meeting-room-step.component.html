@@ -1,0 +1,24 @@
+<section class="flex pl-5 justify-between w-full font-bold">
+  <p class="min-w-[100px]">Naam</p>
+  <p class="min-w-[100px]">Type</p>
+  <p class="min-w-[100px]">Gebouw</p>
+  <p class="min-w-[100px]">Vleugel</p>
+  <p class="min-w-[100px]">Capaciteit</p>
+  <p class="min-w-[100px]">Beschikbaarheid</p>
+</section>
+<ul class="h-[500px] overflow-auto">
+  @for (location of displayedMeetingRooms; track location){
+    <app-meeting-room-unit (click)="toggleSelected(location);"
+      [location]="location"></app-meeting-room-unit>
+  }
+</ul>
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="handlePage($event)">
+</mat-paginator>
+<div class="w-full flex justify-center items-center space-x-4">
+  <button class="border-2 border-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-0.5 text-2xl text-primary-dark-purple" matStepperPrevious>Vorige</button>
+  <button class="bg-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-1 text-2xl text-white"
+          (click)="checkMeetingRoom();" >Volgende</button>
+</div>
