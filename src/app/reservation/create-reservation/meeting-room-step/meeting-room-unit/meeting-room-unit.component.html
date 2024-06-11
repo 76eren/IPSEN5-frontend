@@ -1,0 +1,11 @@
+<li class="pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2 border-secondary-purple-light w-full mb-2 cursor-pointer"
+    [ngClass]="{'border-primary-dark-purple': location.isActivated, 'border-secondary-purple-light': !location.isActivated}">
+  <div class="flex w-full justify-between bg-white rounded-md p-4">
+    <p class="min-w-[100px]">{{ location.name }}</p>
+    <p class="min-w-[100px]">{{ location.type }}</p>
+    <p class="min-w-[100px]">{{ location.wing.floor.building.name }}</p>
+    <p class="min-w-[100px]">{{ location.wing.floor.number }}.{{ location.wing.name }}</p>
+    <p class="min-w-[100px]">{{ location.capacity }}</p>
+    <p class="ml-2 w-2 h-2 bg-green-500 rounded-full"></p>
+  </div>
+</li>

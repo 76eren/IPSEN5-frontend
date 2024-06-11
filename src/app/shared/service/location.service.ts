@@ -56,4 +56,13 @@ export class LocationService {
       })
     )
   }
+
+  public getAvailableMeetingRooms(requestData: any): Observable<ApiResponse<Location[]>> {
+    let params = new HttpParams();
+    Object.keys(requestData).forEach(key => {
+      params = params.set(key, requestData[key]);
+    });
+
+    return this.apiService.get<ApiResponse<Location[]>>(Endpoint.LOCATION + "/available-rooms", {params: params});
+  }
 }
