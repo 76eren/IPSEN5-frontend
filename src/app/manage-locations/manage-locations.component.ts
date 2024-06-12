@@ -49,8 +49,9 @@ export class ManageLocationsComponent implements OnInit {
 
     public filteredLocations(): Location[] {
         return this.locations.filter(location => 
-            location.name.toLowerCase().includes(this.searchQuery.toLowerCase()
-        ));
+            location.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+            location.type.toLowerCase().includes(this.searchQuery.toLocaleLowerCase())
+        );
     }
 
     public onChangeFilter(): void {
@@ -59,5 +60,15 @@ export class ManageLocationsComponent implements OnInit {
 
     public onChangeCreateMode(): void {
         this.isCreateMode = !this.isCreateMode;
+    }
+
+    public onCreateLocation(event: Location): void {
+        this.locations.push(event);
+    }
+
+    public onDeleteLocation(event: Location): void {
+        this.locations = this.locations.filter(location => 
+            event.id !== location.id
+        );
     }
 }
