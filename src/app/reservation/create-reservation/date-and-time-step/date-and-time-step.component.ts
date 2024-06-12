@@ -34,13 +34,16 @@ export class DateAndTimeStepComponent {
   @Output() reservationDateAndTime = new EventEmitter<{ startDate: Date, endDate: Date }>();
 
   constructor(private toastr: ToastrService) {
-    const now = new Date();
-    this.currentTime = `${now.getHours()}:${now.getMinutes()}`;
+    this.currentTime = this.getCurrentTime();
     this.dateAndTimeFormGroup = new FormGroup({
       selectedDate: new FormControl(null, Validators.required),
       startTime: new FormControl(null, Validators.required),
       endTime: new FormControl(null, Validators.required)
     });
+  }
+  private getCurrentTime(): string {
+    const now = new Date();
+    return `${now.getHours()}:${now.getMinutes()}`;
   }
 
   protected getStartFormattedDateAndTime(dateToFormat: Date, timeToFormat: string): Date {
