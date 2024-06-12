@@ -110,7 +110,7 @@ export class CreateReservationComponent implements AfterViewInit{
   navigateToLastStep() {
     setTimeout(() => {
       this.stepper.selectedIndex = this.stepper.steps.length - 1;
-    }, 0);
+    }, 1);
   }
 
   addSelectedBuilding(value: Building) {
