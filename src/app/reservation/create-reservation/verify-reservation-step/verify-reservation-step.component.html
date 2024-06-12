@@ -7,12 +7,14 @@
   <h1>Reservering Type: <strong>{{reservationType}}</strong></h1>
   <section class="w-full flex justify-center">
     <button
-      class="w-40 h-12 bg-white cursor-pointer rounded-2xl border-2 border-[#5236AA] shadow-[inset_0px_-2px_0px_1px_#5236AA] group hover:bg-[#5236AA] transition duration-300 ease-in-out flex items-center justify-center"
+      class="w-40 h-12 bg-white cursor-pointer rounded-2xl border-2 border-primary-dark-purple
+      shadow-[inset_0px_-2px_0px_1px_#5236AA] group hover:bg-primary-dark-purple transition duration-300 ease-in-out
+      flex items-center justify-center"
       (click)="makeReservation()" [disabled]="isLoading">
       @if (!isLoading){
         <span class="font-medium text-[#333] group-hover:text-white">Bevestig</span>
       }
-      <svg *ngIf="isLoading" class="animate-spin h-5 w-5 text-[#5236AA] group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <svg *ngIf="isLoading" class="animate-spin h-5 w-5 text-primary-dark-purple group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 2.042.66 3.93 1.77 5.449l2.23-1.158z"></path>
       </svg>
