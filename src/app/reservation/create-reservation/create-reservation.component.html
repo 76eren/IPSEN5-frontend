@@ -26,7 +26,8 @@
     </mat-step>
     <mat-step [stepControl]="step4.dateAndTimeFormGroup">
       <ng-template matStepLabel>Kies datum en tijd</ng-template>
-      <app-date-and-time-step (reservationDateAndTime)="addReservationDateAndTime($event)" #step4></app-date-and-time-step>
+      <app-date-and-time-step [stepper]="stepper"
+        (reservationDateAndTime)="addReservationDateAndTime($event)" #step4></app-date-and-time-step>
     </mat-step>
     <mat-step [stepControl]="step5.roomsFormGroup">
       <ng-template matStepLabel>Kies Vergaderruimte</ng-template>
