@@ -98,7 +98,6 @@ export class CalendarComponent implements OnInit{
       'favourite-user': new FormControl(null, Validators.required)
     });
 
-
     this.getFavoriteUsers();
     this.updateViewBasedOnWidth();
   }
@@ -150,6 +149,7 @@ export class CalendarComponent implements OnInit{
     this.reservationService.getReservationsByUserId(userId).subscribe(
       (reservations) => {
         this.reservationOfSelectedUser = reservations;
+        console.log('Reservations of selected user: ', this.reservationOfSelectedUser)
       },
       (error) => {
         console.error('Error fetching reservations: ', error);
