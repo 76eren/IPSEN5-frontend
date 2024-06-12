@@ -1,6 +1,6 @@
 <nav
   [ngClass]="{ 'md:w-16': collapsed, 'md:w-64': !collapsed }"
-  class="bg-secondary-purple-light fixed w-full bottom-0 z-10 pt-4 pb-4 shadow-lg md:flex md:flex-col md:h-screen md:p-5 md:sticky md:top-0 transition-all duration-300"
+  class="bg-secondary-purple-light fixed w-full bottom-0 z-10 pt-4 pb-4 mx-auto shadow-lg md:flex md:flex-col md:h-screen md:p-5 md:sticky md:top-0 transition-all duration-300"
 >
   <div class="flex justify-between items-center md:justify-between md:mb-8">
     <img
@@ -13,17 +13,17 @@
       <lucide-icon name="align-justify"></lucide-icon>
     </button>
   </div>
-  <ul class="h-full justify-evenly flex flex-row flex-wrap gap-8 md:flex-col md:list-none">
+  <ul class="h-full justify-evenly m-0 flex flex-row flex-wrap gap-8 md:flex-col md:list-none">
     <app-navbar-item path="/home" icon="home" label="Home" [collapsed]="collapsed"></app-navbar-item>
     <app-navbar-item path="/calendar" icon="calendar-days" label="Agenda" [collapsed]="collapsed"></app-navbar-item>
     <app-navbar-item path="/reservations" icon="building-2" label="Mijn reserveringen" [collapsed]="collapsed"></app-navbar-item>
-    <app-navbar-item path="/reports" icon="line-chart" label="Rapportage dashboard" [collapsed]="collapsed"></app-navbar-item>
-    <app-navbar-item path="/manage/locations" icon="door-open" label="Werkplekken beheren" [collapsed]="collapsed"></app-navbar-item>
-    <app-navbar-item path="/users" icon="user" label="Gebruikers" [collapsed]="collapsed" *ngIf="isAdmin"></app-navbar-item>
+    <app-navbar-item path="/reports" icon="line-chart" label="Rapportage dashboard" [collapsed]="collapsed" class="hidden md:block"></app-navbar-item>
+    <app-navbar-item path="/manage/locations" icon="door-open" label="Werkplekken beheren" [collapsed]="collapsed" class="hidden md:block"></app-navbar-item>
+    <app-navbar-item path="/users" icon="user" label="Gebruikers" [collapsed]="collapsed" *ngIf="isAdmin" class="hidden md:block"></app-navbar-item>
     <app-navbar-item path="/favorites" icon="heart" label="Mijn favorieten" [collapsed]="collapsed"></app-navbar-item>
     <app-navbar-item class="mt-auto" path="" icon="circle-user-round" label="Profiel" [collapsed]="collapsed"></app-navbar-item>
-    <li class="whitespace-nowrap">
-      <a (click)="signout()" class="hidden md:flex md:space-x-4 cursor-pointer">
+    <li class="whitespace-nowrap hidden md:flex md:space-x-4">
+      <a (click)="signout()" class="cursor-pointer">
         <lucide-icon name="Log-out" title="Log uit"></lucide-icon>
         <span *ngIf="!collapsed">Log uit</span>
       </a>
