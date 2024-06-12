@@ -32,7 +32,7 @@ export class MeetingRoomStepComponent implements OnInit{
   @Input() endDate!: Date;
   @Output() selectedMeetingRoom = new EventEmitter<Location>();
   length = 100;
-  pageSize = 10;
+  pageSize = 5;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   displayedMeetingRooms!: Location[];
 
