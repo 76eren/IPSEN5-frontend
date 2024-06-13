@@ -1,35 +1,46 @@
 <article class="flex flex-col h-full w-full space-y-6">
   <h1 class="w-min whitespace-nowrap text-3xl font-bold">Werkplekken beheren</h1>
   <section class="flex w-full justify-between">
+    <div class="relative w-1/3">
+      <div class="absolute inset-y-0 start-0 flex items-center ps-2 pointer-events-none">
+        <lucide-icon name="search" class="w-5 h-5 text-gray-500"></lucide-icon>
+      </div>
     <input 
-    [(ngModel)]="searchQuery"
-    type="text"
-    placeholder="Zoek op naam..."
-    class="w-1/3 h-[40px] p-2 border-2 border-secondary-purple-light rounded-lg focus:outline-none focus:border-primary-dark-purple drop-shadow-sm">
+      [(ngModel)]="searchQuery"
+      type="text"
+      placeholder="Zoek op naam of type..."
+      class="block w-full p-2 ps-10 text-gray-900 border-2 border-secondary-purple-light rounded-lg bg-gray-50 focus:ring-primary-dark-purple focus:border-primary-dark-purple duration-300">
+  </div>
+    
     <div class="flex space-x-2">
       <div class="flex space-x-2 items-center">
         <label for="building">Locatie:</label>
-        <select name="building" id="building" [(ngModel)]="selectedBuilding" class="p-2 border-2 border-secondary-purple-light focus:border-primary-dark-purple rounded-lg" (change)="onChangeFilter()">
-          <option *ngFor="let building of buildings" [ngValue]="building">{{ building.name }}</option>
-        </select>
+        <div class="relative w-[150px]">
+          <select name="building" id="building" [(ngModel)]="selectedBuilding" class="p-2 border-2 border-secondary-purple-light focus:border-primary-dark-purple rounded-lg w-full appearance-none" (change)="onChangeFilter()">
+            <option *ngFor="let building of buildings" [ngValue]="building">{{ building.name }}</option>
+          </select>
+          <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+            <lucide-icon name="chevron-down"></lucide-icon>
+          </div>
+        </div>
       </div>
       <button class="bg-primary-dark-purple text-white p-2 rounded-lg" (click)="onChangeCreateMode()">
         <lucide-icon name="plus" title="werkplek toevoegen"></lucide-icon>
       </button>
     </div>
   </section>
-  <app-create-location *ngIf="isCreateMode" [buildings]="buildings" (exitCreateMode)="onChangeCreateMode()"></app-create-location>
+  <app-create-location *ngIf="isCreateMode" [buildings]="buildings" (exitCreateMode)="onChangeCreateMode()" (location)="onCreateLocation($event)"></app-create-location>
   <section class="flex pl-5 justify-between w-full font-bold">
-    <p class="min-w-[100px]">Naam</p>
-    <p class="min-w-[100px]">Type</p>
-    <p class="min-w-[100px]">Gebouw</p>
-    <p class="min-w-[100px]">Vleugel</p>
-    <p class="min-w-[100px]">Capaciteit</p>
-    <p class="min-w-[100px]">Gemaakt op</p>
+    <p class="min-w-[150px]">Naam</p>
+    <p class="min-w-[150px]">Type</p>
+    <p class="min-w-[150px]">Gebouw</p>
+    <p class="min-w-[150px]">Vleugel</p>
+    <p class="min-w-[150px]">Capaciteit</p>
+    <p class="min-w-[150px]">Gemaakt op</p>
     <p class="min-w-[100px]"></p>
   </section>
   <ul *ngIf="filteredLocations().length > 0; else noLocations" class="h-[500px] overflow-auto">
-    <app-location *ngFor="let location of filteredLocations()" [location]="location"></app-location>
+    <app-location *ngFor="let location of filteredLocations()" [location]="location" (deletedLocation)="onDeleteLocation($event)"></app-location>
   </ul>
   <ng-template #noLocations>
     <div class="flex justify-center items-center w-full h-full">
