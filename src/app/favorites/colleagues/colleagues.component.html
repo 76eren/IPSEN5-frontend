@@ -63,7 +63,7 @@
     </form>
     <!--SEARCH BAR end -->
 
-    <ul class="space-y-4" *ngIf="!this.favoriteListSelected">
+    <ul class="space-y-4 max-h-64 overflow-scroll" *ngIf="!this.favoriteListSelected">
         <li
                 *ngIf="allUsers.length === 0"
                 class="flex justify-center items-center p-4 border-2 border-secondary-purple-light rounded-lg"
@@ -88,7 +88,7 @@
         </li>
     </ul>
 
-    <ul class="space-y-4" *ngIf="this.favoriteListSelected">
+    <ul class="space-y-4 max-h-64 overflow-scroll" *ngIf="this.favoriteListSelected">
         <li
                 *ngIf="favoriteColleagues.length === 0"
                 class="flex justify-center items-center p-4 border-2 border-secondary-purple-light rounded-lg"
