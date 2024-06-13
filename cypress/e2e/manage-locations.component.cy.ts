@@ -9,9 +9,6 @@ describe('manage-locations', () => {
       cy.intercept('GET', "/api/v1/building", {fixture: 'report-dashboard-fixtures/get-buildings.fixture.json'}).as('getBuildings');
       cy.intercept('GET', '/api/v1/location/admin?buildingName=Amsterdam', {fixture: 'manage-locations-fixtures/get-locations-by-building.fixture.json'}).as('getLocationsByBuilding')
       cy.intercept('GET', '/api/v1/building/7b527137-a259-4740-9fa5-f6a4810cc5e3/wing', {fixture: 'manage-locations-fixtures/get-wings-by-building.fixture.json'}).as('getWingsByBuilding')
-      cy.intercept('POST', '/api/v1/location/create', {fixture: 'manage-locations-fixtures/save-location.fixture.json'}).as('saveLocation')
-      cy.intercept('PUT', '/api/v1/location/6c3cdffb-dc3d-4f4b-8f64-415679f106b7/edit', {fixture: 'manage-locations-fixtures/edit-location.fixture.json'}).as('editLocation')
-      cy.intercept('DELETE', '/api/v1/location/6c3cdffb-dc3d-4f4b-8f64-415679f106b7/delete', {fixture: 'manage-locations-fixtures/delete-location.fixture.json'}).as('deleteLocation')
 
       cy.visit('http://localhost:4200/#/manage/locations')
       cy.wait(500)
@@ -30,6 +27,8 @@ describe('manage-locations', () => {
     })
 
     it('should save new location', () => {
+      cy.intercept('POST', '/api/v1/location/create', {fixture: 'manage-locations-fixtures/save-location.fixture.json'}).as('saveLocation')
+
       cy.get('#createLocation').click();
       cy.get('#locationName').type('testLocation');
       cy.get('#locationType').select('ROOM');
@@ -43,6 +42,8 @@ describe('manage-locations', () => {
     })
 
     it('should edit existing location', () => {
+      cy.intercept('PUT', '/api/v1/location/6c3cdffb-dc3d-4f4b-8f64-415679f106b7/edit', {fixture: 'manage-locations-fixtures/edit-location.fixture.json'}).as('editLocation')
+
       cy.get('#editLocation').click();
       cy.get('#locationName').clear().type('testLocation');
       cy.get('#locationType').select('ROOM');
@@ -55,6 +56,8 @@ describe('manage-locations', () => {
     })
 
     it('should delete location', () => {
+      cy.intercept('DELETE', '/api/v1/location/6c3cdffb-dc3d-4f4b-8f64-415679f106b7/delete', {fixture: 'manage-locations-fixtures/delete-location.fixture.json'}).as('deleteLocation')
+
       cy.get('#deleteButton').click();
       cy.get('#deleteConfirmation').click();
 
@@ -103,15 +106,14 @@ describe('manage-locations', () => {
       cy.intercept('GET', "/api/v1/building", {fixture: 'report-dashboard-fixtures/get-buildings.fixture.json'}).as('getBuildings');
       cy.intercept('GET', '/api/v1/location/admin?buildingName=Amsterdam', {fixture: 'manage-locations-fixtures/get-locations-by-building.fixture.json'}).as('getLocationsByBuilding')
       cy.intercept('GET', '/api/v1/building/7b527137-a259-4740-9fa5-f6a4810cc5e3/wing', {fixture: 'manage-locations-fixtures/get-wings-by-building.fixture.json'}).as('getWingsByBuilding')
-      cy.intercept('POST', '/api/v1/location/create', {statusCode: 400, fixture: 'manage-locations-fixtures/exception-fixtures/create-location-error.fixture.json'}).as('saveLocationError')
-      cy.intercept('PUT', '/api/v1/location/6c3cdffb-dc3d-4f4b-8f64-415679f106b7/edit', {statusCode: 400, fixture: 'manage-locations-fixtures/exception-fixtures/edit-location-error.fixture.json'})
-      cy.intercept('DELETE', '/api/v1/location/6c3cdffb-dc3d-4f4b-8f64-415679f106b7/delete', {statusCode: 400, fixture: 'manage-locations-fixtures/exception-fixtures/delete-location-error.fixture.json'})
 
       cy.visit('http://localhost:4200/#/manage/locations')
       cy.wait(500)
     })
 
     it('should show error when a new location cannot be saved', () => {
+      cy.intercept('POST', '/api/v1/location/create', {statusCode: 400, fixture: 'manage-locations-fixtures/exception-fixtures/create-location-error.fixture.json'}).as('saveLocationError')
+
       cy.get('#createLocation').click();
       cy.get('#locationName').type('testLocation');
       cy.get('#locationType').select('ROOM');
@@ -125,6 +127,8 @@ describe('manage-locations', () => {
     })
 
     it('should show error when location cannot be edited', () => {
+      cy.intercept('PUT', '/api/v1/location/6c3cdffb-dc3d-4f4b-8f64-415679f106b7/edit', {statusCode: 400, fixture: 'manage-locations-fixtures/exception-fixtures/edit-location-error.fixture.json'})
+
       cy.get('#editLocation').click();
       cy.get('#locationName').clear().type('testLocation');
       cy.get('#locationType').select('ROOM');
@@ -137,6 +141,8 @@ describe('manage-locations', () => {
     })
 
     it('should show error when location cannot be deleted', () => {
+      cy.intercept('DELETE', '/api/v1/location/6c3cdffb-dc3d-4f4b-8f64-415679f106b7/delete', {statusCode: 400, fixture: 'manage-locations-fixtures/exception-fixtures/delete-location-error.fixture.json'})
+
       cy.get('#deleteButton').click();
       cy.get('#deleteConfirmation').click();
 
