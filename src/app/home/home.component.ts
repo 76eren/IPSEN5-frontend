@@ -68,8 +68,11 @@ export class HomeComponent implements OnInit {
     this.reservations = upcomingReservations.sort((a, b) => new Date(a.startDateTime).getTime() - new Date(b.startDateTime).getTime()).slice(0, 3);
   }
 
-  private async getUserInfo(): Promise<void> {
-    this.user = await this.userService.getUserInfo();
+  private getUserInfo(): void {
+    this.userService.getUserInfo().subscribe((response) => {
+      this.user = response.payload;
+      console.log(this.user)
+    })
   }
 
 }
