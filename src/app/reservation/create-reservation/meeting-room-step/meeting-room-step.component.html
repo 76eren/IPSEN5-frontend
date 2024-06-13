@@ -7,7 +7,7 @@
     <th class="min-w-[150px]">Capaciteit</th>
     <th class="min-w-[150px]">Beschikbaarheid</th>
   </tr>
-  <tr class="h-[500px] overflow-auto">
+  <tr class="max-h-fit overflow-auto">
     @for (location of displayedMeetingRooms; track location){
       <app-meeting-room-unit (click)="toggleSelected(location);"
                              [location]="location"></app-meeting-room-unit>

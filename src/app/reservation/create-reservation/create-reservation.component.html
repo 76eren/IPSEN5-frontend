@@ -38,7 +38,7 @@
                              (selectedMeetingRoom)="addSelectedLocation($event)" #step5
       ></app-meeting-room-step>
     </mat-step>
-    @if (allAssignedMeetingRoom | async) {
+    @if (allMeetingRoomFieldsAssigned | async) {
       <mat-step>
         <ng-template matStepLabel>Reservering bevestigen</ng-template>
         <app-verify-reservation-step
@@ -52,7 +52,7 @@
       </mat-step>
     }
   }
-  @if (allAssignedWorkplace | async) {
+  @if (allWorkplaceFieldsAssigned | async) {
     <mat-step>
       <ng-template matStepLabel>Reservering bevestigen</ng-template>
       <app-verify-reservation-step
