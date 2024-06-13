@@ -162,7 +162,6 @@ export class CalendarComponent implements OnInit {
         this.reservationService.getReservationsByUserId(userId).subscribe(
             (reservations) => {
                 this.mapEvents(reservations);
-                console.log('Reservations of selected user: ', this.events[0]);
 
                 this.calendarOptions.set({
                     ...this.calendarOptions(),
