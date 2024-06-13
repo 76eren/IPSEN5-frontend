@@ -1,0 +1,16 @@
+{
+    "payload": {
+        "id": "eacb5234-ead9-4a9b-8f7c-fd950609aac0",
+        "floor": {
+            "id": "94e1a5d1-dea7-48a2-9152-8765d65bfde2",
+            "building": {
+                "id": "24090df7-76da-427f-9bf1-88a9de8a3b1f",
+                "name": "Arhem",
+                "address": "Utrechtseweg 310 / gebouw B42 6812 AR"
+            },
+            "number": "0"
+        },
+        "name": "A"
+    },
+    "message": null
+}
