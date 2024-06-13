@@ -10,6 +10,7 @@ import {Wing} from "../../../shared/model/wing.model";
 import {FloorService} from "../../../shared/service/floor.service";
 import {WingService} from "../../../shared/service/wing.service";
 import {Building} from "../../../shared/model/building.model";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-floor-and-wing-step',
@@ -40,7 +41,8 @@ export class FloorAndWingStepComponent{
   constructor(private _formBuilder: FormBuilder,
               private floorService: FloorService,
               private wingService: WingService,
-              private crf: ChangeDetectorRef) {
+              private crf: ChangeDetectorRef,
+              private toastr: ToastrService) {
     this.floorAndWingFormGroup = this._formBuilder.group({
       selectedFloor: new FormControl(null, Validators.required),
       selectedWing: new FormControl(null, Validators.required)
@@ -80,5 +82,12 @@ export class FloorAndWingStepComponent{
   onWingSelectionChange(event: Wing) {
     this.selectedWing.emit(event);
     this.floorAndWingFormGroup.setValue({selectedFloor: this.selectedFloor, selectedWing: event});
+  }
+
+  checkValidReservationType() {
+    if (!this.floorAndWingFormGroup.valid) {
+      this.toastr.error('Alle velden zijn verplicht!', 'Validatie Error');
+      return;
+    }
   }
 }

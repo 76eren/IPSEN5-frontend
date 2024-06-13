@@ -6,6 +6,9 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      boxShadow: {
+        'custom-inset': 'inset 0px -2px 0px 1px #5236AA',
+      },
       colors: {
         "primary-dark-purple": "#5236AA",
         "primary-red": "#E21938",

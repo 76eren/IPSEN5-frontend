@@ -23,6 +23,8 @@
     </mat-form-field>
     <div class="w-full flex justify-center items-center space-x-4">
       <button class="border-2 border-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-0.5 text-2xl text-primary-dark-purple" matStepperPrevious>Vorige</button>
-      <button class="bg-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-1 text-2xl text-white" matStepperNext>Volgende</button>
+      <button class="bg-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-1 text-2xl text-white"
+              (click)="checkValidReservationType()"
+              matStepperNext>Volgende</button>
     </div>
 </section>

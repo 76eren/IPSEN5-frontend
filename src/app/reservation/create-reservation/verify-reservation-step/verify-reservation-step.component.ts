@@ -6,14 +6,15 @@ import {Wing} from "../../../shared/model/wing.model";
 import {Floor} from "../../../shared/model/floor.model";
 import {Building} from "../../../shared/model/building.model";
 import {ReservationType} from "../../../shared/model/reservering-type.enum";
-import {DatePipe} from "@angular/common";
+import {DatePipe, NgIf} from "@angular/common";
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-verify-reservation-step',
   standalone: true,
   imports: [
-    DatePipe
+    DatePipe,
+    NgIf
   ],
   templateUrl: './verify-reservation-step.component.html',
   styleUrl: './verify-reservation-step.component.scss'
@@ -25,6 +26,8 @@ export class VerifyReservationStepComponent {
   @Input() startDate = new Date();
   @Input() endDate = new Date();
   @Input() reservationType!: ReservationType;
+
+  isLoading = false;
 
   constructor(private reservationService: ReservationService,
               private router: Router){
@@ -41,13 +44,19 @@ export class VerifyReservationStepComponent {
   }
 
   makeReservation(): void {
+    this.isLoading = true;
     this.reservationService.makeReservation({
       wingId: this.wing.id,
       startDateTime: this.startDate,
       endDateTime: this.endDate
     }).subscribe(
       data => {
+        this.isLoading = false;
         this.router.navigate(['/create-reservation/success']);
+      },
+      error => {
+        this.isLoading = false;
+        // handle error here
       }
     );
   }

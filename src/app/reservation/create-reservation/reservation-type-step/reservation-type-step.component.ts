@@ -2,6 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {ReservationType} from "../../../shared/model/reservering-type.enum";
 import {MatStepperNext, MatStepperPrevious} from "@angular/material/stepper";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-reservation-type-step',
@@ -19,7 +20,8 @@ export class ReservationTypeStepComponent {
   protected readonly ReservationType = ReservationType;
   protected selectedType!: ReservationType;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder,
+              private toastr: ToastrService) {
     this.typeFormGroup = this._formBuilder.group({
       reservationType: new FormControl(null, Validators.required)
     });
@@ -30,4 +32,11 @@ export class ReservationTypeStepComponent {
     this.reservationType.emit(type);
     this.typeFormGroup.get('reservationType')!.setValue(type);
     }
+
+  protected checkValidReservationType() {
+    if (!this.typeFormGroup.get('reservationType')?.valid) {
+      this.toastr.error('Een type is verplicht!', 'Validatie Error');
+      return;
+    }
+  }
 }

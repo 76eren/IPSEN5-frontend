@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild} from '@angular/core';
 import {MatStepper, MatStepperModule, StepperOrientation} from "@angular/material/stepper";
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -69,7 +69,7 @@ import {Floor} from "../../shared/model/floor.model";
     },
   ],
 })
-export class CreateReservationComponent {
+export class CreateReservationComponent implements AfterViewInit{
   @ViewChild('stepper') stepper!: MatStepper;
   protected selectedBuilding = new BehaviorSubject<Building | null>(null);
   protected selectedWing = new BehaviorSubject<Wing | null>(null);
@@ -97,6 +97,20 @@ export class CreateReservationComponent {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+  }
+
+  ngAfterViewInit(): void {
+    this.allAssigned.subscribe(isAllAssigned => {
+      if (isAllAssigned) {
+        this.navigateToLastStep();
+      }
+    });
+  }
+
+  navigateToLastStep() {
+    setTimeout(() => {
+      this.stepper.selectedIndex = this.stepper.steps.length - 1;
+    }, 0);
   }
 
   addSelectedBuilding(value: Building) {

@@ -6,6 +6,7 @@ import {provideNativeDateAdapter} from "@angular/material/core";
 import {NgxMaterialTimepickerModule, TIME_LOCALE} from "ngx-material-timepicker";
 import {FormControl, FormGroup, FormsModule, Validators} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-date-and-time-step',
@@ -32,14 +33,17 @@ export class DateAndTimeStepComponent {
   protected currentTime!: string;
   @Output() reservationDateAndTime = new EventEmitter<{ startDate: Date, endDate: Date }>();
 
-  constructor() {
-    const now = new Date();
-    this.currentTime = `${now.getHours()}:${now.getMinutes()}`;
+  constructor(private toastr: ToastrService) {
+    this.currentTime = this.getCurrentTime();
     this.dateAndTimeFormGroup = new FormGroup({
       selectedDate: new FormControl(null, Validators.required),
       startTime: new FormControl(null, Validators.required),
       endTime: new FormControl(null, Validators.required)
     });
+  }
+  private getCurrentTime(): string {
+    const now = new Date();
+    return `${now.getHours()}:${now.getMinutes()}`;
   }
 
   protected getStartFormattedDateAndTime(dateToFormat: Date, timeToFormat: string): Date {
@@ -50,8 +54,19 @@ export class DateAndTimeStepComponent {
   }
 
   protected addReservationDateAndTime(): void {
+    if (!this.selectedDate || !this.startTime || !this.endTime) {
+      this.toastr.error('Alle velden zijn verplicht!', 'Validatie Error');
+      return;
+    }
+
     const startDate = this.getStartFormattedDateAndTime(this.selectedDate, this.startTime);
     const endDate = this.getStartFormattedDateAndTime(this.selectedDate, this.endTime);
+
+    if (endDate <= startDate) {
+      this.toastr.error('Eindtijd moet na starttijd zijn!', 'Validatie Error');
+      return;
+    }
+
     this.reservationDateAndTime.emit({startDate, endDate});
     this.dateAndTimeFormGroup.setValue({selectedDate: this.selectedDate, startTime: this.startTime, endTime: this.endTime});
   }
