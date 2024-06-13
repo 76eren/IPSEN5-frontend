@@ -21,7 +21,7 @@ import {MatPaginatorModule, PageEvent} from "@angular/material/paginator";
   templateUrl: './meeting-room-step.component.html',
   styleUrl: './meeting-room-step.component.scss'
 })
-export class MeetingRoomStepComponent implements OnInit{
+export class MeetingRoomStepComponent{
   roomsFormGroup: FormGroup;
   protected meetingRooms: Location[] = [];
   protected selectedLocation!: Location;
@@ -31,7 +31,7 @@ export class MeetingRoomStepComponent implements OnInit{
   @Input() startDate!: Date;
   @Input() endDate!: Date;
   @Output() selectedMeetingRoom = new EventEmitter<Location>();
-  length = 100;
+  length!: number;
   pageSize = 5;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   displayedMeetingRooms!: Location[];
@@ -41,9 +41,6 @@ export class MeetingRoomStepComponent implements OnInit{
     this.roomsFormGroup = new FormGroup({
       selectedMeetingRoom: new FormControl(null, Validators.required)
     });
-  }
-
-  ngOnInit(): void {
   }
 
   handlePage(e: PageEvent) {
@@ -63,6 +60,7 @@ export class MeetingRoomStepComponent implements OnInit{
       }).subscribe(
         data => {
           this.meetingRooms = data.payload;
+          this.length = this.meetingRooms.length;
           this.displayedMeetingRooms = this.meetingRooms.slice(0, this.pageSize);
         }
       );

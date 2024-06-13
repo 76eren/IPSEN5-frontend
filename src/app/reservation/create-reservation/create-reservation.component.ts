@@ -82,7 +82,7 @@ export class CreateReservationComponent implements AfterViewInit{
   protected stepperOrientation!: Observable<StepperOrientation>;
   protected numberOfPersons = new BehaviorSubject<number | null>(null);
   protected selectedLocation = new BehaviorSubject<Location | null>(null);
-  protected allAssignedWorkplace = combineLatest([
+  protected allWorkplaceFieldsAssigned = combineLatest([
     this.selectedBuilding,
     this.selectedWing,
     this.selectedFloor,
@@ -95,7 +95,7 @@ export class CreateReservationComponent implements AfterViewInit{
     )
 
   );
-  protected allAssignedMeetingRoom = combineLatest([
+  protected allMeetingRoomFieldsAssigned = combineLatest([
     this.selectedBuilding,
     this.reservationDateAndTime,
     this.numberOfPersons,
@@ -118,12 +118,12 @@ export class CreateReservationComponent implements AfterViewInit{
   }
 
   ngAfterViewInit(): void {
-    this.allAssignedWorkplace.subscribe(isAllAssigned => {
+    this.allWorkplaceFieldsAssigned.subscribe(isAllAssigned => {
       if (isAllAssigned) {
         this.navigateToLastStep();
       }
     });
-    this.allAssignedMeetingRoom.subscribe(isAllAssigned => {
+    this.allMeetingRoomFieldsAssigned.subscribe(isAllAssigned => {
       if (isAllAssigned) {
         this.navigateToLastStep();
       }
