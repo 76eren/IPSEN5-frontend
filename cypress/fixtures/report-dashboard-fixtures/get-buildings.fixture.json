@@ -1,29 +1,35 @@
 {
-  "payload": [
-      {
-          "name": "Amsterdam",
-          "address": "De Entree 21 1101 BH"
-      },
-      {
-          "name": "Arhem",
-          "address": "Utrechtseweg 310 / gebouw B42 6812 AR"
-      },
-      {
-          "name": "Eindhoven",
-          "address": "DHigh Tech Campus 5 5656 AE"
-      },
-      {
-          "name": "Groningen",
-          "address": "Eemsgolaan 1 9727 DW"
-      },
-      {
-          "name": "Maastricht",
-          "address": "Stationsplein 12 6221 BT"
-      },
-      {
-          "name": "Rotterdam",
-          "address": "George Hintzenweg 89 3068 AX"
-      }
-  ],
-  "message": null
+    "payload": [
+        {
+            "id": "7b527137-a259-4740-9fa5-f6a4810cc5e3",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+        },
+        {
+            "id": "e99354c1-340b-45ae-8ac1-8cee4a57238c",
+            "name": "Arhem",
+            "address": "Utrechtseweg 310 / gebouw B42 6812 AR"
+        },
+        {
+            "id": "b2a23c2b-6b3d-4d04-9774-b98610953921",
+            "name": "Eindhoven",
+            "address": "DHigh Tech Campus 5 5656 AE"
+        },
+        {
+            "id": "9896e9c7-2288-451b-9353-e0942ca7459b",
+            "name": "Groningen",
+            "address": "Eemsgolaan 1 9727 DW"
+        },
+        {
+            "id": "d5c2977c-e013-4bc6-9800-a27d4fab4374",
+            "name": "Maastricht",
+            "address": "Stationsplein 12 6221 BT"
+        },
+        {
+            "id": "4cf0294b-6c44-43d0-a704-2af75c6bad08",
+            "name": "Rotterdam",
+            "address": "George Hintzenweg 89 3068 AX"
+        }
+    ],
+    "message": null
 }

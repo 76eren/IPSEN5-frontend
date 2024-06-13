@@ -1,0 +1,43 @@
+{
+  "payload": [
+    {
+      "id": "f6247d8b-e928-498c-875e-afc4ace97d9b",
+      "floor": {
+        "id": "5a0014a3-159f-4d71-9224-249967784a8e",
+        "building": {
+          "id": "c46f0025-9da9-405b-bad5-e35f27f88d3e",
+          "name": "Amsterdam",
+          "address": "De Entree 21 1101 BH"
+        },
+        "number": "0"
+      },
+      "name": "A"
+    },
+    {
+      "id": "90d0be0d-a250-4d00-a09c-d89ec73e7123",
+      "floor": {
+        "id": "5a0014a3-159f-4d71-9224-249967784a8e",
+        "building": {
+          "id": "c46f0025-9da9-405b-bad5-e35f27f88d3e",
+          "name": "Amsterdam",
+          "address": "De Entree 21 1101 BH"
+        },
+        "number": "0"
+      },
+      "name": "B"
+    },
+    {
+      "id": "0b101016-305c-4afd-9d57-79049c1918b9",
+      "floor": {
+        "id": "5a0014a3-159f-4d71-9224-249967784a8e",
+        "building": {
+          "id": "c46f0025-9da9-405b-bad5-e35f27f88d3e",
+          "name": "Amsterdam",
+          "address": "De Entree 21 1101 BH"
+        },
+        "number": "0"
+      },
+      "name": "C"
+    }
+  ]
+}

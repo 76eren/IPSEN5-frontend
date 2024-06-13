@@ -1,0 +1,70 @@
+{
+  "payload": [
+    {
+      "id": "6c3cdffb-dc3d-4f4b-8f64-415679f106b7",
+      "wing": {
+        "id": "3948263b-ed13-44ad-bccf-e17898a81d98",
+        "floor": {
+          "id": "9df66c12-5908-49ae-b59c-19f90984dcbd",
+          "building": {
+            "id": "b14f83b3-cdfe-47ed-bca3-a28be2d23919",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "A"
+      },
+      "name": "0.A1",
+      "type": "WORKPLACE",
+      "capacity": 1,
+      "multireservable": true,
+      "createdAt": "2024-06-12T11:48:49.684515",
+      "deleted": false
+    },
+    {
+      "id": "cc5d3754-8b62-4141-80bf-795412ec2e83",
+      "wing": {
+        "id": "3948263b-ed13-44ad-bccf-e17898a81d98",
+        "floor": {
+          "id": "9df66c12-5908-49ae-b59c-19f90984dcbd",
+          "building": {
+            "id": "b14f83b3-cdfe-47ed-bca3-a28be2d23919",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "A"
+      },
+      "name": "0.A2",
+      "type": "WORKPLACE",
+      "capacity": 1,
+      "multireservable": true,
+      "createdAt": "2024-06-12T11:48:49.687523",
+      "deleted": false
+    },
+    {
+      "id": "9f081c76-4cb5-4396-ba8f-4acb9e0554b7",
+      "wing": {
+        "id": "3948263b-ed13-44ad-bccf-e17898a81d98",
+        "floor": {
+          "id": "9df66c12-5908-49ae-b59c-19f90984dcbd",
+          "building": {
+            "id": "b14f83b3-cdfe-47ed-bca3-a28be2d23919",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "A"
+      },
+      "name": "0.A3",
+      "type": "WORKPLACE",
+      "capacity": 1,
+      "multireservable": true,
+      "createdAt": "2024-06-12T11:48:49.688522",
+      "deleted": false
+    }
+  ]
+}

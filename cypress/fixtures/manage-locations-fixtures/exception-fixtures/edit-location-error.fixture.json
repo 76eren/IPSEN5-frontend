@@ -1,0 +1,7 @@
+{
+  "type": "about:blank",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "Invalid request content.",
+  "instance": "/api/v1/location/22708a78-3b34-442c-a990-ddc8a0e6bf67/edit"
+}
