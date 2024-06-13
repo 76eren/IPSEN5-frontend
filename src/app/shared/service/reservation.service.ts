@@ -2,11 +2,31 @@ import {Injectable} from "@angular/core";
 import {Reservation} from "../model/reservation.model";
 import {ApiResponse, ApiService} from "./api.service";
 import {ToastrService} from "ngx-toastr";
+import { z } from 'zod';
+import {Observable, of} from "rxjs";
+import {catchError, map} from "rxjs/operators";
+import {Role} from "../model/role";
+import {User} from "../model/user.model";
+import { Location, LocationType } from '../model/location.model';
+import { Wing } from '../model/wing.model';
+import { Floor } from '../model/floor.model';
+import { Building } from '../model/building.model';
+
 
 @Injectable()
 export class ReservationService {
   constructor(private apiService: ApiService, private toastr: ToastrService) {
   }
+
+
+  getReservationsByUserId(userId: string): Observable<Reservation[]> {
+    return this.apiService.get<ApiResponse<Reservation[]>>(`/reservations/user/${userId}`).pipe(
+      map(response => {
+        return response.payload;
+      }
+    ));
+  }
+
 
   getAllReservations(): Promise<Reservation[]> {
     return this.apiService.get<any>('/reservations/all')
