@@ -61,7 +61,7 @@ export class LocationService {
     return this.apiService.delete<ApiResponse<String>>(`${Endpoint.LOCATION}/${id}/delete`)
     .pipe(
       catchError((error) => {
-        this.toastr.error('Er is iets misgegaan tijdens het verwijderen van de werkplek', 'Error');
+        this.toastr.error('Er is iets misgegaan bij het verwijderen van de werkplek', 'Error');
         throw error;
       })
     )

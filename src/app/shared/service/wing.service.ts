@@ -19,7 +19,7 @@ export class WingService {
     return this.apiService.get<ApiResponse<Wing[]>>(`${Endpoint.BUILDING}/${id}/wing`)
     .pipe(
       catchError((error) => {
-        this.toastr.error('Er is iets misgegaan bij het ophalen van de vleugels', 'Error');
+        this.toastr.error('Er is iets misgegaan bij het ophalen van de data', 'Error');
         throw error;
       })
     )

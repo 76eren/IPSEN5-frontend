@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <button class="bg-primary-dark-purple text-white p-2 rounded-lg" (click)="onChangeCreateMode()">
+      <button id="createLocation" class="bg-primary-dark-purple text-white p-2 rounded-lg" (click)="onChangeCreateMode()">
         <lucide-icon name="plus" title="werkplek toevoegen"></lucide-icon>
       </button>
     </div>
@@ -40,7 +40,7 @@
     <p class="min-w-[100px]"></p>
   </section>
   <ul *ngIf="filteredLocations().length > 0; else noLocations" class="h-[500px] overflow-auto">
-    <app-location *ngFor="let location of filteredLocations()" [location]="location" (deletedLocation)="onDeleteLocation($event)"></app-location>
+    <app-location *ngFor="let location of filteredLocations()" [location]="location" (deletedLocation)="onDeleteLocation($event)" [wings]="wings"></app-location>
   </ul>
   <ng-template #noLocations>
     <div class="flex justify-center items-center w-full h-full">
