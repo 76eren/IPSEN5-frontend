@@ -23,6 +23,7 @@ import { FavoriteUserService } from '../../shared/service/favorite-user.service'
   templateUrl: './colleagues.component.html',
   styleUrl: './colleagues.component.scss',
 })
+
 export class ColleguesComponent implements OnInit {
   @Input()
   public favoriteColleagues!: User[];
