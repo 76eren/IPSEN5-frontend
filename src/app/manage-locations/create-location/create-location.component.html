@@ -1,31 +1,64 @@
 <div class="pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2 border-secondary-purple-light w-full mb-2">
   <form [formGroup]="locationCreateForm" (ngSubmit)="onSubmitForm()" class="flex w-full justify-between bg-white rounded-md p-4">    
     <div class="flex flex-col space-y-2">
-      <label for="locationName">Naam:</label>
+      <div class="flex space-x-2">
+        <label for="locationName">Naam:</label>
+        <label for="locationName" [ngClass]="locationCreateForm.get('locationName')?.invalid ? 'text-primary-red' : 'text-black'">*</label>
+      </div>
       <input type="text" id="locationName" formControlName="locationName" class="border-2 border-secondary-purple-light rounded-lg p-2">
     </div>
     <div class="flex flex-col space-y-2">
-      <label for="locationType">Type werkplek:</label>
-      <select name="locationType" id="locationType"
-      formControlName="locationType" class="border-2 border-secondary-purple-light rounded-lg p-2">
-        <option *ngFor="let type of locationTypes" [ngValue]="type">{{ type }}</option>
-      </select>
+      <div class="flex space-x-2">
+        <label for="locationType">Type werkplek:</label>
+        <label for="locationType" [ngClass]="locationCreateForm.get('locationType')?.invalid ? 'text-primary-red' : 'text-black'">*</label>
+      </div>
+      <div class="relative w-[150px]">
+        <select name="locationType" id="locationType"
+        formControlName="locationType" class="border-2 border-secondary-purple-light rounded-lg p-2 appearance-none w-full">
+          <option *ngFor="let type of locationTypes" [ngValue]="type">{{ type }}</option>
+        </select>
+        <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+          <lucide-icon name="chevron-down"></lucide-icon>
+        </div>
+      </div>
     </div>
     <div class="flex flex-col space-y-2">
-      <label for="building">Gebouw:</label>
-      <select name="building" id="building" class="border-2 border-secondary-purple-light rounded-lg p-2" formControlName="building" (change)="onChangeBuilding()">
-        <option *ngFor="let building of buildings" [ngValue]="building">{{ building.name }}</option>
-      </select>
+      <div class="flex space-x-2">
+        <label for="building">Gebouw:</label>
+        <label for="building" [ngClass]="locationCreateForm.get('building')?.invalid ? 'text-primary-red' : 'text-black'">*</label>
+      </div>
+      
+      <div class="relative w-[150px]">
+        <select name="building" id="building" class="border-2 border-secondary-purple-light rounded-lg p-2 w-full appearance-none" formControlName="building" (change)="onChangeBuilding()">
+          <option *ngFor="let building of buildings" [ngValue]="building">{{ building.name }}</option>
+        </select>
+        <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+          <lucide-icon name="chevron-down"></lucide-icon>
+        </div>
+      </div>
     </div>
     <div class="flex flex-col space-y-2">
-      <label for="wing">Vleugel:</label>
-      <select name="wing" id="wing" formControlName="wing" class="border-2 border-secondary-purple-light rounded-lg p-2">
-        <option *ngFor="let wing of wings" [ngValue]="wing">{{ wing.floor.number }}.{{ wing.name }}</option>
-      </select>
+      <div class="flex space-x-2">
+        <label for="wing">Vleugel:</label>
+        <label for="wing" [ngClass]="locationCreateForm.get('wing')?.invalid ? 'text-primary-red' : 'text-black'">*</label>
+      </div>
+      <div class="relative w-[150px]">
+        <select name="wing" id="wing" formControlName="wing" class="border-2 border-secondary-purple-light rounded-lg p-2 w-full appearance-none">
+          <option *ngFor="let wing of wings" [ngValue]="wing">{{ wing.floor.number }}.{{ wing.name }}</option>
+        </select>
+        <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+          <lucide-icon name="chevron-down"></lucide-icon>
+        </div>
+      </div>
+      
     </div>
     <div class="flex flex-col space-y-2">
-      <label for="capacity">Capaciteit:</label>
-      <input type="number" id="capacity" formControlName="capacity" class="border-2 border-secondary-purple-light rounded-lg p-2">
+      <div class="flex space-x-2">
+        <label for="capacity">Capaciteit:</label>
+        <label for="capacity" [ngClass]="locationCreateForm.get('capacity')?.invalid ? 'text-primary-red' : 'text-black'">*</label>
+      </div>
+      
+      <input type="number" min="1"  id="capacity" formControlName="capacity" class=" border-2 border-secondary-purple-light rounded-lg p-2">
     </div>
     <div class="flex space-x-5 ">
       <button type="submit" id="save">

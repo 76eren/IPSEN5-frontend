@@ -1,6 +1,7 @@
 describe('report-dashboard', () => {
   beforeEach(function() {
     cy.intercept('GET', '/api/v1/auth/authenticated', {fixture: 'authenticated.fixture.json'})
+    cy.intercept('GET', '/api/v1/auth/isAdmin', {fixture: 'is-admin.fixture.json'})
   })
 
   context('happy-flow', () => {

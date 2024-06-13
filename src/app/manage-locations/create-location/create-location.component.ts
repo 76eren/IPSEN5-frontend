@@ -19,7 +19,8 @@ import { WingService } from '../../shared/service/wing.service';
 })
 export class CreateLocationComponent implements OnInit {
   @Input() buildings: Building[] = [];
-  @Output() exitCreateMode = new EventEmitter<void>();
+  @Output() exitCreateMode: EventEmitter<void> = new EventEmitter<void>();
+  @Output() location: EventEmitter<Location> = new EventEmitter<Location>();
   public locationCreateForm!: FormGroup;
   public selectedBuilding: Building = this.buildings[0];
   public wings: Wing[] = [];
@@ -36,8 +37,8 @@ export class CreateLocationComponent implements OnInit {
       'locationName': new FormControl(null, Validators.required),
       'locationType': new FormControl(this.locationTypes[0], Validators.required),
       'wing': new FormControl(this.wings[0], Validators.required),
-      'building': new FormControl(this.buildings[0]),
-      'capacity': new FormControl(0, Validators.required)
+      'building': new FormControl(this.buildings[0], Validators.required),
+      'capacity': new FormControl(1, Validators.compose([Validators.required, Validators.min(1)]))
     })
   }
 
@@ -78,6 +79,7 @@ export class CreateLocationComponent implements OnInit {
     this.locationService.createNewLocation(requestBody)
     .subscribe((response: ApiResponse<Location>) => {
       this.toastr.success('De nieuwe werkplek is opgeslagen', 'Succes')
+      this.location.emit(response.payload);
       this.onExitCreateMode();
     })
   }

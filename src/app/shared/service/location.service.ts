@@ -28,7 +28,7 @@ export class LocationService {
 
     params = params.set('buildingName', buildingName);
 
-    return this.apiService.get<ApiResponse<Location[]>>(Endpoint.LOCATION + "/admin", {params: params})
+    return this.apiService.get<ApiResponse<Location[]>>(`${Endpoint.LOCATION}/admin`, {params: params})
     .pipe(
       catchError((error) => {
         this.toastr.error('Er is iets misgegaan bij het ophalen van de data', 'Error');
@@ -38,7 +38,7 @@ export class LocationService {
   }
 
   public createNewLocation(requestBody: Object): Observable<ApiResponse<Location>> {
-    return this.apiService.post<ApiResponse<any>>(Endpoint.LOCATION+"/create", {body: requestBody})
+    return this.apiService.post<ApiResponse<any>>(`${Endpoint.LOCATION}/create`, {body: requestBody})
     .pipe(
       catchError((error) => {
         this.toastr.error('Er is iets misgegaan bij het opslaan van de werkplek', 'Error');
@@ -48,7 +48,7 @@ export class LocationService {
   }
 
   public updateLocation(id: string, requestBody: Object): Observable<ApiResponse<Location>> {
-    return this.apiService.put<ApiResponse<any>>(Endpoint.LOCATION + "/"+id+"/edit", {body: requestBody})
+    return this.apiService.put<ApiResponse<any>>(`${Endpoint.LOCATION}/${id}/edit`, {body: requestBody})
     .pipe(
       catchError((error) => {
         this.toastr.error('Er is iets misgegaan bij het opslaan van de werkplek', 'Error');
@@ -64,5 +64,14 @@ export class LocationService {
     });
 
     return this.apiService.get<ApiResponse<Location[]>>(Endpoint.LOCATION + "/available-rooms", {params: params});
+  }
+  public deleteLocation(id: string): Observable<ApiResponse<String>> {
+    return this.apiService.delete<ApiResponse<String>>(`${Endpoint.LOCATION}/${id}/delete`)
+    .pipe(
+      catchError((error) => {
+        this.toastr.error('Er is iets misgegaan tijdens het verwijderen van de werkplek', 'Error');
+        throw error;
+      })
+    )
   }
 }
