@@ -37,7 +37,7 @@ export class CalendarComponent implements OnInit {
     private selectedUser?: User;
     protected events: CalendarEvent[] = [];
 
-    private reservationOfSelectedUser: Reservation[] = [];
+    private reservationOfCurrentUser: Reservation[] = [];
 
     @HostListener('window:resize', ['$event'])
     onResize() {
@@ -92,7 +92,22 @@ export class CalendarComponent implements OnInit {
         this.updateViewBasedOnWidth();
     }
 
-    mapEvents(reservations: Reservation[]): void {
+  mapEvents(reservations: Reservation[]): void {
+    this.events = reservations.map(reservation => new CalendarEvent(
+      [
+        {
+          id: reservation.id,
+          title: reservation.status,
+          start: reservation.startDateTime,
+          end: reservation.endDateTime
+        }
+      ],
+      'green',
+      'white'
+    ));
+  }
+
+    mapColleagueEvents(reservations: Reservation[]): void {
         this.events = reservations.map(reservation => new CalendarEvent(
             [
                 {
@@ -113,7 +128,24 @@ export class CalendarComponent implements OnInit {
         });
 
         this.getFavoriteUsers();
+        this.getCurrentReservations();
         this.updateViewBasedOnWidth();
+    }
+
+    getCurrentReservations(){
+      this.reservationService.getAllReservations().then(
+        (response) => {
+          this.mapEvents(response);
+
+          this.calendarOptions.set({
+            ...this.calendarOptions(),
+            eventSources: this.events
+          });
+        },
+      (error) => {
+        this.toastr.error("Probeer het later nog een keer", "Fout bij ophalen van reserveringen")
+      }
+      );
     }
 
     getFavoriteUsers(): void {
@@ -161,7 +193,7 @@ export class CalendarComponent implements OnInit {
 
         this.reservationService.getReservationsByUserId(userId).subscribe(
             (reservations) => {
-                this.mapEvents(reservations);
+                this.mapColleagueEvents(reservations);
 
                 this.calendarOptions.set({
                     ...this.calendarOptions(),
