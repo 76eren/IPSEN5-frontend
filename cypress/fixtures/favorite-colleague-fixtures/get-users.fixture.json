@@ -1,0 +1,29 @@
+{
+  "payload": [
+    {
+      "id": "344cc2e0-bc62-47cf-b7e1-3f13a6badc28",
+      "email": "user1@cgi.com",
+      "firstname": "John",
+      "lastname": "Doe",
+      "role": "USER",
+      "phoneNumber": "061234567"
+    },
+    {
+      "id": "0cf3fc10-e25f-4a25-b8d3-ed0db7baddf7",
+      "email": "user2@cgi.com",
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "role": "USER",
+      "phoneNumber": "061234568"
+    },
+    {
+      "id": "d65e77f9-c9aa-4b74-94b5-c9f6518cbeac",
+      "email": "user3@cgi.com",
+      "firstname": "Jason",
+      "lastname": "Response",
+      "role": "USER",
+      "phoneNumber": "061234569"
+    }
+  ],
+  "message": null
+}
