@@ -1,20 +1,20 @@
 describe('favorite-colleagues', () => {
     beforeEach(function () {
-        cy.intercept('GET', '/api/v1/auth/authenticated', {fixture: 'authenticated.fixture.json'})
+      cy.intercept('GET', '/api/v1/auth/authenticated', {fixture: 'authenticated.fixture.json'})
         cy.intercept('GET', '/api/v1/auth/isAdmin', {fixture: 'is-admin.fixture.json'})
-        cy.intercept('GET', "/api/v1/user/me",
-            {fixture: 'favorite-colleague-fixtures/get-me.fixture.json'})
-        cy.intercept('GET', "/api/v1/user",
-            {fixture: 'favorite-colleague-fixtures/get-users.fixture.json'}).as('getUsers');
-        cy.intercept('GET', "/api/v1/user/favorite-colleagues",
-            {fixture: 'favorite-colleague-fixtures/get-favorites.fixture.json'}).as('getFavorites');
-
     })
 
     context('happy-flow', () => {
         beforeEach(function () {
-            cy.visit('http://localhost:4200/#/favorites');
-            cy.wait(200)
+          cy.intercept('GET', "/api/v1/user/me",
+            {fixture: 'favorite-colleague-fixtures/get-me.fixture.json'})
+          cy.intercept('GET', "/api/v1/user",
+            {fixture: 'favorite-colleague-fixtures/get-users.fixture.json'}).as('getUsers');
+          cy.intercept('GET', "/api/v1/user/favorite-colleagues",
+            {fixture: 'favorite-colleague-fixtures/get-favorites.fixture.json'}).as('getFavorites');
+
+          cy.visit('http://localhost:4200/#/favorites');
+          cy.wait(200)
         })
 
         it('should navigate to favorites page', () => {
@@ -50,9 +50,7 @@ describe('favorite-colleagues', () => {
 
         it('should add selected user to favorites', () => {
             cy.intercept('POST', '/api/v1/user/favorite-colleagues').as('addFavorite');
-            const userToFavoriteEmail = "user1@cgi.com";
             const userToFavoriteFirstName = "John";
-            const userToFavoriteLastName = "Doe";
 
             cy.get('#all-colleagues').click();
             cy.wait(200)
@@ -74,6 +72,18 @@ describe('favorite-colleagues', () => {
                 .contains(userToFavoriteFirstName)
                 .should('be.visible');
         })
-
     })
+
+  context('exception-flow', () => {
+    it('shows error popup when data fetching fails', () => {
+      cy.clearAllCookies()
+      cy.wait(300)
+      cy.intercept('GET', '/api/v1/auth/authenticated', {fixture: 'authenticated.fixture.json'})
+
+      cy.visit('http://localhost:4200/#/favorites');
+      cy.get('#all-colleagues').click();
+      cy.get('.toast-error').should('be.visible');
+      cy.get('.toast-error').should('contain.text', "Fout bij ophalen van ")
+    })
+  })
 })
