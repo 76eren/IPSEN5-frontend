@@ -205,7 +205,8 @@ export class CalendarComponent implements OnInit {
         });
       },
       (error) => {
-        console.error('Error fetching reservations: ', error);
+        this.toastr
+          .error("Probeer het later nog een keer", "Fout bij ophalen van reserveringen van collega")
       }
     );
   }
