@@ -1,12 +1,6 @@
 {
   "payload": [
     {
-      "id": "0cf3fc10-e25f-4a25-b8d3-ed0db7baddf7",
-      "firstname": "Jane",
-      "lastname": "Doe",
-      "standardLocation": "c4b54ca6-11ca-4372-bc2f-602c0990ffd0"
-    },
-    {
       "id": "d65e77f9-c9aa-4b74-94b5-c9f6518cbeac",
       "firstname": "Jason",
       "lastname": "Response",

@@ -1,6 +1,14 @@
 {
   "payload": [
     {
+      "id": "344cc2e0-bc62-47cf-b7e1-3f13a6badc20",
+      "email": "user0@cgi.com",
+      "firstname": "Me",
+      "lastname": "Doe",
+      "role": "USER",
+      "phoneNumber": "061234527"
+    },
+    {
       "id": "344cc2e0-bc62-47cf-b7e1-3f13a6badc28",
       "email": "user1@cgi.com",
       "firstname": "John",
