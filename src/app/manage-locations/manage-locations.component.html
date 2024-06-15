@@ -30,21 +30,24 @@
     </div>
   </section>
   <app-create-location *ngIf="isCreateMode" [buildings]="buildings" (exitCreateMode)="onChangeCreateMode()" (location)="onCreateLocation($event)"></app-create-location>
-  <section class="flex pl-5 justify-between w-full font-bold">
-    <p class="min-w-[150px]">Naam</p>
-    <p class="min-w-[150px]">Type</p>
-    <p class="min-w-[150px]">Gebouw</p>
-    <p class="min-w-[150px]">Vleugel</p>
-    <p class="min-w-[150px]">Capaciteit</p>
-    <p class="min-w-[150px]">Gemaakt op</p>
-    <p class="min-w-[100px]"></p>
+  <section class="border-2 border-secondary-purple-light p-4 rounded-lg">
+    <section class="flex pl-5 pb-4 justify-between w-full font-bold">
+      <p class="min-w-[150px]">Naam</p>
+      <p class="min-w-[150px]">Type</p>
+      <p class="min-w-[150px]">Gebouw</p>
+      <p class="min-w-[150px]">Vleugel</p>
+      <p class="min-w-[150px]">Capaciteit</p>
+      <p class="min-w-[150px]">Gemaakt op</p>
+      <p class="min-w-[100px]"></p>
+    </section>
+    <ul *ngIf="filteredLocations().length > 0; else noLocations" class="h-[450px] overflow-auto">
+      <app-location *ngFor="let location of filteredLocations()" [location]="location" (deletedLocation)="onDeleteLocation($event)"></app-location>
+    </ul>
+    <ng-template #noLocations>
+      <div class="flex justify-center items-center w-full h-full">
+        <p>Er zijn geen werkplekken gevonden</p>
+      </div>
+    </ng-template>
   </section>
-  <ul *ngIf="filteredLocations().length > 0; else noLocations" class="h-[500px] overflow-auto">
-    <app-location *ngFor="let location of filteredLocations()" [location]="location" (deletedLocation)="onDeleteLocation($event)"></app-location>
-  </ul>
-  <ng-template #noLocations>
-    <div class="flex justify-center items-center w-full h-full">
-      <p>Er zijn geen werkplekken gevonden</p>
-    </div>
-  </ng-template>
+
 </article>
