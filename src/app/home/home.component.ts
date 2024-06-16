@@ -71,7 +71,6 @@ export class HomeComponent implements OnInit {
   private getUserInfo(): void {
     this.userService.getUserInfo().subscribe((response) => {
       this.user = response.payload;
-      console.log(this.user)
     })
   }
 
