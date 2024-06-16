@@ -16,8 +16,6 @@ import {AsyncPipe, NgClass} from "@angular/common";
 import {Building} from "../../shared/model/building.model";
 import {BuildingStepComponent} from "./building-step/building-step.component";
 import {MatOption, MatSelect} from "@angular/material/select";
-import {FloorService} from "../../shared/service/floor.service";
-import {WingService} from "../../shared/service/wing.service";
 import {Wing} from "../../shared/model/wing.model";
 import {MatIcon} from "@angular/material/icon";
 import {ReservationType} from "../../shared/model/reservering-type.enum";
@@ -30,6 +28,9 @@ import {map} from "rxjs/operators";
 import {VerifyReservationStepComponent} from "./verify-reservation-step/verify-reservation-step.component";
 import {STEPPER_GLOBAL_OPTIONS} from "@angular/cdk/stepper";
 import {Floor} from "../../shared/model/floor.model";
+import {MeetingroomPropertiesComponent} from "./meetingroom-properties/meetingroom-properties.component";
+import {MeetingRoomStepComponent} from "./meeting-room-step/meeting-room-step.component";
+import {Location} from "../../shared/model/location.model";
 
 
 @Component({
@@ -58,6 +59,8 @@ import {Floor} from "../../shared/model/floor.model";
     DateAndTimeStepComponent,
     AsyncPipe,
     VerifyReservationStepComponent,
+    MeetingroomPropertiesComponent,
+    MeetingRoomStepComponent,
   ],
   templateUrl: './create-reservation.component.html',
   styleUrl: './create-reservation.component.scss',
@@ -77,7 +80,9 @@ export class CreateReservationComponent implements AfterViewInit{
   protected reservationDateAndTime = new BehaviorSubject<{ startDate: Date, endDate: Date } | null>(null);
   protected reservationType = new BehaviorSubject<ReservationType | null>(null);
   protected stepperOrientation!: Observable<StepperOrientation>;
-  protected allAssigned = combineLatest([
+  protected numberOfPersons = new BehaviorSubject<number | null>(null);
+  protected selectedLocation = new BehaviorSubject<Location | null>(null);
+  protected allWorkplaceFieldsAssigned = combineLatest([
     this.selectedBuilding,
     this.selectedWing,
     this.selectedFloor,
@@ -86,6 +91,19 @@ export class CreateReservationComponent implements AfterViewInit{
   ]).pipe(
     map(([building, wing, floor, dateAndTime, type]) =>
       building !== null && wing !== null && floor !== null && dateAndTime !== null && type !== null
+
+    )
+
+  );
+  protected allMeetingRoomFieldsAssigned = combineLatest([
+    this.selectedBuilding,
+    this.reservationDateAndTime,
+    this.numberOfPersons,
+    this.selectedLocation,
+    this.reservationType
+  ]).pipe(
+    map(([building, dateAndTime, numberOfPersons, location, type]) =>
+      building !== null && dateAndTime !== null && numberOfPersons !== null && location !== null && type !== null
 
     )
 
@@ -100,7 +118,12 @@ export class CreateReservationComponent implements AfterViewInit{
   }
 
   ngAfterViewInit(): void {
-    this.allAssigned.subscribe(isAllAssigned => {
+    this.allWorkplaceFieldsAssigned.subscribe(isAllAssigned => {
+      if (isAllAssigned) {
+        this.navigateToLastStep();
+      }
+    });
+    this.allMeetingRoomFieldsAssigned.subscribe(isAllAssigned => {
       if (isAllAssigned) {
         this.navigateToLastStep();
       }
@@ -132,4 +155,14 @@ export class CreateReservationComponent implements AfterViewInit{
   addSelectedFloor(value: Floor) {
     this.selectedFloor.next(value);
   }
+
+  addNumberOfPersons(value: number) {
+    this.numberOfPersons.next(value);
+  }
+
+  addSelectedLocation(value: Location) {
+    this.selectedLocation.next(value);
+  }
+
+  protected readonly ReservationType = ReservationType;
 }

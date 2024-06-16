@@ -1,0 +1,11 @@
+<h1 class="text-xl font-extrabold">Voer Aantal personen in:</h1>
+<mat-form-field class="w-full">
+  <mat-label>Aantal personen</mat-label>
+  <input matInput type="number" placeholder="Aantal pers." [(ngModel)]="numberOfPersons" (ngModelChange)="addNumberOfPersons($event)">
+</mat-form-field>
+<div class="w-full flex justify-center items-center space-x-4">
+  <button class="border-2 border-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-0.5 text-2xl text-primary-dark-purple" matStepperPrevious>Vorige</button>
+  <button class="bg-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-1 text-2xl text-white"
+          (click)="checkNumberOfPersons()"
+          matStepperNext>Volgende</button>
+</div>

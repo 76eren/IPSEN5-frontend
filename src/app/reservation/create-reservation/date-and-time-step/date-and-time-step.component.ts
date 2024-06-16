@@ -32,6 +32,7 @@ export class DateAndTimeStepComponent {
   protected readonly Date = Date;
   protected currentTime!: string;
   @Output() reservationDateAndTime = new EventEmitter<{ startDate: Date, endDate: Date }>();
+  @Input() stepper!: MatStepper;
 
   constructor(private toastr: ToastrService) {
     this.currentTime = this.getCurrentTime();
@@ -69,5 +70,6 @@ export class DateAndTimeStepComponent {
 
     this.reservationDateAndTime.emit({startDate, endDate});
     this.dateAndTimeFormGroup.setValue({selectedDate: this.selectedDate, startTime: this.startTime, endTime: this.endTime});
+    this.stepper.next();
   }
 }
