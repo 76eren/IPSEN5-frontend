@@ -1,4 +1,4 @@
-<div class="h-fit md:h-screen space-y-20">
+<div class="h-fit md:h-screen space-y-10 md:space-y-20">
   <div class="w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 pt-0 md:pt-24">
     <button class="w-64 h-fit border-2 border-primary-dark-purple rounded-2xl space-y-2 p-2"
             (click)="setReservationType(ReservationType.FLEXPLEK)"
@@ -12,7 +12,7 @@
         </svg>
       </div>
       <div>
-        <h1 class="font-semibold text-2xl"
+        <h1 class="font-semibold text-xl md:text-2xl"
             [class.text-white]="selectedType === ReservationType.FLEXPLEK">
           Flexplek
         </h1>
@@ -30,7 +30,7 @@
         </svg>
       </div>
       <div>
-        <h1 class="font-semibold text-2xl"
+        <h1 class="font-semibold text-xl md:text-2xl"
             [class.text-white]="selectedType === ReservationType.VERGADERRUIMTE">
           Vergaderruimte
         </h1>
@@ -38,8 +38,8 @@
     </button>
   </div>
   <div class="w-full flex justify-center items-center space-x-4">
-    <button class="border-2 border-primary-dark-purple rounded-lg w-fit h-fit p-2 text-xl hover:bg-secondary-purple-light duration-300" matStepperPrevious>Vorige</button>
-    <button class="bg-primary-dark-purple rounded-lg w-fit h-fit p-2 text-xl text-white hover:bg-purple-950 duration-300"
+    <button class="border-2 border-primary-dark-purple rounded-lg w-fit h-fit p-2 text-lg md:text-xl hover:bg-secondary-purple-light duration-300" matStepperPrevious>Vorige</button>
+    <button class="bg-primary-dark-purple rounded-lg w-fit h-fit p-2 text-lg md:text-xl text-white hover:bg-purple-950 duration-300"
             (click)="checkValidReservationType()"
             matStepperNext>Volgende</button>
   </div>

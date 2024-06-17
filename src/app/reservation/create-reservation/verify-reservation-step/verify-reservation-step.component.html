@@ -1,5 +1,5 @@
-<section class="flex flex-col space-y-10 pt-0 md:pt-24">
-  <div class="flex flex-col space-y-2 text-xl">
+<section class="flex flex-col space-y-10 pt-4 md:pt-24">
+  <div class="flex flex-col space-y-2 text-lg md:text-xl">
     <h1>Gebouw: <strong>{{building.name}}</strong></h1>
     <h1>Verdieping: <strong>{{floor.number}}</strong></h1>
     <h1>Vleugel: <strong>{{wing.name}}</strong></h1>
@@ -10,11 +10,11 @@
   
   <section class="w-full flex justify-center">
     <button
-      class="w-1/4 rounded-lg bg-primary-dark-purple hover:bg-purple-950 duration-300
+      class="w-auto md:w-1/4 rounded-lg bg-primary-dark-purple hover:bg-purple-950 duration-300
       flex items-center justify-center p-2 text-white"
       (click)="makeReservation()" [disabled]="isLoading">
       @if (!isLoading){
-        <span class="text-xl">Bevestig</span>
+        <span class="text-lg md:text-xl">Bevestig</span>
       }
       <svg *ngIf="isLoading" class="animate-spin h-5 w-5 text-primary-dark-purple group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

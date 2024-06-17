@@ -1,6 +1,6 @@
-<section class="w-full flex flex-col justify-center space-y-10 pt-0 md:pt-24">
+<section class="w-full flex flex-col justify-center space-y-5 md:space-y-10 pt-0 md:pt-24">
   <section class="flex flex-col space-y-2">
-    <h1 class="text-xl font-semibold">Datum:</h1>
+    <h1 class="text-lg md:text-xl font-semibold">Datum:</h1>
     <mat-form-field class="">
       <mat-label>Selecteer een datum</mat-label>
       <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
@@ -9,15 +9,15 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
   </section>
-  <section class="flex w-full space-x-10">
+  <section class="flex flex-col md:flex-row w-full space-y-10 md:space-y-0 space-x-0 md:space-x-10">
     <section class="flex flex-col space-y-2 w-1/2">
-      <h1 class="text-xl font-semibold">Selecteer een starttijd:</h1>
+      <h1 class="text-lg md:text-xl font-semibold">Starttijd:</h1>
       <div class="ngx-timepicker-field-example">
         <ngx-timepicker-field [format]="24" [defaultTime]="currentTime" [(ngModel)]="startTime"></ngx-timepicker-field>
       </div>
     </section>
     <section class="flex flex-col space-y-2 w-1/2">
-      <h1 class="text-xl font-semibold">Selecteer een eindtijd:</h1>
+      <h1 class="text-lg md:text-xl font-semibold">Eindtijd:</h1>
       <div class="ngx-timepicker-field-example space-x-2">
         <ngx-timepicker-field [format]="24" [defaultTime]="currentTime" [(ngModel)]="endTime"></ngx-timepicker-field>
       </div>
@@ -25,8 +25,8 @@
   </section>
   
   <div class="w-full flex justify-center items-center space-x-4">
-    <button class="border-2 border-primary-dark-purple rounded-lg w-fit h-fit p-2 text-xl hover:bg-secondary-purple-light duration-300" matStepperPrevious>Vorige</button>
-    <button class="bg-primary-dark-purple rounded-lg w-fit h-fit p-2 text-xl text-white hover:bg-purple-950 duration-300" matStepperNext
+    <button class="border-2 border-primary-dark-purple rounded-lg w-fit h-fit p-2 text-lg md:text-xl hover:bg-secondary-purple-light duration-300" matStepperPrevious>Vorige</button>
+    <button class="bg-primary-dark-purple rounded-lg w-fit h-fit p-2 text-lg md:text-xl text-white hover:bg-purple-950 duration-300" matStepperNext
     (click)="addReservationDateAndTime()">Volgende</button>
   </div>
 </section>
