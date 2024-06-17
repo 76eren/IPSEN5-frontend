@@ -1,6 +1,6 @@
-import {AfterViewInit, ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ViewChild} from '@angular/core';
 import {MatStepper, MatStepperModule, StepperOrientation} from "@angular/material/stepper";
-import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
@@ -31,6 +31,8 @@ import {Floor} from "../../shared/model/floor.model";
 import {MeetingroomPropertiesComponent} from "./meetingroom-properties/meetingroom-properties.component";
 import {MeetingRoomStepComponent} from "./meeting-room-step/meeting-room-step.component";
 import {Location} from "../../shared/model/location.model";
+import {Router} from "@angular/router";
+import {StandardLocation} from "../../shared/model/standard-location.model";
 
 
 @Component({
@@ -82,6 +84,7 @@ export class CreateReservationComponent implements AfterViewInit{
   protected stepperOrientation!: Observable<StepperOrientation>;
   protected numberOfPersons = new BehaviorSubject<number | null>(null);
   protected selectedLocation = new BehaviorSubject<Location | null>(null);
+  protected defaultLocation!: Wing;
   protected allWorkplaceFieldsAssigned = combineLatest([
     this.selectedBuilding,
     this.selectedWing,
@@ -111,13 +114,17 @@ export class CreateReservationComponent implements AfterViewInit{
 
   constructor(private _formBuilder: FormBuilder,
               breakpointObserver: BreakpointObserver,
-              private crf: ChangeDetectorRef,){
+              private crf: ChangeDetectorRef,
+              private router: Router){
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+    const navigation = this.router.getCurrentNavigation();
+    this.defaultLocation = navigation?.extras.state?.['location'];
   }
 
   ngAfterViewInit(): void {
+    this.assignDefaultLocationAndNavigateToDateAndTimeStep();
     this.allWorkplaceFieldsAssigned.subscribe(isAllAssigned => {
       if (isAllAssigned) {
         this.navigateToLastStep();
@@ -128,6 +135,20 @@ export class CreateReservationComponent implements AfterViewInit{
         this.navigateToLastStep();
       }
     });
+  }
+
+  private assignDefaultLocationAndNavigateToDateAndTimeStep() {
+    if (!this.defaultLocation) {
+      return;
+    }
+    this.reservationType.next(ReservationType.FLEXPLEK);
+    this.selectedWing.next(this.defaultLocation);
+    this.selectedBuilding.next(this.defaultLocation.floor.building);
+    this.selectedFloor.next(this.defaultLocation.floor);
+    this.stepper.linear = false;
+    this.navigateToLastStep();
+    this.crf.detectChanges();
+    this.stepper._steps.forEach(step => step.hasError = false);
   }
 
   navigateToLastStep() {
