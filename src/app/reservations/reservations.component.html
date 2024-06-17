@@ -1,62 +1,53 @@
-<div class="flex flex-col items-center h-full w-full space-y-10 pt-10 md:pt-24">
-  <h1 class="font-bold text-3xl md:text-6xl">Reserveringen</h1>
-  <div class="w-full md:px-36">
-    <!-- Desktop View -->
-    <table class="table-auto w-full hidden md:table">
-      <thead class="bg-gray-50 h-16">
-      <tr class="text-left text-xl">
-        <th class="pl-2">Datum</th>
-        <th>Tijd</th>
-        <th>Type</th>
-        <th>Locatie</th>
-        <th class="pl-5">Actie</th>
-      </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-100">
-      @for(reservation of reservations; track reservation){
-        <tr class="text-left text-xl h-16 text-gray-800">
-          <td class="pl-2">{{getDate(reservation.startDateTime)}}</td>
-          <td>{{getTime(reservation.startDateTime)}}</td>
-          <td>{{reservation.location.type}}</td>
-          <td>{{reservation.location.wing.floor.building.name}}</td>
-          <td>
-            <button (click)="openDeleteModal()" class="font-bold py-1 px-4 rounded-full bg-primary-red text-white hover:bg-red-700">Annuleer</button>
-          </td>
-        </tr>
-      }
-      </tbody>
-    </table>
-    <!-- Mobile View -->
-    <div class="block md:hidden px-4 space-y-2">
-      <div class="w-full rounded-md flex justify-between items-center px-5 bg-gray-100 h-12 text-xl font-bold">
-        <h1>Datum</h1>
-        <h1>Tijd</h1>
-        <h1>Locatie</h1>
+<article class="p-2 md:p-0 flex flex-col h-full w-full space-y-6">
+  <section class="flex w-full justify-between">
+    <h1 class="w-min whitespace-nowrap text-3xl font-bold">Reserveringen</h1>
+    <button [routerLink]="'/create-reservation'" class="hidden md:flex space-x-2 bg-primary-dark-purple text-white p-2 rounded-lg items-center">
+      <lucide-icon name="plus" title="Nieuwe reservering plaatsen"></lucide-icon>
+      <p>Nieuwe reservering</p>
+    </button>
+  </section>
+  <section class="md:border-2 md:border-secondary-purple-light md:p-4 md:rounded-lg">
+    <section class=" hidden md:flex pl-5 p-4 pt-0 w-full font-bold">
+      <p class="w-1/5">Datum</p>
+      <p class="w-1/5">Tijd</p>
+      <p class="w-1/5">Locatie</p>
+      <p class="w-1/5">Type</p>
+      <p class="w-1/5">Acties</p>
+    </section>
+    <ul *ngIf="reservations.length > 0; else noReservations" class="h-[500px] overflow-auto">
+      <li *ngFor="let reservation of reservations" class="pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2 border-secondary-purple-light w-full mb-2">
+        <div class="md:hidden flex justify-between bg-white rounded-md">
+          <div class="flex flex-col p-4">
+            <p>Datum: {{reservation.startDateTime | date:'longDate' }}</p>
+            <p>Tijd: {{reservation.startDateTime | date:'shortTime'}}</p>
+            <p>Locatie: {{reservation.location.wing.floor.building.name}}</p>
+          </div>
+          <button [routerLink]="'/reservation/details/' + reservation.id" class="flex justify-center items-center p-2 bg-secondary-purple-light rounded-r-lg">
+            <lucide-icon name="chevron-right"></lucide-icon>
+          </button>
+        </div>
+        <div class="hidden md:flex w-full bg-white rounded-md p-4 items-center">
+          <p class="w-1/5">{{reservation.startDateTime | date:'longDate' }}</p>
+          <p class="w-1/5">{{reservation.startDateTime | date:'shortTime'}}</p>
+          <p class="w-1/5">{{reservation.location.wing.floor.building.name}}</p>
+          <p class="w-1/5">{{reservation.location.type}}</p>
+          <div class="flex-col space-y-2 w-1/5">
+            <button [routerLink]="'/reservation/details/' + reservation.id" class="flex justify-center items-center bg-secondary-purple-light p-2 rounded-lg space-x-2 hover:bg-gray-300 duration-300 w-full">
+              <p>Bekijk</p>
+              <lucide-icon name="chevron-right"></lucide-icon>
+            </button>
+            <button (click)="openDeleteModal()" class="p-2 w-full rounded-lg bg-primary-red bg-opacity-80 text-white hover:bg-red-700">Annuleer</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ng-template #noReservations>
+      <div class="flex justify-center items-center w-full h-full">
+        <p>U heeft geen reserveringen</p>
       </div>
-      <div class="px-0.5">
-        <mat-accordion>
-          @for (reservation of reservations; track reservation){
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <div class="flex justify-between w-full text-lg">
-                    <span>{{getDate(reservation.startDateTime)}}</span>
-                    <span>{{getTime(reservation.startDateTime)}}</span>
-                    <span>{{reservation.location.wing.floor.building.name}}</span>
-                  </div>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <div class=" flex justify-between items-center">
-                <h1><strong>Type:</strong> {{reservation.location.type}}</h1>
-                <button (click)="openDeleteModal()" class="mt-4 font-bold py-1 px-4 rounded-full bg-primary-red text-white hover:bg-red-700">Annuleer</button>
-              </div>
-            </mat-expansion-panel>
-          }
-        </mat-accordion>
-      </div>
-    </div>
-  </div>
+    </ng-template>
+  </section>
   @if (isDeleteModalVisible) {
-  <app-delete-modal (closeModalEvent)="openDeleteModal()"></app-delete-modal>
+    <app-delete-modal (closeModalEvent)="openDeleteModal()"></app-delete-modal>
   }
-</div>
+</article>

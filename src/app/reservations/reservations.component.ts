@@ -4,13 +4,19 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {Reservation} from "../shared/model/reservation.model";
 import {ReservationService} from "../shared/service/reservation.service";
 import {ToastrService} from "ngx-toastr";
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-reservations',
   standalone: true,
   imports: [
     DeleteModalComponent,
-    MatExpansionModule
+    MatExpansionModule,
+    CommonModule,
+    RouterModule,
+    LucideAngularModule
   ],
   templateUrl: './reservations.component.html',
   styleUrl: './reservations.component.scss'
@@ -27,6 +33,7 @@ export class ReservationsComponent implements OnInit{
     this.reservationService.getAllReservations2().subscribe(
       data => {
         this.reservations = data.payload;
+        this.reservations = this.sortByDate(this.reservations);
       }, error => {
         if (error && (error as any).error) {
           this.toastr.error((error as any).error.message);
@@ -35,6 +42,10 @@ export class ReservationsComponent implements OnInit{
         }
       }
     );
+  }
+
+  sortByDate(items: Reservation[]): Reservation[] {
+    return items.sort((a, b) => new Date(a.startDateTime).getTime() - new Date(b.startDateTime).getTime());
   }
 
   protected getDate(dateToFormat: Date) {
