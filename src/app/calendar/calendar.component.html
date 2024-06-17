@@ -1,15 +1,17 @@
-<form [formGroup]="personSelectForm" (ngSubmit)="onSubmitForm()" class="flex w-full justify-between bg-white rounded-md p-4">
-  <div class="flex flex-col space-y-2">
-    <label for="favourite-user">Kies een collega:</label>
-    <select name="favourite-user" id="favourite-user" class="border-2 border-secondary-purple-light rounded-lg p-2" formControlName="favourite-user" (change)="onChangePerson()">
-      <option *ngFor="let person of favoriteColleagues" [ngValue]="person">{{ person.firstName + " " + person.lastName }}</option>
-    </select>
+<div class='flex flex-col w-full h-full md:space-y-6'>
+  <div class="flex flex-col md:flex-row w-full p-4 space-y-6 md:space-y-0 md:p-0 md:items-center justify-between">
+    <h1 class="w-min whitespace-nowrap text-3xl font-bold">Agenda</h1>
+    <div>
+      <form [formGroup]="personSelectForm" (ngSubmit)="onSubmitForm()" class="flex w-full bg-white rounded-md">
+        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 w-full md:items-center">
+          <label for="favourite-user">Kies een collega:</label>
+          <select name="favourite-user" id="favourite-user" class=" border-2 border-secondary-purple-light rounded-lg p-2" formControlName="favourite-user" (change)="onChangePerson()">
+            <option *ngFor="let person of favoriteColleagues" [ngValue]="person">{{ person.firstName + " " + person.lastName }}</option>
+          </select>
+        </div>
+      </form>
+    </div>
   </div>
-</form>
-
-
-
-<div class='h-full'>
   <div class='demo-app-main'>
     <full-calendar [options]='calendarOptions()'>
       <ng-template #eventContent let-arg>
