@@ -6,6 +6,7 @@
     </div>
     <input 
       [(ngModel)]="searchInput"
+      (ngModelChange)="onInputEdit($event)" 
       type="text"
       placeholder="Zoek een gebruiker..."
       class="block w-full p-2 ps-10 text-gray-900 border-2 border-secondary-purple-light rounded-lg bg-gray-50 focus:ring-primary-dark-purple focus:border-primary-dark-purple duration-300"
