@@ -1,26 +1,32 @@
-<section class="w-full flex flex-col justify-center space-y-5">
-  <mat-form-field class="">
-    <mat-label>Selecteer datum</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
-    <mat-hint>MM/DD/JJJJ</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-  <section>
-    <h1 class="text-xl font-extrabold">Selecteer starttijd:</h1>
-    <div class="ngx-timepicker-field-example">
-      <ngx-timepicker-field [format]="24" [defaultTime]="currentTime" [(ngModel)]="startTime"></ngx-timepicker-field>
-    </div>
+<section class="w-full flex flex-col justify-center space-y-10 pt-0 md:pt-24">
+  <section class="flex flex-col space-y-2">
+    <h1 class="text-xl font-semibold">Datum:</h1>
+    <mat-form-field class="">
+      <mat-label>Selecteer een datum</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
+      <mat-hint>MM/DD/JJJJ</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
   </section>
-  <section>
-    <h1 class="text-xl font-extrabold">Selecteer eindtijd:</h1>
-    <div class="ngx-timepicker-field-example">
-      <ngx-timepicker-field [format]="24" [defaultTime]="currentTime" [(ngModel)]="endTime"></ngx-timepicker-field>
-    </div>
+  <section class="flex w-full space-x-10">
+    <section class="flex flex-col space-y-2 w-1/2">
+      <h1 class="text-xl font-semibold">Selecteer een starttijd:</h1>
+      <div class="ngx-timepicker-field-example">
+        <ngx-timepicker-field [format]="24" [defaultTime]="currentTime" [(ngModel)]="startTime"></ngx-timepicker-field>
+      </div>
+    </section>
+    <section class="flex flex-col space-y-2 w-1/2">
+      <h1 class="text-xl font-semibold">Selecteer een eindtijd:</h1>
+      <div class="ngx-timepicker-field-example space-x-2">
+        <ngx-timepicker-field [format]="24" [defaultTime]="currentTime" [(ngModel)]="endTime"></ngx-timepicker-field>
+      </div>
+    </section>
   </section>
+  
   <div class="w-full flex justify-center items-center space-x-4">
-    <button class="border-2 border-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-0.5 text-2xl text-primary-dark-purple" matStepperPrevious>Vorige</button>
-    <button class="bg-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-1 text-2xl text-white" matStepperNext
+    <button class="border-2 border-primary-dark-purple rounded-lg w-fit h-fit p-2 text-xl hover:bg-secondary-purple-light duration-300" matStepperPrevious>Vorige</button>
+    <button class="bg-primary-dark-purple rounded-lg w-fit h-fit p-2 text-xl text-white hover:bg-purple-950 duration-300" matStepperNext
     (click)="addReservationDateAndTime()">Volgende</button>
   </div>
 </section>
