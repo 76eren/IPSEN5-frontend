@@ -52,7 +52,6 @@ export class FavoritesComponent implements OnInit {
     }
 
     getFavoriteBuilding(): void {
-        // TODO!: Get the favorite building from the backend
         this.favoriteLocationService.getStandardLocation().subscribe(
             (response) => {
                 this.favoriteBuildingList = response.payload;

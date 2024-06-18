@@ -41,8 +41,7 @@ export class UserService {
                     return response.payload;
                 }),
                 catchError(error => {
-                    this.toastr.error('Failed to fetch users');
-                    console.error('Error fetching users:', error);
+
                     return [];
                 })
             );
