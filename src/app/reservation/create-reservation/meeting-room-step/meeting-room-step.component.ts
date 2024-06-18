@@ -66,15 +66,11 @@ export class MeetingRoomStepComponent{
       );
     }
   }
-  protected formatDate(date: Date): string {
-    return date.toISOString().slice(0,10);
-  }
-
-  protected formatTime(date: Date): string {
-    return date.toISOString().slice(11,19);
-  }
   protected formatDateTime(date: Date): string {
-    return this.formatDate(date) + 'T' + this.formatTime(date);
+    const timezoneOffset = date.getTimezoneOffset();
+    const offsetMillis = timezoneOffset * 60 * 1000;
+    const localDate = new Date(date.getTime() - offsetMillis);
+    return localDate.toISOString().slice(0,19);
   }
 
   protected addMeetingRoom(location: Location){
