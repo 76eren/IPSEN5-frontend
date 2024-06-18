@@ -12,6 +12,7 @@ import {ActivatedRoute, Params, RouterLink} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {ResetPasswordService} from '../../shared/service/requests/reset-password.service';
 import {CommonModule} from "@angular/common";
+import { LucideAngularModule } from 'lucide-angular';
 
 
 @Component({
@@ -21,7 +22,8 @@ import {CommonModule} from "@angular/common";
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    RouterLink
+    RouterLink,
+    LucideAngularModule,
   ],
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss']
@@ -29,6 +31,7 @@ import {CommonModule} from "@angular/common";
 export class ResetPasswordComponent implements OnInit {
   public resetForm: FormGroup;
   private _token: string = '';
+  public passwordVisible: boolean = false;
 
   constructor(private fb: FormBuilder,
               private route: ActivatedRoute,
@@ -39,7 +42,7 @@ export class ResetPasswordComponent implements OnInit {
       password: ['', [
         Validators.required,
         Validators.minLength(8),
-        Validators.pattern('(?=.*[0-9])(?=.*[A-Z]).{8,}')
+        Validators.pattern('^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*()\\-_=+\\\\|\\[{\\]};:\'",<.>/?]).{8,}$')
       ]],
       passwordRepeat: ['', Validators.required]
     }, {validators: this.passwordsMatchValidator});
@@ -49,6 +52,10 @@ export class ResetPasswordComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this._token = params['token'];
     });
+  }
+
+  public togglePassword(): void {
+    this.passwordVisible = !this.passwordVisible;
   }
 
   onSubmit(): void {
