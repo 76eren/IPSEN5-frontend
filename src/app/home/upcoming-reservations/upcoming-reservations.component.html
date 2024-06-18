@@ -1,7 +1,7 @@
 <article class="rounded-lg p-4 border-2 border-secondary-purple-light space-y-4 mb-5">
   <div class="flex justify-between items-center">
     <h2 class="text-xl font-semibold">Aankomende reserveringen</h2>
-    <button routerLink="/reservations" class="bg-primary-dark-purple text-white p-2 rounded-lg hover:bg-purple-950 duration-300" *ngIf="this.reservations.length > 0">Bekijk alles</button>
+    <button routerLink="/reservations" class="border-2 border-primary-dark-purple  p-2 rounded-lg hover:bg-secondary-purple-light duration-300" *ngIf="this.reservations.length > 0">Bekijk alles</button>
   </div>
   <div *ngIf="this.reservations.length == 0">
     <p>U heeft geen aankomende reserveringen.</p>

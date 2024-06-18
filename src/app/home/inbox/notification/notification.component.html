@@ -7,7 +7,7 @@
     <p class="text-sm">{{ notification.message }}</p>
     <div *ngIf="notification.type === 'request'" class="flex space-x-2 justify-end text-sm">
       <button class="bg-secondary-purple-light rounded-lg p-2 hover:bg-gray-300 duration-300" (click)="onRefuseRequest()">Afwijzen</button>
-      <button class="bg-primary-dark-purple rounded-lg p-2 text-white hover:bg-purple-950 duration-300" (click)="onAcceptRequest()">Accepteren</button>
+      <button class="border-2 border-primary-dark-purple rounded-lg p-2  hover:bg-secondary-purple-light duration-300" (click)="onAcceptRequest()">Accepteren</button>
     </div>
   </li>
 </div>

@@ -22,9 +22,8 @@
     <app-navbar-item path="/reports" icon="line-chart" label="Rapportage dashboard" [collapsed]="collapsed" *ngIf="isAdmin" class="hidden md:block"></app-navbar-item>
     <app-navbar-item path="/manage/locations" icon="door-open" label="Werkplekken beheren" [collapsed]="collapsed" *ngIf="isAdmin" class="hidden md:block"></app-navbar-item>
     <app-navbar-item path="/users" icon="user" label="Gebruikers" [collapsed]="collapsed" *ngIf="isAdmin" class="hidden md:block"></app-navbar-item>
-    <app-navbar-item class="mt-auto" path="" icon="circle-user-round" label="Profiel" [collapsed]="collapsed"></app-navbar-item>
-    <li class="whitespace-nowrap hidden md:flex md:space-x-4">
-      <a (click)="signout()" class="cursor-pointer">
+    <li class="mt-auto whitespace-nowrap hidden md:flex md:space-x-4">
+      <a (click)="signout()" class="cursor-pointer flex space-x-4">
         <lucide-icon name="Log-out" title="Log uit"></lucide-icon>
         <span *ngIf="!collapsed">Log uit</span>
       </a>
