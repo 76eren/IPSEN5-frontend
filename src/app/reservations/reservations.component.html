@@ -7,12 +7,12 @@
     </button>
   </section>
   <section class="md:border-2 md:border-secondary-purple-light md:p-4 md:rounded-lg">
-    <section class=" hidden md:flex pl-5 p-4 pt-0 w-full font-bold">
-      <p class="w-1/5">Datum</p>
-      <p class="w-1/5">Tijd</p>
-      <p class="w-1/5">Locatie</p>
+    <section class=" hidden md:flex pl-5 p-4 pt-0 w-full font-bold justify-between">
+      <p class="w-1/6">Datum</p>
+      <p class="w-1/12">Tijd</p>
+      <p class="w-1/6">Locatie</p>
       <p class="w-1/5">Type</p>
-      <p class="w-1/5">Acties</p>
+      <p class="w-1/6">Acties</p>
     </section>
     <ul *ngIf="reservations.length > 0; else noReservations" class="h-[700px] md:h-[500px] overflow-auto">
       <li *ngFor="let reservation of reservations" class="pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2 border-secondary-purple-light w-full mb-2">
@@ -26,12 +26,13 @@
             <lucide-icon name="chevron-right"></lucide-icon>
           </button>
         </div>
-        <div class="hidden md:flex w-full bg-white rounded-md p-4 items-center">
-          <p class="w-1/5">{{reservation.startDateTime | date:'longDate' }}</p>
-          <p class="w-1/5">{{reservation.startDateTime | date:'shortTime'}}</p>
-          <p class="w-1/5">{{reservation.location.wing.floor.building.name}}</p>
-          <p class="w-1/5">{{reservation.location.type}}</p>
-          <div class="flex-col space-y-2 w-1/5">
+        <div class="hidden md:flex w-full bg-white rounded-md p-4 items-center justify-between">
+          <p class="w-1/6">{{reservation.startDateTime | date:'longDate' }}</p>
+          <p class="w-1/12">{{reservation.startDateTime | date:'shortTime'}}</p>
+          <p class="w-1/6">{{reservation.location.wing.floor.building.name}}</p>
+          <p class="w-1/5" *ngIf="reservation.location.type === 'WORKPLACE'">Flexplek</p>
+          <p class="w-1/5" *ngIf="reservation.location.type === 'ROOM'">Vergaderruimte</p>
+          <div class="flex-col space-y-2 w-1/6">
             <button [routerLink]="'/reservation/details/' + reservation.id" class="flex justify-center items-center bg-secondary-purple-light p-2 rounded-lg space-x-2 hover:bg-gray-300 duration-300 w-full">
               <p>Bekijk</p>
               <lucide-icon name="chevron-right"></lucide-icon>
