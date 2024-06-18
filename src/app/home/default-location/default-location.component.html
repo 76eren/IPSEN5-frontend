@@ -8,7 +8,7 @@
     <p>Verdieping: {{ defaultLocation.floor.number }}</p>
     <p>Vleugel: {{ defaultLocation.name }}</p>
   </div>
-  <div *ngIf="!defaultLocation" class="flex items-center justify-between">
+  <div *ngIf="!defaultLocation" class="flex flex-col space-y-2 md:space-y-0 md:flex-row md:items-center md:justify-between">
     <p>U heeft nog geen standaard locatie ingesteld.</p>
     <button [routerLink]="'/favorites'" class="border-2 border-primary-dark-purple p-2 rounded-lg hover:bg-secondary-purple-light duration-300">Stel standaard locatie in</button>
   </div>
