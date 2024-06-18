@@ -1,0 +1,299 @@
+{
+    "payload": [
+        {
+            "id": "3a3aa9a8-e8b0-42af-8b47-e2aebfd877ca",
+            "user": {
+                "id": "38883852-6987-479c-b11c-656e5bd93675",
+                "username": "e.koning@cgi.com",
+                "password": "$2a$10$jnWihsJ3k5C/jy0d1RTkWuTjtzTILxuk.0vx2u5gtf6dTB8kAu8Z6",
+                "lastName": "de Koning",
+                "firstName": "Eren",
+                "phoneNumber": "0612345678",
+                "role": "USER",
+                "favoriteCollegues": [],
+                "standardLocation": null,
+                "enabled": true,
+                "credentialsNonExpired": true,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "authorities": [
+                    {
+                        "authority": "USER"
+                    }
+                ]
+            },
+            "location": {
+                "id": "4edd9e3f-7d84-450f-904d-c34bf242b519",
+                "wing": {
+                    "id": "e1cb5262-7c21-4428-a38d-8f1f4de82f3b",
+                    "floor": {
+                        "id": "10dab1b8-a440-4234-ae21-423cffd41674",
+                        "building": {
+                            "id": "6bc4f58d-f1b7-4170-ad0c-64b28e0d028d",
+                            "name": "Amsterdam",
+                            "address": "De Entree 21 1101 BH"
+                        },
+                        "number": "0"
+                    },
+                    "name": "A"
+                },
+                "name": "0.A1",
+                "type": "WORKPLACE",
+                "capacity": 1,
+                "multireservable": true,
+                "createdAt": "2024-06-13T10:38:56.919275"
+            },
+            "status": "NOT_CHECKED_IN",
+            "startDateTime": "2024-06-22T10:38:57.478541",
+            "endDateTime": "2024-06-21T12:38:57.478595",
+            "numberOfPeople": 2,
+            "createdAt": "2024-06-13T10:38:57.50577"
+        },
+        {
+            "id": "a855d242-a99e-40c2-a73f-054566c0297f",
+            "user": {
+                "id": "38883852-6987-479c-b11c-656e5bd93675",
+                "username": "e.koning@cgi.com",
+                "password": "$2a$10$jnWihsJ3k5C/jy0d1RTkWuTjtzTILxuk.0vx2u5gtf6dTB8kAu8Z6",
+                "lastName": "de Koning",
+                "firstName": "Eren",
+                "phoneNumber": "0612345678",
+                "role": "USER",
+                "favoriteCollegues": [],
+                "standardLocation": null,
+                "enabled": true,
+                "credentialsNonExpired": true,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "authorities": [
+                    {
+                        "authority": "USER"
+                    }
+                ]
+            },
+            "location": {
+                "id": "4edd9e3f-7d84-450f-904d-c34bf242b519",
+                "wing": {
+                    "id": "e1cb5262-7c21-4428-a38d-8f1f4de82f3b",
+                    "floor": {
+                        "id": "10dab1b8-a440-4234-ae21-423cffd41674",
+                        "building": {
+                            "id": "6bc4f58d-f1b7-4170-ad0c-64b28e0d028d",
+                            "name": "Amsterdam",
+                            "address": "De Entree 21 1101 BH"
+                        },
+                        "number": "0"
+                    },
+                    "name": "A"
+                },
+                "name": "0.A1",
+                "type": "WORKPLACE",
+                "capacity": 1,
+                "multireservable": true,
+                "createdAt": "2024-06-13T10:38:56.919275"
+            },
+            "status": "NOT_CHECKED_IN",
+            "startDateTime": "2024-06-22T10:38:57.506142",
+            "endDateTime": "2024-06-19T12:38:57.506147",
+            "numberOfPeople": 2,
+            "createdAt": "2024-06-13T10:38:57.509699"
+        },
+        {
+            "id": "a1ae6ff3-66ee-476e-9ad1-bbe0dc48f319",
+            "user": {
+                "id": "38883852-6987-479c-b11c-656e5bd93675",
+                "username": "e.koning@cgi.com",
+                "password": "$2a$10$jnWihsJ3k5C/jy0d1RTkWuTjtzTILxuk.0vx2u5gtf6dTB8kAu8Z6",
+                "lastName": "de Koning",
+                "firstName": "Eren",
+                "phoneNumber": "0612345678",
+                "role": "USER",
+                "favoriteCollegues": [],
+                "standardLocation": null,
+                "enabled": true,
+                "credentialsNonExpired": true,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "authorities": [
+                    {
+                        "authority": "USER"
+                    }
+                ]
+            },
+            "location": {
+                "id": "4edd9e3f-7d84-450f-904d-c34bf242b519",
+                "wing": {
+                    "id": "e1cb5262-7c21-4428-a38d-8f1f4de82f3b",
+                    "floor": {
+                        "id": "10dab1b8-a440-4234-ae21-423cffd41674",
+                        "building": {
+                            "id": "6bc4f58d-f1b7-4170-ad0c-64b28e0d028d",
+                            "name": "Amsterdam",
+                            "address": "De Entree 21 1101 BH"
+                        },
+                        "number": "0"
+                    },
+                    "name": "A"
+                },
+                "name": "0.A1",
+                "type": "WORKPLACE",
+                "capacity": 1,
+                "multireservable": true,
+                "createdAt": "2024-06-13T10:38:56.919275"
+            },
+            "status": "NOT_CHECKED_IN",
+            "startDateTime": "2024-06-22T10:38:57.509757",
+            "endDateTime": "2024-06-18T12:38:57.50976",
+            "numberOfPeople": 2,
+            "createdAt": "2024-06-13T10:38:57.5129"
+        },
+        {
+            "id": "f2553827-b11f-4219-ba9d-4f81dfa8eebf",
+            "user": {
+                "id": "38883852-6987-479c-b11c-656e5bd93675",
+                "username": "e.koning@cgi.com",
+                "password": "$2a$10$jnWihsJ3k5C/jy0d1RTkWuTjtzTILxuk.0vx2u5gtf6dTB8kAu8Z6",
+                "lastName": "de Koning",
+                "firstName": "Eren",
+                "phoneNumber": "0612345678",
+                "role": "USER",
+                "favoriteCollegues": [],
+                "standardLocation": null,
+                "enabled": true,
+                "credentialsNonExpired": true,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "authorities": [
+                    {
+                        "authority": "USER"
+                    }
+                ]
+            },
+            "location": {
+                "id": "4edd9e3f-7d84-450f-904d-c34bf242b519",
+                "wing": {
+                    "id": "e1cb5262-7c21-4428-a38d-8f1f4de82f3b",
+                    "floor": {
+                        "id": "10dab1b8-a440-4234-ae21-423cffd41674",
+                        "building": {
+                            "id": "6bc4f58d-f1b7-4170-ad0c-64b28e0d028d",
+                            "name": "Amsterdam",
+                            "address": "De Entree 21 1101 BH"
+                        },
+                        "number": "0"
+                    },
+                    "name": "A"
+                },
+                "name": "0.A1",
+                "type": "WORKPLACE",
+                "capacity": 1,
+                "multireservable": true,
+                "createdAt": "2024-06-13T10:38:56.919275"
+            },
+            "status": "NOT_CHECKED_IN",
+            "startDateTime": "2024-06-19T10:38:57.512951",
+            "endDateTime": "2024-06-18T12:38:57.512955",
+            "numberOfPeople": 2,
+            "createdAt": "2024-06-13T10:38:57.516097"
+        },
+        {
+            "id": "0007cda9-4fdd-42ad-9e0a-0b6eb0e96847",
+            "user": {
+                "id": "38883852-6987-479c-b11c-656e5bd93675",
+                "username": "e.koning@cgi.com",
+                "password": "$2a$10$jnWihsJ3k5C/jy0d1RTkWuTjtzTILxuk.0vx2u5gtf6dTB8kAu8Z6",
+                "lastName": "de Koning",
+                "firstName": "Eren",
+                "phoneNumber": "0612345678",
+                "role": "USER",
+                "favoriteCollegues": [],
+                "standardLocation": null,
+                "enabled": true,
+                "credentialsNonExpired": true,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "authorities": [
+                    {
+                        "authority": "USER"
+                    }
+                ]
+            },
+            "location": {
+                "id": "4edd9e3f-7d84-450f-904d-c34bf242b519",
+                "wing": {
+                    "id": "e1cb5262-7c21-4428-a38d-8f1f4de82f3b",
+                    "floor": {
+                        "id": "10dab1b8-a440-4234-ae21-423cffd41674",
+                        "building": {
+                            "id": "6bc4f58d-f1b7-4170-ad0c-64b28e0d028d",
+                            "name": "Amsterdam",
+                            "address": "De Entree 21 1101 BH"
+                        },
+                        "number": "0"
+                    },
+                    "name": "A"
+                },
+                "name": "0.A1",
+                "type": "WORKPLACE",
+                "capacity": 1,
+                "multireservable": true,
+                "createdAt": "2024-06-13T10:38:56.919275"
+            },
+            "status": "NOT_CHECKED_IN",
+            "startDateTime": "2024-06-18T10:38:57.516144",
+            "endDateTime": "2024-06-20T12:38:57.516148",
+            "numberOfPeople": 2,
+            "createdAt": "2024-06-13T10:38:57.519116"
+        },
+        {
+            "id": "e4e2a0cf-6980-4c92-919f-291e09cef416",
+            "user": {
+                "id": "38883852-6987-479c-b11c-656e5bd93675",
+                "username": "e.koning@cgi.com",
+                "password": "$2a$10$jnWihsJ3k5C/jy0d1RTkWuTjtzTILxuk.0vx2u5gtf6dTB8kAu8Z6",
+                "lastName": "de Koning",
+                "firstName": "Eren",
+                "phoneNumber": "0612345678",
+                "role": "USER",
+                "favoriteCollegues": [],
+                "standardLocation": null,
+                "enabled": true,
+                "credentialsNonExpired": true,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "authorities": [
+                    {
+                        "authority": "USER"
+                    }
+                ]
+            },
+            "location": {
+                "id": "4edd9e3f-7d84-450f-904d-c34bf242b519",
+                "wing": {
+                    "id": "e1cb5262-7c21-4428-a38d-8f1f4de82f3b",
+                    "floor": {
+                        "id": "10dab1b8-a440-4234-ae21-423cffd41674",
+                        "building": {
+                            "id": "6bc4f58d-f1b7-4170-ad0c-64b28e0d028d",
+                            "name": "Amsterdam",
+                            "address": "De Entree 21 1101 BH"
+                        },
+                        "number": "0"
+                    },
+                    "name": "A"
+                },
+                "name": "0.A1",
+                "type": "WORKPLACE",
+                "capacity": 1,
+                "multireservable": true,
+                "createdAt": "2024-06-13T10:38:56.919275"
+            },
+            "status": "NOT_CHECKED_IN",
+            "startDateTime": "2024-06-08T10:38:57.519161",
+            "endDateTime": "2024-06-07T12:38:57.519172",
+            "numberOfPeople": 2,
+            "createdAt": "2024-06-13T10:38:57.521618"
+        }
+    ],
+    "message": null
+}
