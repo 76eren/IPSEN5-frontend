@@ -7,6 +7,7 @@ import {ToastrService} from "ngx-toastr";
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
+import { locationTypeTranslations } from '../shared/model/location.model';
 
 @Component({
   selector: 'app-reservations',
@@ -24,6 +25,7 @@ import { LucideAngularModule } from 'lucide-angular';
 export class ReservationsComponent implements OnInit{
   protected isDeleteModalVisible: boolean = false;
   protected reservations: Reservation[] = [];
+  public locationTypeTranslation = locationTypeTranslations;
 
   constructor(private reservationService: ReservationService,
               private toastr: ToastrService){

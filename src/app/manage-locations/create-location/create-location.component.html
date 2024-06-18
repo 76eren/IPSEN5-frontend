@@ -15,7 +15,7 @@
       <div class="relative w-[150px]">
         <select name="locationType" id="locationType"
         formControlName="locationType" class="border-2 border-secondary-purple-light rounded-lg p-2 appearance-none w-full">
-          <option *ngFor="let type of locationTypes" [ngValue]="type">{{ type }}</option>
+          <option *ngFor="let type of locationTypes" [ngValue]="type">{{ locationTypeTranslation[type] }}</option>
         </select>
         <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
           <lucide-icon name="chevron-down"></lucide-icon>

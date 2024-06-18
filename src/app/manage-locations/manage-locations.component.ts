@@ -3,7 +3,7 @@ import { LocationComponent } from "./location/location.component";
 import { LocationService } from '../shared/service/location.service';
 import { ApiResponse } from '../shared/service/api.service';
 import { CommonModule } from '@angular/common';
-import { Location } from '../shared/model/location.model';
+import { Location, LocationType, locationTypeTranslations } from '../shared/model/location.model';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Building } from '../shared/model/building.model';
 import { LucideAngularModule } from 'lucide-angular';
@@ -50,9 +50,14 @@ export class ManageLocationsComponent implements OnInit {
     public filteredLocations(): Location[] {
         return this.locations.filter(location => 
             location.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-            location.type.toLowerCase().includes(this.searchQuery.toLocaleLowerCase())
+            this.getTranslatedType(location.type).toLowerCase().includes(this.searchQuery.toLowerCase())
         );
     }
+
+    getTranslatedType(type: LocationType): string {
+        return locationTypeTranslations[type] || type;
+    }
+    
 
     public onChangeFilter(): void {
         this.getLocationsByBuilding();

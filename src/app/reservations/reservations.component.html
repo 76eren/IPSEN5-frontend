@@ -30,14 +30,13 @@
           <p class="w-1/6">{{reservation.startDateTime | date:'longDate' }}</p>
           <p class="w-1/12">{{reservation.startDateTime | date:'shortTime'}}</p>
           <p class="w-1/6">{{reservation.location.wing.floor.building.name}}</p>
-          <p class="w-1/5" *ngIf="reservation.location.type === 'WORKPLACE'">Flexplek</p>
-          <p class="w-1/5" *ngIf="reservation.location.type === 'ROOM'">Vergaderruimte</p>
+          <p class="w-1/5">{{ locationTypeTranslation[reservation.location.type] }}</p>
           <div class="flex-col space-y-2 w-1/6">
             <button [routerLink]="'/reservation/details/' + reservation.id" class="flex justify-center items-center bg-secondary-purple-light p-2 rounded-lg space-x-2 hover:bg-gray-300 duration-300 w-full">
               <p>Bekijk</p>
               <lucide-icon name="chevron-right"></lucide-icon>
             </button>
-            <button (click)="openDeleteModal()" class="p-2 w-full rounded-lg bg-primary-red bg-opacity-80 text-white hover:bg-red-700">Annuleer</button>
+            <button (click)="openDeleteModal()" class="p-2 w-full rounded-lg bg-primary-red bg-opacity-80 text-white hover:bg-red-700 duration-300">Annuleer</button>
           </div>
         </div>
       </li>

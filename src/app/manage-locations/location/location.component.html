@@ -1,7 +1,7 @@
 <li class="pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2 border-secondary-purple-light w-full mb-2">
   <div *ngIf="!location.isEdit; else edit" class="flex w-full justify-between bg-white rounded-md p-4">
     <p class="min-w-[150px]">{{ location.name }}</p>
-    <p class="min-w-[150px]">{{ location.type }}</p>
+    <p class="min-w-[150px]">{{ locationTypeTranslation[location.type] }}</p>
     <p class="min-w-[150px]">{{ location.wing.floor.building.name }}</p>
     <p class="min-w-[150px]">{{ location.wing.floor.number }}.{{ location.wing.name }}</p>
     <p class="min-w-[150px]">{{ location.capacity }}</p>
@@ -24,7 +24,7 @@
         <select name="locationType" id="locationType"
         formControlName="locationType" class=" appearance-none p-2 rounded-lg border-2 w-full"
         [ngClass]="locationForm.get('locationType')?.invalid ? 'border-primary-red' : 'border-secondary-purple-light'">
-          <option *ngFor="let type of locationTypes" [ngValue]="type">{{ type }}</option>
+          <option *ngFor="let type of locationTypes" [ngValue]="type">{{ locationTypeTranslation[type] }}</option>
         </select>
         <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
           <lucide-icon name="chevron-down"></lucide-icon>

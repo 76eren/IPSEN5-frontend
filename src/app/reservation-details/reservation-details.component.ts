@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Reservation } from '../shared/model/reservation.model';
 import { ActivatedRoute, Params, RouterModule } from '@angular/router';
 import { ReservationService } from '../shared/service/reservation.service';
+import { locationTypeTranslations } from '../shared/model/location.model';
 
 @Component({
   selector: 'app-reservation-details',
@@ -14,6 +15,7 @@ import { ReservationService } from '../shared/service/reservation.service';
 export class ReservationDetailsComponent implements OnInit {
   reservation!: Reservation;
   id!: string;
+  public locationTypeTranslation = locationTypeTranslations;
 
   constructor(
     private route: ActivatedRoute,
