@@ -36,7 +36,11 @@ export class ResetPasswordComponent implements OnInit {
               private toastr: ToastrService) {
     this.resetForm = this.fb.group({
       username: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern('(?=.*[0-9])(?=.*[A-Z]).{8,}')
+      ]],
       passwordRepeat: ['', Validators.required]
     }, {validators: this.passwordsMatchValidator});
   }
