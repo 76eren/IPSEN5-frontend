@@ -31,14 +31,14 @@
   </section>
   <app-create-location *ngIf="isCreateMode" [buildings]="buildings" (exitCreateMode)="onChangeCreateMode()" (location)="onCreateLocation($event)"></app-create-location>
   <section class="border-2 border-secondary-purple-light p-4 rounded-lg">
-    <section class="flex pl-5 pb-4 justify-between w-full font-bold">
-      <p class="min-w-[150px]">Naam</p>
-      <p class="min-w-[150px]">Type</p>
-      <p class="min-w-[150px]">Gebouw</p>
-      <p class="min-w-[150px]">Vleugel</p>
-      <p class="min-w-[150px]">Capaciteit</p>
-      <p class="min-w-[150px]">Gemaakt op</p>
-      <p class="min-w-[100px]"></p>
+    <section class="flex pl-5 p-8 pb-4 pt-0 justify-between w-full font-bold">
+      <p class="w-1/6">Naam</p>
+      <p class="w-1/6">Type</p>
+      <p class="w-1/6">Gebouw</p>
+      <p class="w-1/12">Vleugel</p>
+      <p class="w-1/12">Capaciteit</p>
+      <p class="w-1/6">Gemaakt op</p>
+      <p class="w-1/12">Acties</p>
     </section>
     <ul *ngIf="filteredLocations().length > 0; else noLocations" class="h-[450px] overflow-auto">
       <app-location *ngFor="let location of filteredLocations()" [location]="location" (deletedLocation)="onDeleteLocation($event)"></app-location>

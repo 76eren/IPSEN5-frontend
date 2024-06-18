@@ -1,12 +1,12 @@
 <li class="pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2 border-secondary-purple-light w-full mb-2">
-  <div *ngIf="!location.isEdit; else edit" class="flex w-full justify-between bg-white rounded-md p-4">
-    <p class="min-w-[150px]">{{ location.name }}</p>
-    <p class="min-w-[150px]">{{ locationTypeTranslation[location.type] }}</p>
-    <p class="min-w-[150px]">{{ location.wing.floor.building.name }}</p>
-    <p class="min-w-[150px]">{{ location.wing.floor.number }}.{{ location.wing.name }}</p>
-    <p class="min-w-[150px]">{{ location.capacity }}</p>
-    <p class="min-w-[150px]">{{ location.createdAt | date:'shortDate' }}</p>
-    <div class="flex space-x-5 ">
+  <div *ngIf="!location.isEdit; else edit" class="flex w-full justify-between bg-white rounded-md p-4 items-center">
+    <p class="w-1/6">{{ location.name }}</p>
+    <p class="w-1/6">{{ locationTypeTranslation[location.type] }}</p>
+    <p class="w-1/6">{{ location.wing.floor.building.name }}</p>
+    <p class="w-1/12">{{ location.wing.floor.number }}.{{ location.wing.name }}</p>
+    <p class="w-1/12">{{ location.capacity }}</p>
+    <p class="w-1/6">{{ location.createdAt | date:'shortDate' }}</p>
+    <div class="flex space-x-5 w-1/12 ">
       <button (click)="location.isEdit = true">
         <lucide-icon name="pencil" title="bewerken"></lucide-icon>
       </button>
@@ -18,9 +18,9 @@
 
   <ng-template #edit>
     <form [formGroup]="locationForm" (ngSubmit)="onSubmitForm()" class="flex w-full justify-between bg-white rounded-md p-4">
-      <input type="text" id="locationName" formControlName="locationName" class="w-[150px] p-2 rounded-lg border-2 "
+      <input type="text" id="locationName" formControlName="locationName" class="w-1/6 p-2 rounded-lg border-2 "
       [ngClass]="locationForm.get('locationName')?.invalid ? 'border-primary-red' : 'border-secondary-purple-light'">
-      <div class="relative w-[150px]">
+      <div class="relative w-1/6">
         <select name="locationType" id="locationType"
         formControlName="locationType" class=" appearance-none p-2 rounded-lg border-2 w-full"
         [ngClass]="locationForm.get('locationType')?.invalid ? 'border-primary-red' : 'border-secondary-purple-light'">
@@ -30,8 +30,8 @@
           <lucide-icon name="chevron-down"></lucide-icon>
         </div>
       </div>
-      <p class="w-[150px] p-2">{{ location.wing.floor.building.name }}</p>
-      <div class="relative w-[150px]">
+      <p class="w-1/6 p-2">{{ location.wing.floor.building.name }}</p>
+      <div class="relative w-1/12">
         <select name="wing" id="wing" formControlName="wing" class="w-full p-2 rounded-lg border-2 appearance-none" 
         [ngClass]="locationForm.get('wing')?.invalid ? 'border-primary-red' : 'border-secondary-purple-light'">
           <option disabled selected [ngValue]="location.wing">{{ location.wing.floor.number }}.{{ location.wing.name }}</option>
@@ -41,10 +41,10 @@
           <lucide-icon name="chevron-down"></lucide-icon>
         </div>
       </div>
-      <input type="number" min="1" id="capacity" formControlName="capacity" class="w-[150px] p-2 rounded-lg border-2"
+      <input type="number" min="1" id="capacity" formControlName="capacity" class="w-1/12 p-2 rounded-lg border-2"
       [ngClass]="locationForm.get('capacity')?.invalid ? 'border-primary-red' : 'border-secondary-purple-light'">
-      <p class="w-[150px] p-2">{{ location.createdAt | date:'shortDate' }}</p>
-      <div class="flex space-x-5 ">
+      <p class="w-1/6 p-2">{{ location.createdAt | date:'shortDate' }}</p>
+      <div class="flex space-x-5 w-1/12">
         <button type="submit" id="save">
           <lucide-icon name="save" title="Opslaan"></lucide-icon>
         </button>
