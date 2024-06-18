@@ -81,7 +81,7 @@ describe('reserve-workplace', () => {
         cy.get('h1').contains('Reservering Type:').within(() => {
           cy.get('strong').should('contain', 'VERGADERRUIMTE');
         });
-        cy.intercept('POST', '/api/v1/reservations/reserve-workplace', { fixture: 'save-reservation-success.fixture.json' }).as('saveReservation');
+        cy.intercept('POST', '/api/v1/reservations/reserve-room', { fixture: 'save-reservation-success.fixture.json' }).as('saveReservation');
 
         cy.get('button').contains('Bevestig').click({force: true});
         cy.wait('@saveReservation');
