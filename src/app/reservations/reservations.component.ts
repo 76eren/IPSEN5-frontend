@@ -9,6 +9,7 @@ import {ActivatedRoute, RouterModule} from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
 import { locationTypeTranslations } from '../shared/model/location.model';
 import {Subscription} from "rxjs";
+import {AuthService} from "../shared/service/auth.service";
 
 @Component({
   selector: 'app-reservations',
@@ -28,24 +29,39 @@ export class ReservationsComponent implements OnInit{
   protected reservations: Reservation[] = [];
   public locationTypeTranslation = locationTypeTranslations;
   public isCheckingOwnReservations: boolean = true;
+  private id?: string;
 
   constructor(
       private reservationService: ReservationService,
       private toastr: ToastrService,
       private route: ActivatedRoute,
+      private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+      this.id = params['id'];
+
       if (params['id'] == null || params['id'] == undefined) {
         this.getOwnReservations();
+        this.isCheckingOwnReservations = true;
 
       }
       else {
-        this.isCheckingOwnReservations = false;
         this.getReservationsFromOther(params['id']);
+        this.checkIfUserIsCheckingOwnReservation();
       }
+
     });
+
+  }
+
+  checkIfUserIsCheckingOwnReservation() {
+    this.authService.isIdOfLoggedInUser(this.id!).subscribe(
+      (isOwnId) => {
+        this.isCheckingOwnReservations = isOwnId;
+      }
+    )
   }
 
   getReservationsFromOther(id: string) {

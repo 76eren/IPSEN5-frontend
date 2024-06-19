@@ -11,6 +11,21 @@ import { User } from "../model/user.model";
 export class AuthService {
   constructor(private toastr: ToastrService, private router: Router, private http: HttpClient, private apiService: ApiService) {}
 
+  public isIdOfLoggedInUser(id: string): Observable<boolean> {
+    let endpoint = '/auth/checkId/' + id;
+
+    return this.apiService.get<any>(endpoint)
+      .pipe(map(response => {
+        if (response.payload && response.payload.idOfSelf) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      }));
+  }
+
+
   public isAuthenticated(): Observable<boolean> {
     let endpoint = '/auth/authenticated';
 
@@ -49,16 +64,6 @@ export class AuthService {
       );
   }
 
-
-  public getToken(): string {
-    return "";
-  }
-
-  public validateToken(): void {
-    // Implement this after the API is ready to handle this
-  }
-
-
   public signout(): void {
     this.apiService.post<any>('/auth/logout')
       .subscribe({
@@ -72,8 +77,6 @@ export class AuthService {
       });
   }
 
-  public getId(): string {
-    return "";
-  }
+
 
 }
