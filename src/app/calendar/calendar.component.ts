@@ -201,7 +201,7 @@ export class CalendarComponent implements OnInit {
 
         this.calendarOptions.set({
           ...this.calendarOptions(),
-          eventSources: this.events
+          events: this.events
         });
       },
       (error) => {
