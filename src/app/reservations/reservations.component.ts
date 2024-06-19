@@ -5,9 +5,10 @@ import {Reservation} from "../shared/model/reservation.model";
 import {ReservationService} from "../shared/service/reservation.service";
 import {ToastrService} from "ngx-toastr";
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import {ActivatedRoute, RouterModule} from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
 import { locationTypeTranslations } from '../shared/model/location.model';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-reservations',
@@ -26,12 +27,40 @@ export class ReservationsComponent implements OnInit{
   protected isDeleteModalVisible: boolean = false;
   protected reservations: Reservation[] = [];
   public locationTypeTranslation = locationTypeTranslations;
+  public isCheckingOwnReservations: boolean = true;
 
-  constructor(private reservationService: ReservationService,
-              private toastr: ToastrService){
-  }
+  constructor(
+      private reservationService: ReservationService,
+      private toastr: ToastrService,
+      private route: ActivatedRoute,
+  ) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      if (params['id'] == null || params['id'] == undefined) {
+        this.getOwnReservations();
+
+      }
+      else {
+        this.isCheckingOwnReservations = false;
+        this.getReservationsFromOther(params['id']);
+      }
+    });
+  }
+
+  getReservationsFromOther(id: string) {
+    this.reservationService.getReservationsByUserId(id).subscribe(
+      (reservations) => {
+        this.reservations = reservations;
+      },
+      (error) => {
+        this.toastr
+          .error("Probeer het later nog een keer", "Fout bij ophalen van reserveringen van collega")
+      }
+    );
+  }
+
+  getOwnReservations(): void {
     this.reservationService.getAllReservations2().subscribe(
       data => {
         this.reservations = data.payload;
