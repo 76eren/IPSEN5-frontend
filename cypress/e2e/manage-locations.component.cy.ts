@@ -31,7 +31,7 @@ describe('manage-locations', () => {
 
       cy.get('#createLocation').click();
       cy.get('#locationName').type('testLocation');
-      cy.get('#locationType').select('ROOM');
+      cy.get('#locationType').select('Vergaderruimte');
       cy.get('#building').select('Amsterdam');
       cy.get('#wing').select('0.A');
       cy.get('#capacity').type('4');
@@ -46,7 +46,7 @@ describe('manage-locations', () => {
 
       cy.get('#editLocation').click();
       cy.get('#locationName').clear().type('testLocation');
-      cy.get('#locationType').select('ROOM');
+      cy.get('#locationType').select('Vergaderruimte');
       cy.get('#wing').select('0.B');
       cy.get('#capacity').clear().type('4');
       cy.get('#save').click();
@@ -116,7 +116,7 @@ describe('manage-locations', () => {
 
       cy.get('#createLocation').click();
       cy.get('#locationName').type('testLocation');
-      cy.get('#locationType').select('ROOM');
+      cy.get('#locationType').select('Vergaderruimte');
       cy.get('#building').select('Amsterdam');
       cy.get('#wing').select('0.A');
       cy.get('#capacity').type('4');
@@ -131,7 +131,7 @@ describe('manage-locations', () => {
 
       cy.get('#editLocation').click();
       cy.get('#locationName').clear().type('testLocation');
-      cy.get('#locationType').select('ROOM');
+      cy.get('#locationType').select('Vergaderruimte');
       cy.get('#wing').select('0.B');
       cy.get('#capacity').clear().type('4');
       cy.get('#save').click();
@@ -152,7 +152,7 @@ describe('manage-locations', () => {
 
     it('should show error when not all formfields are filled in createmode', () => {
       cy.get('#createLocation').click();
-      cy.get('#locationType').select('ROOM');
+      cy.get('#locationType').select('Vergaderruimte');
       cy.get('#building').select('Amsterdam');
       cy.get('#wing').select('0.A');
       cy.get('#capacity').type('4');
@@ -165,7 +165,7 @@ describe('manage-locations', () => {
     it('should show error when not all formfields are filled in editmode', () => {
       cy.get('#editLocation').click();
       cy.get('#locationName').clear();
-      cy.get('#locationType').select('ROOM');
+      cy.get('#locationType').select('Vergaderruimte');
       cy.get('#wing').select('0.B');
       cy.get('#capacity').clear().type('4');
       cy.get('#save').click();

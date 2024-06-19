@@ -41,16 +41,16 @@ describe('reserve-workplace', () => {
         cy.get('button').contains('Volgende').click({force: true});
 
         // Step 4: Select date and time
-        cy.get('mat-form-field').contains('Selecteer datum');
+        cy.get('mat-form-field').contains('Selecteer een datum');
         cy.get('input[matInput]').type('07/01/2024', { force: true });
 
-        cy.get('h1').contains('Selecteer starttijd:').should('be.visible');
+        cy.get('h1').contains('Starttijd:').should('be.visible');
         cy.get('ngx-timepicker-field').first().within(() => {
           cy.get('input').first().clear().type('09', { force: true });
           cy.get('input').last().clear().type('00', { force: true });
         });
 
-        cy.get('h1').contains('Selecteer eindtijd:').should('be.visible');
+        cy.get('h1').contains('Eindtijd:').should('be.visible');
         cy.get('ngx-timepicker-field').last().within(() => {
           cy.get('input').first().clear().type('10', { force: true });
           cy.get('input').last().clear().type('00', { force: true });
@@ -70,14 +70,14 @@ describe('reserve-workplace', () => {
         cy.get('h1').contains('Vleugel:').within(() => {
           cy.get('strong').should('contain', 'A');
         });
-        cy.get('h1').contains('Start Datum en Tijd:').within(() => {
+        cy.get('h1').contains('Startdatum en -tijd:').within(() => {
           cy.get('strong').should('contain', '1/7/2024, 9:00');
         });
-        cy.get('h1').contains('Eind Datum en Tijd:').within(() => {
+        cy.get('h1').contains('Einddatum en -tijd:').within(() => {
           cy.get('strong').should('contain', '1/7/2024, 10:00');
         });
-        cy.get('h1').contains('Reservering Type:').within(() => {
-          cy.get('strong').should('contain', 'FLEXPLEK');
+        cy.get('h1').contains('Reserveringstype:').within(() => {
+          cy.get('strong').should('contain', 'flexplek');
         });
         cy.intercept('POST', '/api/v1/reservations/reserve-workplace', { fixture: 'save-reservation-success.fixture.json' }).as('saveReservation');
 
