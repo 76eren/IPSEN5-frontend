@@ -1,0 +1,1060 @@
+{
+  "payload": [
+    {
+      "id": "6966879f-73ac-4f0a-85bf-b2b1eda20f91",
+      "wing": {
+        "id": "72949fa1-13dd-42e9-9f82-05ca47f29b13",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "A"
+      },
+      "name": "0.A9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.58992",
+      "deleted": false
+    },
+    {
+      "id": "daafeab8-3f31-484e-91a6-4cced99ee976",
+      "wing": {
+        "id": "72949fa1-13dd-42e9-9f82-05ca47f29b13",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "A"
+      },
+      "name": "0.A10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.590589",
+      "deleted": false
+    },
+    {
+      "id": "01a8d3c5-b24a-4135-8216-388c1c4df9b0",
+      "wing": {
+        "id": "72949fa1-13dd-42e9-9f82-05ca47f29b13",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "A"
+      },
+      "name": "0.A11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.591254",
+      "deleted": false
+    },
+    {
+      "id": "8f04aff9-8a1d-4693-ad08-c19852cce910",
+      "wing": {
+        "id": "400bc32b-4caf-42b1-8dcf-783161776c72",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "B"
+      },
+      "name": "0.B9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.595679",
+      "deleted": false
+    },
+    {
+      "id": "ef547904-5f79-435f-81f9-3fa374b37603",
+      "wing": {
+        "id": "400bc32b-4caf-42b1-8dcf-783161776c72",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "B"
+      },
+      "name": "0.B10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.596296",
+      "deleted": false
+    },
+    {
+      "id": "24bbe078-35a6-4a53-a473-7f96bfd74793",
+      "wing": {
+        "id": "400bc32b-4caf-42b1-8dcf-783161776c72",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "B"
+      },
+      "name": "0.B11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.596796",
+      "deleted": false
+    },
+    {
+      "id": "4229a99a-8d5d-4999-be1a-645fb4b74ee1",
+      "wing": {
+        "id": "7c9e8a7f-a5a3-49d7-a5b4-4ba57402ead7",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "C"
+      },
+      "name": "0.C9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.602327",
+      "deleted": false
+    },
+    {
+      "id": "79a5dc5a-dab9-4ddd-a779-ed20cf1e24cb",
+      "wing": {
+        "id": "7c9e8a7f-a5a3-49d7-a5b4-4ba57402ead7",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "C"
+      },
+      "name": "0.C10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.602908",
+      "deleted": false
+    },
+    {
+      "id": "6b7590c4-1b37-43c8-b397-4cc083ec7122",
+      "wing": {
+        "id": "7c9e8a7f-a5a3-49d7-a5b4-4ba57402ead7",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "C"
+      },
+      "name": "0.C11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.603677",
+      "deleted": false
+    },
+    {
+      "id": "13a7be5c-149a-4048-b6f5-f95e0d231112",
+      "wing": {
+        "id": "7f89ac0e-bd40-4516-83a7-192548fc77fd",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "D"
+      },
+      "name": "0.D9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.610443",
+      "deleted": false
+    },
+    {
+      "id": "62d634fb-14f1-4f78-9750-60ad59280c3b",
+      "wing": {
+        "id": "7f89ac0e-bd40-4516-83a7-192548fc77fd",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "D"
+      },
+      "name": "0.D10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.611139",
+      "deleted": false
+    },
+    {
+      "id": "49f3e776-6056-44be-831d-af7333c5917b",
+      "wing": {
+        "id": "7f89ac0e-bd40-4516-83a7-192548fc77fd",
+        "floor": {
+          "id": "a1a6acb8-797f-4547-8b0c-feae164d3590",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "0"
+        },
+        "name": "D"
+      },
+      "name": "0.D11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.611653",
+      "deleted": false
+    },
+    {
+      "id": "b4bbc48e-c638-42b2-87f4-87e72ee5e4c0",
+      "wing": {
+        "id": "c59fc501-c829-4437-92ee-6371d529e633",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "A"
+      },
+      "name": "1.A9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.616924",
+      "deleted": false
+    },
+    {
+      "id": "d4099379-9895-4c80-b394-cfd56ca396e4",
+      "wing": {
+        "id": "c59fc501-c829-4437-92ee-6371d529e633",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "A"
+      },
+      "name": "1.A10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.617444",
+      "deleted": false
+    },
+    {
+      "id": "6063e12c-cb1f-4e17-871f-56db915b6846",
+      "wing": {
+        "id": "c59fc501-c829-4437-92ee-6371d529e633",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "A"
+      },
+      "name": "1.A11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.618079",
+      "deleted": false
+    },
+    {
+      "id": "47e8f576-117d-4c46-b667-45c6c0ad79a0",
+      "wing": {
+        "id": "7d7545d2-ba51-4eb2-ac53-c5f32cbee106",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "B"
+      },
+      "name": "1.B9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.626947",
+      "deleted": false
+    },
+    {
+      "id": "07a88e92-cda7-4836-8901-b60b68713528",
+      "wing": {
+        "id": "7d7545d2-ba51-4eb2-ac53-c5f32cbee106",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "B"
+      },
+      "name": "1.B10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.628063",
+      "deleted": false
+    },
+    {
+      "id": "9a2d2c70-a326-41d2-9d1d-5ae4dc09d321",
+      "wing": {
+        "id": "7d7545d2-ba51-4eb2-ac53-c5f32cbee106",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "B"
+      },
+      "name": "1.B11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.629161",
+      "deleted": false
+    },
+    {
+      "id": "f4c20013-0173-45e6-b511-79d4e7f73e9e",
+      "wing": {
+        "id": "6e51572d-ec53-48a7-86cb-79a3a21f3f7b",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "C"
+      },
+      "name": "1.C9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.63786",
+      "deleted": false
+    },
+    {
+      "id": "a7e2fcd5-502e-4f6e-88c6-fa7b98633a01",
+      "wing": {
+        "id": "6e51572d-ec53-48a7-86cb-79a3a21f3f7b",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "C"
+      },
+      "name": "1.C10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.638695",
+      "deleted": false
+    },
+    {
+      "id": "3870f80e-d70a-4e58-8ddc-5d2f618c84cb",
+      "wing": {
+        "id": "6e51572d-ec53-48a7-86cb-79a3a21f3f7b",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "C"
+      },
+      "name": "1.C11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.639798",
+      "deleted": false
+    },
+    {
+      "id": "80de9e40-9d0e-4efb-b760-014c06862598",
+      "wing": {
+        "id": "754d991f-21ee-4643-96da-89aa67dadeda",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "D"
+      },
+      "name": "1.D9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.6445",
+      "deleted": false
+    },
+    {
+      "id": "293a36d2-e1de-43db-ba5e-4f5466bfe843",
+      "wing": {
+        "id": "754d991f-21ee-4643-96da-89aa67dadeda",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "D"
+      },
+      "name": "1.D10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.644902",
+      "deleted": false
+    },
+    {
+      "id": "b3f07365-d52e-4e42-a66e-091c87c0e814",
+      "wing": {
+        "id": "754d991f-21ee-4643-96da-89aa67dadeda",
+        "floor": {
+          "id": "97d3f141-21d0-4ffe-91a3-288afc95e60d",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "1"
+        },
+        "name": "D"
+      },
+      "name": "1.D11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.645345",
+      "deleted": false
+    },
+    {
+      "id": "6d9b6265-b440-4e47-bba9-c0de870517a0",
+      "wing": {
+        "id": "d61eeb60-d93e-4281-99a9-5c340097900b",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "A"
+      },
+      "name": "2.A9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.649392",
+      "deleted": false
+    },
+    {
+      "id": "51da92d5-0c4f-4b9d-af30-5816f0a373e0",
+      "wing": {
+        "id": "d61eeb60-d93e-4281-99a9-5c340097900b",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "A"
+      },
+      "name": "2.A10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.649815",
+      "deleted": false
+    },
+    {
+      "id": "f8d6156f-a21d-44db-bbd9-c1c13d155393",
+      "wing": {
+        "id": "d61eeb60-d93e-4281-99a9-5c340097900b",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "A"
+      },
+      "name": "2.A11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.650221",
+      "deleted": false
+    },
+    {
+      "id": "edbd0511-bee9-4483-a598-40d0e28d3314",
+      "wing": {
+        "id": "96988285-e12b-45d8-9079-5d3caef75a5a",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "B"
+      },
+      "name": "2.B9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.653993",
+      "deleted": false
+    },
+    {
+      "id": "01a2ac47-2fa1-4187-a393-bac7048bff1a",
+      "wing": {
+        "id": "96988285-e12b-45d8-9079-5d3caef75a5a",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "B"
+      },
+      "name": "2.B10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.654543",
+      "deleted": false
+    },
+    {
+      "id": "600db719-b78f-4d88-9a6c-3c12dbdf2fb5",
+      "wing": {
+        "id": "96988285-e12b-45d8-9079-5d3caef75a5a",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "B"
+      },
+      "name": "2.B11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.655",
+      "deleted": false
+    },
+    {
+      "id": "3278953a-1da5-49d3-b248-bca31f90db16",
+      "wing": {
+        "id": "21200c6d-de98-452a-ad88-9e68ac4f25ca",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "C"
+      },
+      "name": "2.C9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.658832",
+      "deleted": false
+    },
+    {
+      "id": "0aeb6a81-9c77-4e75-a886-393dd3e079d5",
+      "wing": {
+        "id": "21200c6d-de98-452a-ad88-9e68ac4f25ca",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "C"
+      },
+      "name": "2.C10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.659242",
+      "deleted": false
+    },
+    {
+      "id": "ff8e8051-dc08-432f-83d2-7875b1eed2d1",
+      "wing": {
+        "id": "21200c6d-de98-452a-ad88-9e68ac4f25ca",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "C"
+      },
+      "name": "2.C11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.659669",
+      "deleted": false
+    },
+    {
+      "id": "153bf45e-d490-44b7-a9a1-e9cc8fbf43ef",
+      "wing": {
+        "id": "4cfa7abb-1781-4065-9cfc-8db330c8eb14",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "D"
+      },
+      "name": "2.D9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.663527",
+      "deleted": false
+    },
+    {
+      "id": "114bfe4c-4e72-4acd-9379-dbc57675335c",
+      "wing": {
+        "id": "4cfa7abb-1781-4065-9cfc-8db330c8eb14",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "D"
+      },
+      "name": "2.D10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.66393",
+      "deleted": false
+    },
+    {
+      "id": "a944e8e8-f27c-45c9-acf9-5b212a5bf90a",
+      "wing": {
+        "id": "4cfa7abb-1781-4065-9cfc-8db330c8eb14",
+        "floor": {
+          "id": "b8e450bc-8aff-41ea-9691-71db4809fbd4",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "2"
+        },
+        "name": "D"
+      },
+      "name": "2.D11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.664318",
+      "deleted": false
+    },
+    {
+      "id": "6180219b-5e81-4c0b-9565-f93bcd84b7cf",
+      "wing": {
+        "id": "f5e178ea-0c9e-4478-8efd-0e3618ba70b4",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "A"
+      },
+      "name": "3.A9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.667849",
+      "deleted": false
+    },
+    {
+      "id": "b4aa24bc-84e8-41e1-b86c-6ed324c4168c",
+      "wing": {
+        "id": "f5e178ea-0c9e-4478-8efd-0e3618ba70b4",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "A"
+      },
+      "name": "3.A10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.668218",
+      "deleted": false
+    },
+    {
+      "id": "1f3e057c-e0ec-44c6-b232-5b5b7d66d0c2",
+      "wing": {
+        "id": "f5e178ea-0c9e-4478-8efd-0e3618ba70b4",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "A"
+      },
+      "name": "3.A11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.668571",
+      "deleted": false
+    },
+    {
+      "id": "4b9c6bdc-900e-4f37-bee5-28506fbe165b",
+      "wing": {
+        "id": "c4818953-10f0-4dc1-95a9-c882fd780248",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "B"
+      },
+      "name": "3.B9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.67177",
+      "deleted": false
+    },
+    {
+      "id": "5ba23968-2b41-4a30-89ad-185cb2a99b67",
+      "wing": {
+        "id": "c4818953-10f0-4dc1-95a9-c882fd780248",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "B"
+      },
+      "name": "3.B10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.672105",
+      "deleted": false
+    },
+    {
+      "id": "c322e7fc-1dab-4035-9d52-3974d1f846fc",
+      "wing": {
+        "id": "c4818953-10f0-4dc1-95a9-c882fd780248",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "B"
+      },
+      "name": "3.B11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.672451",
+      "deleted": false
+    },
+    {
+      "id": "1407ee29-4fa6-4020-a493-df0e4c61ddf8",
+      "wing": {
+        "id": "d1d3b02e-9da7-49a5-b576-5d18f81548ca",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "C"
+      },
+      "name": "3.C9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.675966",
+      "deleted": false
+    },
+    {
+      "id": "42a28e41-4cce-495f-be06-efac51968dae",
+      "wing": {
+        "id": "d1d3b02e-9da7-49a5-b576-5d18f81548ca",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "C"
+      },
+      "name": "3.C10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.676321",
+      "deleted": false
+    },
+    {
+      "id": "33213dbb-2e56-42bf-ba36-dda0e5c94811",
+      "wing": {
+        "id": "d1d3b02e-9da7-49a5-b576-5d18f81548ca",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "C"
+      },
+      "name": "3.C11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.676682",
+      "deleted": false
+    },
+    {
+      "id": "e521b389-4f17-4b0a-bd4a-7280bb2b5300",
+      "wing": {
+        "id": "4f953264-b4c2-498a-bd7a-c96c5e44d5c5",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "D"
+      },
+      "name": "3.D9",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.680301",
+      "deleted": false
+    },
+    {
+      "id": "91af9d0e-9a0e-4f15-a9ba-647b1dd16b6c",
+      "wing": {
+        "id": "4f953264-b4c2-498a-bd7a-c96c5e44d5c5",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "D"
+      },
+      "name": "3.D10",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.680719",
+      "deleted": false
+    },
+    {
+      "id": "f37a3fdf-c821-4d99-a49b-2242c460c10d",
+      "wing": {
+        "id": "4f953264-b4c2-498a-bd7a-c96c5e44d5c5",
+        "floor": {
+          "id": "ef444e49-ed1c-4205-a3f1-b4478f5e053a",
+          "building": {
+            "id": "9b97ffa4-fe98-4453-a9c0-cc7642475432",
+            "name": "Amsterdam",
+            "address": "De Entree 21 1101 BH"
+          },
+          "number": "3"
+        },
+        "name": "D"
+      },
+      "name": "3.D11",
+      "type": "ROOM",
+      "capacity": 30,
+      "multireservable": true,
+      "createdAt": "2024-06-18T11:29:22.681144",
+      "deleted": false
+    }
+  ]
+}
