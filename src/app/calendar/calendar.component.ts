@@ -65,12 +65,12 @@ export class CalendarComponent implements OnInit {
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
-    eventColor: '#E21938',
+    eventColor: '#5236AA',
     nowIndicator: true,
     locale: nlLocale,
     initialView: 'dayGridMonth',
     events: this.events,
-    weekends: true,
+    weekends: false,
     editable: false,
     selectable: true,
     selectMirror: true,
@@ -84,7 +84,10 @@ export class CalendarComponent implements OnInit {
           isColleagueEvent: eventData['isColleagueEvent']
         }
       };
-    }
+    },
+    weekNumbers: true,
+    navLinks: true,
+
   });
 
   constructor(
@@ -114,7 +117,7 @@ export class CalendarComponent implements OnInit {
       title: reservation.location.type,
       start: reservation.startDateTime,
       end: reservation.endDateTime,
-      backgroundColor: 'green',
+      backgroundColor: '#A92565',
       textColor: 'white',
       extendedProps: {
         isColleagueEvent: false
@@ -128,7 +131,7 @@ export class CalendarComponent implements OnInit {
       title: this.selectedUser!.firstName,
       start: reservation.startDateTime,
       end: reservation.endDateTime,
-      backgroundColor: 'blue',
+      backgroundColor: '#ff72a4',
       textColor: 'white',
       extendedProps: {
         isColleagueEvent: true
