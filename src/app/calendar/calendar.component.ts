@@ -14,19 +14,23 @@ import nlLocale from '@fullcalendar/core/locales/nl';
 import {User} from "../shared/model/user.model";
 import {FavoriteUserService} from "../shared/service/favorite-user.service";
 import {ToastrService} from "ngx-toastr";
-import {NgForOf} from "@angular/common";
+import {CommonModule, NgForOf} from "@angular/common";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ReservationService} from "../shared/service/reservation.service";
 import {Reservation} from "../shared/model/reservation.model";
 import {ActivatedRoute, Router} from '@angular/router';
+import { LucideAngularModule } from 'lucide-angular';
+
 
 @Component({
   selector: 'app-calendar',
   standalone: true,
   imports: [
+    CommonModule,
     FullCalendarModule,
     NgForOf,
     ReactiveFormsModule,
+    LucideAngularModule
   ],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss'

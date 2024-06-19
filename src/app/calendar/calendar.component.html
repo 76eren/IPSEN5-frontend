@@ -1,22 +1,47 @@
-<div class='flex flex-col w-full h-full md:space-y-6'>
-  <div class="flex flex-col md:flex-row w-full p-4 space-y-6 md:space-y-0 md:p-0 md:items-center justify-between">
+<div class="flex flex-col w-full h-full md:space-y-6">
+  <div
+    class="flex flex-col md:flex-row w-full p-4 space-y-6 md:space-y-0 md:p-0 md:items-center justify-between"
+  >
     <h1 class="w-min whitespace-nowrap text-3xl font-bold">Agenda</h1>
     <div>
-      <form [formGroup]="personSelectForm" (ngSubmit)="onSubmitForm()"
-      class="flex w-full bg-white rounded-md">
-        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 w-full md:items-center">
+      <form
+        *ngIf="this.favoriteColleagues.length > 0"
+        [formGroup]="personSelectForm"
+        (ngSubmit)="onSubmitForm()"
+        class="flex w-full bg-white rounded-md"
+      >
+        <div
+          class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 w-full md:items-center"
+        >
+        <div class="relative">
           <label for="favourite-user">Kies een collega:</label>
-          <select name="favourite-user" id="favourite-user" class="border-2 border-secondary-purple-light rounded-lg p-2"
-                  formControlName="favourite-user" (change)="onChangePerson()">
-            <option *ngFor="let person of favoriteColleagues"
-                    [ngValue]="person">{{ person.firstName + " " + person.lastName }}</option>
+          <select
+            name="favourite-user"
+            id="favourite-user"
+            class="border-2 border-secondary-purple-light rounded-lg p-2 md:m-2 appearance-none w-full md:w-48"
+            formControlName="favourite-user"
+            (change)="onChangePerson()"
+          >
+            <option
+              *ngFor="let person of favoriteColleagues"
+              [ngValue]="person"
+            >
+              {{ person.firstName + " " + person.lastName }}
+            </option>
+
           </select>
+          <div
+            class="absolute right-2 top-1/2 transform -translate-y-1/2" 
+          >
+            <lucide-icon name="chevron-down"></lucide-icon>
+          </div>
         </div>
+      </div>
       </form>
     </div>
   </div>
-  <div class='demo-app-main'>
-    <full-calendar [options]='calendarOptions()'>
+  <div class="demo-app-main">
+    <full-calendar [options]="calendarOptions()">
       <ng-template #eventContent let-arg>
         <b class="cursor-pointer">{{ arg.timeText }}</b>
         <i class="cursor-pointer">{{ arg.event.title }}</i>
