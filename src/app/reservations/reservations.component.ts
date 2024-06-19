@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {DeleteModalComponent} from "./delete-modal/delete-modal.component";
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {DeleteModalComponent} from "../shared/utilities/delete-modal/delete-modal.component";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {Reservation} from "../shared/model/reservation.model";
 import {ReservationService} from "../shared/service/reservation.service";
@@ -26,24 +26,18 @@ export class ReservationsComponent implements OnInit{
   protected isDeleteModalVisible: boolean = false;
   protected reservations: Reservation[] = [];
   public locationTypeTranslation = locationTypeTranslations;
+  protected reservationId!: string;
 
   constructor(private reservationService: ReservationService,
-              private toastr: ToastrService){
+              private toastr: ToastrService,
+              private changeDetectorRef: ChangeDetectorRef,){
   }
 
   ngOnInit(): void {
-    this.reservationService.getAllReservations2().subscribe(
-      data => {
-        this.reservations = data.payload;
-        this.reservations = this.sortByDate(this.reservations);
-      }, error => {
-        if (error && (error as any).error) {
-          this.toastr.error((error as any).error.message);
-        } else {
-          this.toastr.error('Fout bij het ophalen van reserveringen');
-        }
-      }
-    );
+    this.refreshLessonsList();
+    this.reservationService.reservationDeleted$.subscribe(() => {
+      this.refreshLessonsList();
+    });
   }
 
   sortByDate(items: Reservation[]): Reservation[] {
@@ -60,7 +54,24 @@ export class ReservationsComponent implements OnInit{
     return `${date.getHours()}:${date.getMinutes()}`;
   }
 
-  protected openDeleteModal() {
+  protected openDeleteModal(id: string) {
+    this.reservationId = id;
     this.isDeleteModalVisible = !this.isDeleteModalVisible;
+  }
+
+  refreshLessonsList(): void {
+    this.changeDetectorRef.detectChanges();
+    this.reservationService.getAllReservations2().subscribe(
+      data => {
+        this.reservations = data.payload;
+        this.reservations = this.sortByDate(this.reservations);
+      }, error => {
+        if (error && (error as any).error) {
+          this.toastr.error((error as any).error.message);
+        } else {
+          this.toastr.error('Fout bij het ophalen van reserveringen');
+        }
+      }
+    );
   }
 }
