@@ -1,18 +1,28 @@
-<article class="flex flex-col w-full h-full space-y-10 ">
+<article class="flex flex-col w-full h-full space-y-6">
   <section class="flex flex-row justify-between w-full">
     <h1 class="w-min whitespace-nowrap text-3xl font-bold">Rapportage dashboard</h1>
     <div class="flex space-x-10">
       <div class="flex space-x-2 items-center">
         <label for="building">Locatie:</label>
-        <select name="building" id="building" [(ngModel)]="selectedBuilding" class="p-2 border-2 border-primary-dark-purple rounded-lg" (change)="onChangeFilter()">
-          <option *ngFor="let building of buildings" [ngValue]="building.name">{{ building.name }}</option>
-        </select>
+        <div class="relative w-[150px]">
+          <select name="building" id="building" [(ngModel)]="selectedBuilding" class="p-2 border-2 border-secondary-purple-light focus:border-primary-dark-purple rounded-lg w-full appearance-none" (change)="onChangeFilter()">
+            <option *ngFor="let building of buildings" [ngValue]="building.name">{{ building.name }}</option>
+          </select>
+          <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+            <lucide-icon name="chevron-down"></lucide-icon>
+          </div>
+        </div>
       </div>
       <div class="flex space-x-2 items-center">
-        <label for="year" class="text-lg">Jaar:</label>
-        <select name="year" id="year" [(ngModel)]="selectedYear" class="p-2 border-2 border-primary-dark-purple rounded-lg"  (change)="onChangeFilter()">
-          <option *ngFor="let year of years" [ngValue]="year">{{ year }}</option>
-        </select>
+        <label for="year">Jaar:</label>
+        <div class="relative w-[150px]">
+          <select name="year" id="year" [(ngModel)]="selectedYear" class="p-2 border-2 border-secondary-purple-light focus:border-primary-dark-purple rounded-lg w-full appearance-none"  (change)="onChangeFilter()">
+            <option *ngFor="let year of years" [ngValue]="year">{{ year }}</option>
+          </select>
+          <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+            <lucide-icon name="chevron-down"></lucide-icon>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -27,10 +37,10 @@
     <table class="table-auto w-full">
       <thead class="bg-secondary-purple-light p-2">
         <tr>
-          <th class="border-2 border-gray-300 p-2 ">Werknemer</th>
-          <th class="border-2 border-gray-300 p-2">Aantal reserveringen</th>
-          <th class="border-2 border-gray-300 p-2">Aantal no-shows</th>
-          <th class="border-2 border-gray-300 p-2">Percentage no-shows</th>
+          <th class="border-2 font-semibold border-gray-300 p-2 ">Werknemer</th>
+          <th class="border-2 font-semibold border-gray-300 p-2">Aantal reserveringen</th>
+          <th class="border-2 font-semibold border-gray-300 p-2">Aantal no-shows</th>
+          <th class="border-2 font-semibold border-gray-300 p-2">Percentage no-shows</th>
         </tr>
       </thead>
       <tbody *ngFor="let data of noShowData" >

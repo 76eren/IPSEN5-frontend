@@ -20,7 +20,8 @@ li {
 
 @media only screen and (max-width: 720px) {
   .fc-direction-ltr {
-    height: calc(100vh - 200px);
+    height: calc(100vh - 250px);
+    padding: 8px;
   }
 }
 
@@ -30,8 +31,5 @@ li {
 
 
 .fc {
-  @apply max-w-[1100px] mx-auto;
+  @apply w-full max-h-screen;
 }
-
-
-

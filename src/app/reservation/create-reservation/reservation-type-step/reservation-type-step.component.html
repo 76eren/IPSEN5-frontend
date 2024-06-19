@@ -1,4 +1,4 @@
-<div class="h-fit md:h-screen space-y-20">
+<div class="h-fit md:h-screen space-y-10 md:space-y-20">
   <div class="w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 pt-0 md:pt-24">
     <button class="w-64 h-fit border-2 border-primary-dark-purple rounded-2xl space-y-2 p-2"
             (click)="setReservationType(ReservationType.FLEXPLEK)"
@@ -12,7 +12,7 @@
         </svg>
       </div>
       <div>
-        <h1 class="font-extrabold text-4xl"
+        <h1 class="font-semibold text-xl md:text-2xl"
             [class.text-white]="selectedType === ReservationType.FLEXPLEK">
           Flexplek
         </h1>
@@ -21,25 +21,25 @@
     <button class="w-64 h-fit border-2 border-primary-dark-purple rounded-2xl space-y-2 p-2"
         [class.bg-primary-dark-purple]="selectedType === ReservationType.VERGADERRUIMTE"
         (click)="setReservationType(ReservationType.VERGADERRUIMTE)">
-  <div class="flex justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="#5236AA" viewBox="0 0 24 24" stroke-width="1.5" stroke="#5236AA"
-         class="size-24"
-         [attr.fill]="selectedType === ReservationType.VERGADERRUIMTE ? '#ffffff' : '#5236AA'"
-         [attr.stroke]="selectedType === ReservationType.VERGADERRUIMTE ? '#ffffff' : '#5236AA'">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-    </svg>
-  </div>
-  <div>
-    <h1 class="font-extrabold text-4xl"
-        [class.text-white]="selectedType === ReservationType.VERGADERRUIMTE">
-      Lokaal
-    </h1>
-  </div>
-</button>
+      <div class="flex justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#5236AA" viewBox="0 0 24 24" stroke-width="1.5" stroke="#5236AA"
+            class="size-24"
+            [attr.fill]="selectedType === ReservationType.VERGADERRUIMTE ? '#ffffff' : '#5236AA'"
+            [attr.stroke]="selectedType === ReservationType.VERGADERRUIMTE ? '#ffffff' : '#5236AA'">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+        </svg>
+      </div>
+      <div>
+        <h1 class="font-semibold text-xl md:text-2xl"
+            [class.text-white]="selectedType === ReservationType.VERGADERRUIMTE">
+          Vergaderruimte
+        </h1>
+      </div>
+    </button>
   </div>
   <div class="w-full flex justify-center items-center space-x-4">
-    <button class="border-2 border-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-0.5 text-2xl text-primary-dark-purple" matStepperPrevious>Vorige</button>
-    <button class="bg-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-1 text-2xl text-white"
+    <button class="border-2 border-primary-dark-purple rounded-lg w-fit h-fit p-2 text-lg md:text-xl hover:bg-secondary-purple-light duration-300" matStepperPrevious>Vorige</button>
+    <button class="bg-primary-dark-purple rounded-lg w-fit h-fit p-2 text-lg md:text-xl text-white hover:bg-purple-950 duration-300"
             (click)="checkValidReservationType()"
             matStepperNext>Volgende</button>
   </div>

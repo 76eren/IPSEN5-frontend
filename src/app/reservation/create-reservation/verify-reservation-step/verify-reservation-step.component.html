@@ -1,26 +1,28 @@
-<section>
-  <h1>Gebouw: <strong>{{building.name}}</strong></h1>
-  @if (reservationType == ReservationType.VERGADERRUIMTE){
-    <h1>Verdieping: <strong>{{location.wing.floor.number}}</strong></h1>
-    <h1>Vleugel: <strong>{{location.wing.name}}</strong></h1>
-    <h1>Vergaderruimte naam: <strong>{{location.name}}</strong></h1>
-    <h1>Aantal personen: <strong>{{numberOfPersons}}</strong></h1>
-  }
-  @if (reservationType == ReservationType.FLEXPLEK){
-    <h1>Verdieping: <strong>{{floor?.number}}</strong></h1>
-    <h1>Vleugel: <strong>{{wing?.name}}</strong></h1>
-  }
-  <h1>Start Datum en Tijd: <strong>{{formatDate(startDate)}}, {{formatTime(startDate)}}</strong></h1>
-  <h1>Eind Datum en Tijd: <strong>{{formatDate(endDate)}}, {{formatTime(endDate)}}</strong></h1>
-  <h1>Reservering Type: <strong>{{reservationType}}</strong></h1>
+<section class="flex flex-col space-y-10 pt-4 md:pt-24">
+  <div class="flex flex-col space-y-2 text-lg md:text-xl">
+    <h1>Gebouw: <strong>{{building.name}}</strong></h1>
+    @if (reservationType == ReservationType.VERGADERRUIMTE){
+      <h1>Verdieping: <strong>{{location.wing.floor.number}}</strong></h1>
+      <h1>Vleugel: <strong>{{location.wing.name}}</strong></h1>
+      <h1>Vergaderruimte naam: <strong>{{location.name}}</strong></h1>
+      <h1>Aantal personen: <strong>{{numberOfPersons}}</strong></h1>
+    }
+    @if (reservationType == ReservationType.FLEXPLEK){
+      <h1>Verdieping: <strong>{{floor?.number}}</strong></h1>
+      <h1>Vleugel: <strong>{{wing?.name}}</strong></h1>
+    }
+    <h1>Startdatum en -tijd: <strong>{{formatDate(startDate)}}, {{formatTime(startDate)}}</strong></h1>
+    <h1>Einddatum en -tijd: <strong>{{formatDate(endDate)}}, {{formatTime(endDate)}}</strong></h1>
+    <h1>Reserveringstype: <strong>{{reservationType.toLowerCase()}}</strong></h1>
+  </div>
   <section class="w-full flex justify-center">
     <button
-      class="w-40 h-12 bg-white cursor-pointer rounded-2xl border-2 border-primary-dark-purple
-      shadow-custom-inset group hover:bg-primary-dark-purple transition duration-300 ease-in-out
-      flex items-center justify-center"
+      class="w-auto md:w-1/4 rounded-lg bg-primary-dark-purple hover:bg-purple-950 duration-300
+      flex items-center justify-center p-2 text-white"
       (click)="makeReservation()" [disabled]="isLoading">
       @if (!isLoading){
-        <span class="font-medium text-black group-hover:text-white">Bevestig</span>
+        <span class="text-lg md:text-xl">Bevestig</span>
+
       } @else {
         <svg class="animate-spin h-5 w-5 text-primary-dark-purple group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

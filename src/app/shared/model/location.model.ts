@@ -5,6 +5,11 @@ export enum LocationType {
   ROOM = "ROOM"
 }
 
+export const locationTypeTranslations = {
+  [LocationType.WORKPLACE]: 'Flexplek',
+  [LocationType.ROOM]: 'Vergaderruimte'
+};
+
 export class Location {
   private _id: string;
   private _wing: Wing;

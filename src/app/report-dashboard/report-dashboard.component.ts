@@ -9,6 +9,7 @@ import { ApiResponse } from '../shared/service/api.service';
 import { Subject, takeUntil } from 'rxjs';
 import { RoomOccupancy } from '../shared/model/room-occupancy.model';
 import { NoShow } from '../shared/model/no-show.model';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-report-dashboard',
@@ -17,6 +18,7 @@ import { NoShow } from '../shared/model/no-show.model';
     NgxEchartsModule, 
     CommonModule, 
     FormsModule,
+    LucideAngularModule,
   ],
   templateUrl: './report-dashboard.component.html',
   styleUrl: './report-dashboard.component.scss'

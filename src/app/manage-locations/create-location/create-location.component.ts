@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule } from 'lucide-angular';
-import { Location, LocationType } from '../../shared/model/location.model';
+import { Location, LocationType, locationTypeTranslations } from '../../shared/model/location.model';
 import { Building } from '../../shared/model/building.model';
 import { ApiResponse } from '../../shared/service/api.service';
 import { Wing } from '../../shared/model/wing.model';
@@ -28,6 +28,7 @@ export class CreateLocationComponent implements OnInit {
     LocationType.WORKPLACE,
     LocationType.ROOM
   ]
+  public locationTypeTranslation = locationTypeTranslations;
 
   constructor(private locationService: LocationService, private wingService: WingService, private toastr: ToastrService) {}
 

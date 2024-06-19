@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
-import { Location, LocationType } from '../../shared/model/location.model';
+import { Location, LocationType, locationTypeTranslations } from '../../shared/model/location.model';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LocationService } from '../../shared/service/location.service';
@@ -31,7 +31,8 @@ export class LocationComponent implements OnInit {
   public locationTypes: LocationType[] = [
     LocationType.WORKPLACE,
     LocationType.ROOM
-  ]
+  ];
+  public locationTypeTranslation = locationTypeTranslations;
 
   constructor(
     private locationService: LocationService, 
