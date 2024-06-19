@@ -1,6 +1,6 @@
 <article class="p-4 md:p-0 flex flex-col h-full w-full space-y-6">
   <section class="flex w-full justify-between">
-    <h1 class="w-min whitespace-nowrap text-3xl font-bold">Reserveringen</h1>
+    <h1 class="w-min whitespace-nowrap text-3xl font-bold">Reserveringen van {{this.reservations[0].user.firstName}}</h1>
     <button [routerLink]="'/create-reservation'" class="hidden md:flex space-x-2 bg-primary-dark-purple text-white p-2 rounded-lg items-center">
       <lucide-icon name="plus" title="Nieuwe reservering plaatsen"></lucide-icon>
       <p>Nieuwe reservering</p>
@@ -36,6 +36,7 @@
               <p>Bekijk</p>
               <lucide-icon name="chevron-right"></lucide-icon>
             </button>
+            <button (click)="openDeleteModal()" class="p-2 w-full rounded-lg bg-primary-red bg-opacity-80 text-white hover:bg-red-700 duration-300" *ngIf="this.isCheckingOwnReservations">Annuleer</button>
             <button (click)="openDeleteModal(reservation.id)" class="p-2 w-full rounded-lg bg-primary-red bg-opacity-80 text-white hover:bg-red-700 duration-300">Annuleer</button>
           </div>
         </div>

@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Reservation} from '../shared/model/reservation.model';
-import {ActivatedRoute, Params, RouterModule} from '@angular/router';
+import {ActivatedRoute, Params, Router, RouterModule} from '@angular/router';
 import {ReservationService} from '../shared/service/reservation.service';
 import {locationTypeTranslations} from '../shared/model/location.model';
 import {DeleteModalComponent} from "../shared/utilities/delete-modal/delete-modal.component";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
+
 
 @Component({
   selector: 'app-reservation-details',
@@ -24,7 +25,8 @@ export class ReservationDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private reservationService: ReservationService
+    private reservationService: ReservationService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -37,6 +39,10 @@ export class ReservationDetailsComponent implements OnInit {
 
   async getReservation(): Promise<void> {
     this.reservation = await this.reservationService.getReservationById(this.id);
+  }
+
+  goToReservations() {
+    this.router.navigate(['/reservations/'+this.reservation.user.id]);
   }
 
   protected openDeleteModal() {
