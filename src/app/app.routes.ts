@@ -57,6 +57,11 @@ export const routes: Routes = [
         component: ReservationsComponent,
       },
       {
+        path: 'reservations/:id',
+        title: 'Reservations',
+        component: ReservationsComponent,
+      },
+      {
         path: 'create-reservation',
         component: CreateReservationComponent,
       },

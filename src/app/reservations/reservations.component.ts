@@ -5,9 +5,10 @@ import {Reservation} from "../shared/model/reservation.model";
 import {ReservationService} from "../shared/service/reservation.service";
 import {ToastrService} from "ngx-toastr";
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import {ActivatedRoute, RouterModule} from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
 import { locationTypeTranslations } from '../shared/model/location.model';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-reservations',
@@ -27,17 +28,57 @@ export class ReservationsComponent implements OnInit{
   protected reservations: Reservation[] = [];
   public locationTypeTranslation = locationTypeTranslations;
   protected reservationId!: string;
+  public isCheckingOwnReservations: boolean = true;
 
   constructor(private reservationService: ReservationService,
               private toastr: ToastrService,
-              private changeDetectorRef: ChangeDetectorRef,){
+              private changeDetectorRef: ChangeDetectorRef,
+              private route: ActivatedRoute,
+              ){
   }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      if (params['id'] == null || params['id'] == undefined) {
+        this.getOwnReservations();
+
+      }
+      else {
+        this.isCheckingOwnReservations = false;
+        this.getReservationsFromOther(params['id']);
+      }
+    });
     this.refreshLessonsList();
     this.reservationService.reservationDeleted$.subscribe(() => {
       this.refreshLessonsList();
     });
+  }
+
+  getReservationsFromOther(id: string) {
+    this.reservationService.getReservationsByUserId(id).subscribe(
+      (reservations) => {
+        this.reservations = reservations;
+      },
+      (error) => {
+        this.toastr
+          .error("Probeer het later nog een keer", "Fout bij ophalen van reserveringen van collega")
+      }
+    );
+  }
+
+  getOwnReservations(): void {
+    this.reservationService.getAllReservations2().subscribe(
+      data => {
+        this.reservations = data.payload;
+        this.reservations = this.sortByDate(this.reservations);
+      }, error => {
+        if (error && (error as any).error) {
+          this.toastr.error((error as any).error.message);
+        } else {
+          this.toastr.error('Fout bij het ophalen van reserveringen');
+        }
+      }
+    );
   }
 
   sortByDate(items: Reservation[]): Reservation[] {
