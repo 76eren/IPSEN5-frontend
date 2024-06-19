@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import {ApiService} from "../api.service";
+import {Router} from "@angular/router";
 
 
 @Injectable({
@@ -9,7 +10,10 @@ import {ApiService} from "../api.service";
 })
 export class ResetPasswordService {
 
-  constructor(private apiService: ApiService, private toastr: ToastrService) {
+  constructor(private apiService: ApiService,
+              private toastr: ToastrService,
+              private router: Router
+  ) {
 
   }
 
@@ -21,7 +25,7 @@ export class ResetPasswordService {
         .subscribe({
           next: (response) => {
             this.toastr.success('Wachtwoord succesvol gewijzigd.');
-            // todo route
+            this.router.navigate(['/login'])
           },
           error: (error) => {
             this.toastr.error('Er is iets misgegaan. Controleer de gegevens of probeer het later opnieuw.')
@@ -36,11 +40,11 @@ export class ResetPasswordService {
     this.apiService.post('/user/reset-password', { headers, body })
         .subscribe({
           next: () => {
-            this.toastr.success('Er is een link naar het opgegeven emailadres verstuurd.');
+            this.toastr.info('Er is een link naar het opgegeven emailadres verstuurd.');
           },
           error: (error) => {
             this.handleError(error).then(errorMessage => {
-              this.toastr.error(errorMessage);
+              this.toastr.info(errorMessage);
             });
           }
         });
@@ -48,7 +52,7 @@ export class ResetPasswordService {
 
   private handleError(error: any): Promise<string> {
     if (error instanceof HttpErrorResponse && error.status === 500) {
-      return Promise.resolve('Server error. Please wait a few minutes and try again.');
+      return Promise.resolve('Server error. Probeer het over een ogenblik nog een keer.');
     } else {
       return Promise.resolve('Er is een link naar de opgegeven email verstuurd.');
     }

@@ -1,0 +1,14 @@
+<section class="pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2
+border-secondary-purple-light w-full mb-2 cursor-pointer"
+    [ngClass]="{'border-primary-dark-purple': location.isActivated, 'border-secondary-purple-light': !location.isActivated}">
+  <tr class="flex w-full justify-start bg-white rounded-md p-4">
+    <td class="min-w-[150px]">{{ location.name }}</td>
+    <td class="min-w-[150px]">{{ location.type }}</td>
+    <td class="min-w-[150px]">{{ location.wing.floor.building.name }}</td>
+    <td class="min-w-[150px]">{{ location.wing.floor.number }}.{{ location.wing.name }}</td>
+    <td class="min-w-[150px]">{{ location.capacity }}</td>
+    <td class="min-w-[150px] flex justify-center items-center">
+      <section class=" w-2 h-2 bg-green-500 rounded-full"></section>
+    </td>
+  </tr>
+</section>

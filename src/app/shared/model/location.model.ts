@@ -19,6 +19,7 @@ export class Location {
   private _multireservable: boolean;
   private _createdAt: Date;
   private _isEdit: boolean = false;
+  private _isActivated: boolean = true;
 
   constructor(id: string, wing: Wing, name: string, type: LocationType, capacity: number, multireservable: boolean, createdAt: Date) {
     this._id = id;
@@ -92,5 +93,13 @@ export class Location {
 
   set isEdit(value: boolean) {
     this._isEdit = value;
+  }
+
+  get isActivated(): boolean {
+    return this._isActivated;
+  }
+
+  set isActivated(value: boolean) {
+    this._isActivated = value;
   }
 }

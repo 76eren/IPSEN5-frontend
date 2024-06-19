@@ -1,13 +1,20 @@
 <section class="flex flex-col space-y-10 pt-4 md:pt-24">
   <div class="flex flex-col space-y-2 text-lg md:text-xl">
     <h1>Gebouw: <strong>{{building.name}}</strong></h1>
-    <h1>Verdieping: <strong>{{floor.number}}</strong></h1>
-    <h1>Vleugel: <strong>{{wing.name}}</strong></h1>
+    @if (reservationType == ReservationType.VERGADERRUIMTE){
+      <h1>Verdieping: <strong>{{location.wing.floor.number}}</strong></h1>
+      <h1>Vleugel: <strong>{{location.wing.name}}</strong></h1>
+      <h1>Vergaderruimte naam: <strong>{{location.name}}</strong></h1>
+      <h1>Aantal personen: <strong>{{numberOfPersons}}</strong></h1>
+    }
+    @if (reservationType == ReservationType.FLEXPLEK){
+      <h1>Verdieping: <strong>{{floor?.number}}</strong></h1>
+      <h1>Vleugel: <strong>{{wing?.name}}</strong></h1>
+    }
     <h1>Startdatum en -tijd: <strong>{{formatDate(startDate)}}, {{formatTime(startDate)}}</strong></h1>
     <h1>Einddatum en -tijd: <strong>{{formatDate(endDate)}}, {{formatTime(endDate)}}</strong></h1>
     <h1>Reserveringstype: <strong>{{reservationType.toLowerCase()}}</strong></h1>
   </div>
-  
   <section class="w-full flex justify-center">
     <button
       class="w-auto md:w-1/4 rounded-lg bg-primary-dark-purple hover:bg-purple-950 duration-300
@@ -15,11 +22,13 @@
       (click)="makeReservation()" [disabled]="isLoading">
       @if (!isLoading){
         <span class="text-lg md:text-xl">Bevestig</span>
+
+      } @else {
+        <svg class="animate-spin h-5 w-5 text-primary-dark-purple group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 2.042.66 3.93 1.77 5.449l2.23-1.158z"></path>
+        </svg>
       }
-      <svg *ngIf="isLoading" class="animate-spin h-5 w-5 text-primary-dark-purple group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 2.042.66 3.93 1.77 5.449l2.23-1.158z"></path>
-      </svg>
     </button>
   </section>
 </section>

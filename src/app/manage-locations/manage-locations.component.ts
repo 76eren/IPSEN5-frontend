@@ -10,6 +10,8 @@ import { LucideAngularModule } from 'lucide-angular';
 import { ToastrService } from 'ngx-toastr';
 import { CreateLocationComponent } from "./create-location/create-location.component";
 import { BuildingService } from '../shared/service/building.service';
+import { Wing } from '../shared/model/wing.model';
+import { WingService } from '../shared/service/wing.service';
 
 @Component({
     selector: 'app-manage-locations',
@@ -22,10 +24,16 @@ export class ManageLocationsComponent implements OnInit {
     public locations: Location[] = [];
     public searchQuery: string = '';
     public buildings: Building[] = [];
+    public wings: Wing[] = [];
     public selectedBuilding!: Building;
     public isCreateMode: boolean = false;
     
-    constructor(private locationService: LocationService, private buildingService: BuildingService, private toastr: ToastrService) { }
+    constructor(
+        private locationService: LocationService, 
+        private buildingService: BuildingService, 
+        private toastr: ToastrService,
+        private wingService: WingService
+    ) { }
 
     ngOnInit(): void {
         this.getBuildings();
@@ -37,6 +45,7 @@ export class ManageLocationsComponent implements OnInit {
                 this.buildings = response.payload;
                 this.selectedBuilding = this.buildings[0];
                 this.getLocationsByBuilding();
+                this.getWingsByBuilding();
             })
     }
 
@@ -45,6 +54,12 @@ export class ManageLocationsComponent implements OnInit {
             .subscribe((response: ApiResponse<Location[]>) => {
                 this.locations = response.payload;
             })
+    }
+
+    private getWingsByBuilding(): void {
+        this.wingService.getWingsByBuildingId(this.selectedBuilding.id).subscribe((response: ApiResponse<Wing[]>) => {
+            this.wings = response.payload;
+          });
     }
 
     public filteredLocations(): Location[] {
@@ -61,6 +76,7 @@ export class ManageLocationsComponent implements OnInit {
 
     public onChangeFilter(): void {
         this.getLocationsByBuilding();
+        this.getWingsByBuilding();
     }
 
     public onChangeCreateMode(): void {

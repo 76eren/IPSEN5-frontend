@@ -35,22 +35,13 @@ export class UserService {
     public getAllUsers(): Observable<User[]> {
         let endpoint = '/user';
 
-        return this.apiService.get<{ payload: User[]; message: string | null }>(endpoint)
+        return this.apiService.get<ApiResponse<User[]>>(endpoint)
             .pipe(
                 map(response => {
-                    const parsed = UsersResponseSchema.parse(response);
-                    return parsed.payload.map(user => new User(
-                        user.email,
-                        user.lastname,
-                        user.firstname,
-                        user.phoneNumber,
-                        Role[user.role as keyof typeof Role],
-                        user.id
-                    ));
+                    return response.payload;
                 }),
                 catchError(error => {
-                    this.toastr.error('Failed to fetch users');
-                    console.error('Error fetching users:', error);
+
                     return [];
                 })
             );

@@ -7,10 +7,10 @@
     <p class="w-1/12">{{ location.capacity }}</p>
     <p class="w-1/6">{{ location.createdAt | date:'shortDate' }}</p>
     <div class="flex space-x-5 w-1/12 ">
-      <button (click)="location.isEdit = true">
+      <button id="editLocation" (click)="location.isEdit = true">
         <lucide-icon name="pencil" title="bewerken"></lucide-icon>
       </button>
-      <button (click)="deletionDialog.show()">
+      <button id="deleteButton" (click)="deletionDialog.show()">
         <lucide-icon name="trash-2" title="verwijderen"></lucide-icon>
       </button>
     </div>
@@ -37,7 +37,7 @@
           <option disabled selected [ngValue]="location.wing">{{ location.wing.floor.number }}.{{ location.wing.name }}</option>
           <option *ngFor="let wing of wings" [ngValue]="wing">{{ wing.floor.number }}.{{ wing.name }}</option>
         </select>
-        <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+        <div class="absolute right-1 top-1/2 transform -translate-y-1/2">
           <lucide-icon name="chevron-down"></lucide-icon>
         </div>
       </div>
@@ -65,7 +65,7 @@
         <p>Weet je zeker dat je de locatie wilt verwijderen?</p>
       </div>
       <div class="flex space-x-4">
-        <button class="rounded-lg p-2 text-white bg-primary-red" (click)="onDelete()">Verwijder</button>
+        <button id="deleteConfirmation" class="rounded-lg p-2 text-white bg-primary-red" (click)="onDelete()">Verwijder</button>
         <button class="border-2 border-secondary-purple-light rounded-lg p-2" (click)="deletionDialog.close()">Annuleer</button>
       </div>
     </div>

@@ -67,11 +67,26 @@ export class ReservationService {
     return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
   }
 
-  makeReservation(reservation:{
+  makeWorkplaceReservation(reservation:{
     wingId: string,
     startDateTime: Date,
     endDateTime: Date, }){
     return this.apiService.post<ApiResponse<Reservation>>('/reservations/reserve-workplace', {
+      body: {
+        ...reservation,
+        startDateTime: this.formatDate(reservation.startDateTime),
+        endDateTime: this.formatDate(reservation.endDateTime)
+      }
+    });
+  }
+
+  makeMeetingRoomReservation(reservation: {
+    locationId: string,
+    startDateTime: Date,
+    endDateTime: Date,
+    numberOfAttendees: number
+  }) {
+    return this.apiService.post<ApiResponse<Reservation>>('/reservations/reserve-room', {
       body: {
         ...reservation,
         startDateTime: this.formatDate(reservation.startDateTime),

@@ -9,7 +9,7 @@
         <button
                 (click)="this.favoriteListSelected = true"
                 [ngClass]="{ 'text-primary-dark-purple border-b-primary-dark-purple': favoriteListSelected }"
-
+                id="favorite-colleagues"
                 class="border-b-2 border-b-gray-300 hover:border-secondary-dark-pink duration-300"
         >
             Favorieten
@@ -17,6 +17,7 @@
         <button
                 (click)="this.favoriteListSelected = false"
                 [ngClass]="{ 'text-primary-dark-purple border-b-primary-dark-purple': !favoriteListSelected }"
+                id="all-colleagues"
                 class="border-b-2 border-b-gray-300 hover:border-secondary-dark-pink duration-300"
         >
             Alle collega's
@@ -63,7 +64,7 @@
     </form>
     <!--SEARCH BAR end -->
 
-    <ul class="space-y-4" *ngIf="!this.favoriteListSelected">
+    <ul class="space-y-4 max-h-64 overflow-scroll" *ngIf="!this.favoriteListSelected">
         <li
                 *ngIf="allUsers.length === 0"
                 class="flex justify-center items-center p-4 border-2 border-secondary-purple-light rounded-lg"
@@ -71,6 +72,7 @@
             <p>Er zijn geen collega's gevonden</p>
         </li>
         <li
+                id="all-users-list"
                 class="flex justify-between items-center p-4 border-2 border-secondary-purple-light rounded-lg"
                 *ngFor="let user of allUsers | searchItem : searchText; index as i"
         >
@@ -78,6 +80,7 @@
                 <h3 class="font-bold">{{ user.firstName }} {{ user.lastName }}</h3>
             </div>
             <button
+                    id="add-favorite"
                     (click)="toggleFavorite(user)"
                     [class.text-red-500]="this.isUserFavorite(user)"
                     [class.text-black]="!this.isUserFavorite(user)"
@@ -88,7 +91,7 @@
         </li>
     </ul>
 
-    <ul class="space-y-4" *ngIf="this.favoriteListSelected">
+    <ul class="space-y-4 max-h-64 overflow-scroll" *ngIf="this.favoriteListSelected">
         <li
                 *ngIf="favoriteColleagues.length === 0"
                 class="flex justify-center items-center p-4 border-2 border-secondary-purple-light rounded-lg"
@@ -96,6 +99,7 @@
             <p>U heeft nog geen favoriete collega</p>
         </li>
         <li
+                id="list-all-favorites"
                 class="flex justify-between items-center p-4 border-2 border-secondary-purple-light rounded-lg"
                 *ngFor="
         let favoriteUser of favoriteColleagues | searchItem : searchText;

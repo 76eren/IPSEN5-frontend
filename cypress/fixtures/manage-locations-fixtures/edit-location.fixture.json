@@ -1,0 +1,25 @@
+{
+  "payload": {
+      "id": "22708a78-3b34-442c-a990-ddc8a0e6bf67",
+      "wing": {
+          "id": "5644df35-e716-470f-9b8b-f77f0b2f132b",
+          "floor": {
+              "id": "7bcb6ad0-9849-402d-811e-402464e8d175",
+              "building": {
+                  "id": "0da59214-8418-4cd1-876c-ef783379fec2",
+                  "name": "Amsterdam",
+                  "address": "De Entree 21 1101 BH"
+              },
+              "number": "0"
+          },
+          "name": "A"
+      },
+      "name": "testLocationEdit",
+      "type": "ROOM",
+      "capacity": 8,
+      "multireservable": false,
+      "createdAt": "2024-06-13T09:19:31.801842",
+      "deleted": false
+  },
+  "message": null
+}

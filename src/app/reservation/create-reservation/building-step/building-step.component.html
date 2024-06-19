@@ -3,13 +3,13 @@
   <swiper-container #swiperContainer loop="true" navigation="true" speed="500" class="min-h-fit space-x-1"
                     [attr.slides-per-view]="slidesPerView">
     @for (building of buildings; track building){
-      <swiper-slide class="p-4 cursor-pointer"
-                    (click)="toggleActive(building); addSelectedBuilding(building)">
-        <div [ngClass]="{'border-primary-dark-purple': building.isActive, 'border-gray-100': !building.isActive}"
+    <swiper-slide class="p-4 cursor-pointer"
+                  (click)="toggleActive(building); addSelectedBuilding(building)">
+      <div [ngClass]="{'border-primary-dark-purple': building.isActive, 'border-gray-100': !building.isActive}"
              class="border-2 rounded-2xl overflow-hidden shadow-md
                  transition duration-500 hover:scale-105 active:scale-95
                  focus:outline-none focus:ring focus:ring-primary-dark-purple">
-          <img class="object-contain" src="assets/images/maastricht.jpg">
+          <img class="object-cover" src="assets/locations/{{building.name.toLowerCase()}}.png">
           <div class="p-4">
             <h1 class="text-xl font-medium">{{building.name}}</h1>
             <h3 class="text-gray-500">{{building.address}}</h3>

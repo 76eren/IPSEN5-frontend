@@ -26,8 +26,8 @@ import { WingService } from '../../shared/service/wing.service';
 export class LocationComponent implements OnInit {
   @Input() location!: Location;
   @Output() deletedLocation: EventEmitter<Location> = new EventEmitter<Location>();
+  @Input() wings: Wing[] = [];
   public locationForm!: FormGroup;
-  public wings: Wing[] = [];
   public locationTypes: LocationType[] = [
     LocationType.WORKPLACE,
     LocationType.ROOM
@@ -42,7 +42,6 @@ export class LocationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getWings();
     this.locationForm = new FormGroup({
       'locationName': new FormControl(this.location.name, Validators.required),
       'locationType': new FormControl(this.location.type, Validators.required),
@@ -58,13 +57,6 @@ export class LocationComponent implements OnInit {
     }
 
     this.editLocation()
-  }
-
-  private getWings(): void {
-    const building: Building = this.location.wing.floor.building
-    this.wingService.getWingsByBuildingId(building.id).subscribe((response: ApiResponse<Wing[]>) => {
-      this.wings = response.payload;
-    });
   }
 
   private editLocation(): void {
