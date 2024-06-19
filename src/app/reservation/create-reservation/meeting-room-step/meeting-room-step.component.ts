@@ -7,6 +7,7 @@ import {MeetingRoomUnitComponent} from "./meeting-room-unit/meeting-room-unit.co
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {MatPaginatorModule, PageEvent} from "@angular/material/paginator";
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-meeting-room-step',
@@ -17,6 +18,7 @@ import {MatPaginatorModule, PageEvent} from "@angular/material/paginator";
     MatStepperPrevious,
     MeetingRoomUnitComponent,
     MatPaginatorModule,
+    LucideAngularModule,
   ],
   templateUrl: './meeting-room-step.component.html',
   styleUrl: './meeting-room-step.component.scss'
