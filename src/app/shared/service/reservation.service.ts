@@ -2,22 +2,20 @@ import {Injectable} from "@angular/core";
 import {Reservation} from "../model/reservation.model";
 import {ApiResponse, ApiService} from "./api.service";
 import {ToastrService} from "ngx-toastr";
-import { z } from 'zod';
-import {Observable, of} from "rxjs";
+import {Observable, of, Subject} from "rxjs";
 import {catchError, map} from "rxjs/operators";
-import {Role} from "../model/role";
-import {User} from "../model/user.model";
-import { Location, LocationType } from '../model/location.model';
-import { Wing } from '../model/wing.model';
-import { Floor } from '../model/floor.model';
-import { Building } from '../model/building.model';
-
 
 @Injectable()
 export class ReservationService {
+  private reservationDeletedSource = new Subject<void>();
+  reservationDeleted$ = this.reservationDeletedSource.asObservable();
+
   constructor(private apiService: ApiService, private toastr: ToastrService) {
   }
 
+  notifyReservationDeleted() {
+    this.reservationDeletedSource.next();
+  }
 
   getReservationsByUserId(userId: string): Observable<Reservation[]> {
     return this.apiService.get<ApiResponse<Reservation[]>>(`/reservations/user/${userId}`).pipe(
@@ -93,5 +91,9 @@ export class ReservationService {
         endDateTime: this.formatDate(reservation.endDateTime)
       }
     });
+  }
+
+  deleteReservation(id: string) {
+    return this.apiService.post<ApiResponse<string>>(`/reservations/${id}/cancel`);
   }
 }

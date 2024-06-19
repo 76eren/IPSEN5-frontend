@@ -111,8 +111,8 @@ export class CalendarComponent implements OnInit {
     this.updateViewBasedOnWidth();
   }
 
-  mapEvents(reservations: Reservation[]): void {
-    this.events = reservations.map(reservation => ({
+  mapEvents(reservations: Reservation[]): any[] {
+    return reservations.map(reservation => ({
       id: reservation.id,
       title: reservation.location.type,
       start: reservation.startDateTime,
@@ -125,8 +125,8 @@ export class CalendarComponent implements OnInit {
     }));
   }
 
-  mapColleagueEvents(reservations: Reservation[]): void {
-    this.events = reservations.map(reservation => ({
+  mapColleagueEvents(reservations: Reservation[]): any[] {
+    return reservations.map(reservation => ({
       id: reservation.id,
       title: this.selectedUser!.firstName,
       start: reservation.startDateTime,
@@ -142,12 +142,13 @@ export class CalendarComponent implements OnInit {
   getCurrentReservations(): void {
     this.reservationService.getAllReservations().then(
       (response) => {
-        this.mapEvents(response);
+        const personalEvents = this.mapEvents(response);
 
         this.calendarOptions.set({
           ...this.calendarOptions(),
-          events: this.events
+          events: personalEvents
         });
+        this.events = personalEvents;
       },
       (error) => {
         this.toastr.error("Probeer het later nog een keer", "Fout bij ophalen van reserveringen")
@@ -204,11 +205,13 @@ export class CalendarComponent implements OnInit {
 
     this.reservationService.getReservationsByUserId(userId).subscribe(
       (reservations) => {
-        this.mapColleagueEvents(reservations);
+        const colleagueEvents = this.mapColleagueEvents(reservations);
+
+        const allEvents = [...this.events, ...colleagueEvents];
 
         this.calendarOptions.set({
           ...this.calendarOptions(),
-          eventSources: this.events
+          events: allEvents
         });
       },
       (error) => {

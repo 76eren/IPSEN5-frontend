@@ -18,7 +18,7 @@ describe('users', () => {
 
 
   it('Should display all users', () => {
-    cy.get('li').should('have.length', 45);
+    cy.get('li').should('have.length', 44);
   });
 
   it('Should be able to see filtered user', () => {

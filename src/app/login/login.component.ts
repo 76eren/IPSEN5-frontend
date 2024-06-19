@@ -42,7 +42,7 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (!this.loginForm.valid) {
-      this.toastr.error('Vul een geldig emailadres en wachtwoord in', 'Ongeldige login')
+      this.toastr.error('Er is iets misgegaan bij het inloggen. Probeer het opnieuw.')
       return;
     }
 

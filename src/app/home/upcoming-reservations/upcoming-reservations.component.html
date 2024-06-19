@@ -7,8 +7,9 @@
     <p>U heeft geen aankomende reserveringen.</p>
   </div>
   <ul class="space-y-4" *ngIf="this.reservations.length > 0">
-    <li class="flex justify-between items-center p-4 border-2 border-secondary-purple-light rounded-lg" *ngFor="let reservation of reservations">
-      <div>
+    <li class="flex justify-between items-center pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2 border-secondary-purple-light w-full mb-2" *ngFor="let reservation of reservations">
+    <div class="flex w-full justify-between bg-white rounded-md p-4 items-center">
+      <div >
         <h3 class="font-bold">{{ reservation.startDateTime | date:'longDate' }}</h3>
         <p>Tijd: {{ reservation.startDateTime | date:'shortTime' || "Onbekende startdatum" }}</p>
         <p>Locatie: {{ reservation.location.wing.floor.building.name || "Onbekende locatie" }}</p>
@@ -17,6 +18,9 @@
         <p>Meer info</p>
         <lucide-icon name="move-right"></lucide-icon>
       </button>
+
+    </div>
+      
     </li>
   </ul>
 </article>

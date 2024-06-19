@@ -1,26 +1,26 @@
-<table class="w-full">
-  <tr class="flex pl-5 justify-start w-full text-left font-bold">
+<div class="w-full flex flex-col justify-center pt-4 space-y-2">
+  <section class="hidden md:flex pl-5 justify-start w-full text-left font-bold">
     <th class="min-w-[150px]">Naam</th>
     <th class="min-w-[150px]">Type</th>
     <th class="min-w-[150px]">Gebouw</th>
     <th class="min-w-[150px]">Vleugel</th>
     <th class="min-w-[150px]">Capaciteit</th>
     <th class="min-w-[150px]">Beschikbaarheid</th>
-  </tr>
-  <tr class="max-h-fit overflow-auto">
+  </section>
+  <ul class="w-full">
     @for (location of displayedMeetingRooms; track location){
       <app-meeting-room-unit (click)="toggleSelected(location);"
                              [location]="location"></app-meeting-room-unit>
     }
-  </tr>
-</table>
-<mat-paginator [length]="length"
-               [pageSize]="pageSize"
-               [pageSizeOptions]="pageSizeOptions"
-               (page)="handlePage($event)">
-</mat-paginator>
-<div class="w-full flex justify-center items-center space-x-4">
-  <button class="border-2 border-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-0.5 text-2xl text-primary-dark-purple" matStepperPrevious>Vorige</button>
-  <button class="bg-primary-dark-purple rounded-2xl w-fit h-fit px-3 py-1 text-2xl text-white"
-          (click)="checkMeetingRoom();" >Volgende</button>
+  </ul>
+  <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="handlePage($event)">
+  </mat-paginator>
+  <div class="w-full flex justify-center items-center space-x-4">
+    <button class="border-2 border-primary-dark-purple rounded-lg w-fit h-fit p-2 text-lg md:text-xl hover:bg-secondary-purple-light duration-300" matStepperPrevious>Vorige</button>
+    <button data-cy=volgende-button class="bg-primary-dark-purple rounded-lg w-fit h-fit p-2 text-lg md:text-xl text-white hover:bg-purple-950 duration-300"
+            (click)="checkMeetingRoom();">Volgende</button>
+  </div>
 </div>

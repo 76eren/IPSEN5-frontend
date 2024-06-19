@@ -36,7 +36,7 @@
               <p>Bekijk</p>
               <lucide-icon name="chevron-right"></lucide-icon>
             </button>
-            <button (click)="openDeleteModal()" class="p-2 w-full rounded-lg bg-primary-red bg-opacity-80 text-white hover:bg-red-700 duration-300">Annuleer</button>
+            <button (click)="openDeleteModal(reservation.id)" class="p-2 w-full rounded-lg bg-primary-red bg-opacity-80 text-white hover:bg-red-700 duration-300">Annuleer</button>
           </div>
         </div>
       </li>
@@ -48,6 +48,6 @@
     </ng-template>
   </section>
   @if (isDeleteModalVisible) {
-    <app-delete-modal (closeModalEvent)="openDeleteModal()"></app-delete-modal>
+    <app-delete-modal (closeModalEvent)="openDeleteModal('')" [reservationId]="reservationId"></app-delete-modal>
   }
 </article>
