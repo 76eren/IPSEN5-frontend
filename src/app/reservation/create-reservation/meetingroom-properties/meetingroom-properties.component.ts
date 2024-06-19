@@ -45,7 +45,7 @@ export class MeetingroomPropertiesComponent {
 
   protected checkNumberOfPersons() {
     if (!this.propertiesFormGroup.get('numberOfPersonsChange')?.valid) {
-      this.toastr.error('Voer aantal personen in!', 'Validatie Error');
+      this.toastr.error('Voer een aantal personen in!', 'Validatie Error');
       return;
     }
   }

@@ -3,8 +3,8 @@
     {
       "id": "344cc2e0-bc62-47cf-b7e1-3f13a6badc20",
       "email": "user0@cgi.com",
-      "firstname": "Me",
-      "lastname": "Doe",
+      "firstName": "Me",
+      "lastName": "Doe",
       "role": "USER",
       "phoneNumber": "061234527"
     }

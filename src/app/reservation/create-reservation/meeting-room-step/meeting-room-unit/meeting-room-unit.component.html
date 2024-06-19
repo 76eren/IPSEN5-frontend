@@ -1,14 +1,28 @@
-<section class="pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2
+<li class="hidden md:block pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2
 border-secondary-purple-light w-full mb-2 cursor-pointer"
     [ngClass]="{'border-primary-dark-purple': location.isActivated, 'border-secondary-purple-light': !location.isActivated}">
-  <tr class="flex w-full justify-start bg-white rounded-md p-4">
-    <td class="min-w-[150px]">{{ location.name }}</td>
-    <td class="min-w-[150px]">{{ location.type }}</td>
-    <td class="min-w-[150px]">{{ location.wing.floor.building.name }}</td>
-    <td class="min-w-[150px]">{{ location.wing.floor.number }}.{{ location.wing.name }}</td>
-    <td class="min-w-[150px]">{{ location.capacity }}</td>
-    <td class="min-w-[150px] flex justify-center items-center">
+  <div class="flex w-full justify-start bg-white rounded-md p-4">
+    <p class="min-w-[150px]">{{ location.name }}</p>
+    <p class="min-w-[150px]">{{ location.type }}</p>
+    <p class="min-w-[150px]">{{ location.wing.floor.building.name }}</p>
+    <p class="min-w-[150px]">{{ location.wing.floor.number }}.{{ location.wing.name }}</p>
+    <p class="min-w-[150px]">{{ location.capacity }}</p>
+    <div class="min-w-[150px] flex justify-center items-center">
       <section class=" w-2 h-2 bg-green-500 rounded-full"></section>
-    </td>
-  </tr>
-</section>
+    </div>
+  </div>
+</li>
+
+<li class="block md:hidden pl-1 bg-gradient-to-b from-primary-red to-primary-dark-purple rounded-lg border-2
+border-secondary-purple-light w-full mb-2 cursor-pointer"
+    [ngClass]="{'border-primary-dark-purple': location.isActivated, 'border-secondary-purple-light': !location.isActivated}">
+  <div class="flex flex-col w-full justify-start bg-white rounded-md p-4">
+    <p>Locatie: {{ location.wing.floor.building.name }}</p>
+    <p>Ruimte: {{ location.name }}</p>
+    <p>Capaciteit: {{ location.capacity }}</p>
+    <div class="flex space-x-2 items-center">
+      <p>Beschikbaarheid: </p>
+      <section class=" w-2 h-2 bg-green-500 rounded-full"></section>
+    </div>
+  </div>
+</li>

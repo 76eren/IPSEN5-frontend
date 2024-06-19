@@ -2,8 +2,8 @@
   "payload": [
     {
       "id": "d65e77f9-c9aa-4b74-94b5-c9f6518cbeac",
-      "firstname": "Jason",
-      "lastname": "Response",
+      "firstName": "Jason",
+      "lastName": "Response",
       "standardLocation": "c4b54ca6-11ca-4372-bc2f-602c0990ffd0"
     }
   ],
