@@ -7,7 +7,7 @@ describe('reserve-workplace', () => {
     describe('MeetingRoom Reservation', () => {
       beforeEach(() => {
         cy.intercept('GET', "/api/v1/building", {fixture: 'report-dashboard-fixtures/get-buildings.fixture.json'}).as('getBuildings');
-        cy.intercept('GET', "/api/v1/location/available-rooms?buildingId=%E2%89%88&numberOfPeople=5&startDateTime=2024-07-01T07:00:00&endDateTime=2024-07-01T08:00:00", {fixture: 'get-available-rooms.fixture.json'}).as('getAvailableRooms');
+        cy.intercept('GET', "/api/v1/location/available-rooms?buildingId=%E2%89%88&numberOfPeople=5&startDateTime=2024-07-01T09:00:00&endDateTime=2024-07-01T10:00:00", {fixture: 'get-available-rooms.fixture.json'}).as('getAvailableRooms');
         cy.visit('http://localhost:4200/#/create-reservation'); // Update this with the correct path to your component
       });
       it('should complete a workplace reservation', () => {
@@ -20,11 +20,11 @@ describe('reserve-workplace', () => {
         });
         // Step 2: Select reservation type
 
-        cy.get('button').contains('Lokaal').click();
+        cy.get('button').contains('Vergaderruimte').click();
         cy.get('button').contains('Volgende').click();
 
         // Step 3: Select Number of persons
-        cy.get('h1').contains('Voer Aantal personen in:').should('be.visible');
+        cy.get('h1').contains('Voer het aantal personen in:').should('be.visible');
         cy.get('mat-form-field').first().within(() => {
           cy.get('input').type("5");
         });
@@ -32,16 +32,16 @@ describe('reserve-workplace', () => {
         cy.get('button').contains('Volgende').click({force: true});
 
         // Step 4: Select date and time
-        cy.get('mat-form-field').contains('Selecteer datum');
+        cy.get('mat-form-field').contains('Selecteer een datum');
         cy.get('input[matInput]').eq(1).type('07/01/2024');
 
-        cy.get('h1').contains('Selecteer starttijd:').should('be.visible');
+        cy.get('h1').contains('Starttijd:').should('be.visible');
         cy.get('ngx-timepicker-field').first().within(() => {
           cy.get('input').first().clear().type('09', { force: true });
           cy.get('input').last().clear().type('00', { force: true });
         });
 
-        cy.get('h1').contains('Selecteer eindtijd:').should('be.visible');
+        cy.get('h1').contains('Eindtijd:').should('be.visible');
         cy.get('ngx-timepicker-field').last().within(() => {
           cy.get('input').first().clear().type('10', { force: true });
           cy.get('input').last().clear().type('00', { force: true });
@@ -72,14 +72,14 @@ describe('reserve-workplace', () => {
         cy.get('h1').contains('Aantal personen:').within(() => {
           cy.get('strong').should('contain', '5');
         });
-        cy.get('h1').contains('Start Datum en Tijd:').within(() => {
+        cy.get('h1').contains('Startdatum en -tijd:').within(() => {
           cy.get('strong').should('contain', '1/7/2024, 9:00');
         });
-        cy.get('h1').contains('Eind Datum en Tijd:').within(() => {
+        cy.get('h1').contains('Einddatum en -tijd:').within(() => {
           cy.get('strong').should('contain', '1/7/2024, 10:00');
         });
-        cy.get('h1').contains('Reservering Type:').within(() => {
-          cy.get('strong').should('contain', 'VERGADERRUIMTE');
+        cy.get('h1').contains('Reserveringstype:').within(() => {
+          cy.get('strong').should('contain', 'vergaderruimte');
         });
         cy.intercept('POST', '/api/v1/reservations/reserve-room', { fixture: 'save-reservation-success.fixture.json' }).as('saveReservation');
 
