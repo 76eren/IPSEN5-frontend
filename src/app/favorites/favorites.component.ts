@@ -10,6 +10,7 @@ import {FavoriteLocationService} from "../shared/service/favorite-location.servi
 import {StandardLocation} from "../shared/model/standard-location.model";
 import {ToastrService} from "ngx-toastr";
 import { Wing } from '../shared/model/wing.model';
+import { DefaultComponent } from './location/default/default.component';
 
 @Component({
     selector: 'app-favorites',
@@ -20,7 +21,8 @@ import { Wing } from '../shared/model/wing.model';
         NgForOf,
         RouterLink,
         ColleguesComponent,
-        LocationComponent
+        LocationComponent,
+        DefaultComponent
     ],
     templateUrl: './favorites.component.html',
     styleUrl: './favorites.component.scss'

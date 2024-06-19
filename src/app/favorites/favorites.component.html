@@ -1,9 +1,19 @@
 <article class="flex flex-col p-4 md:p-0 h-full w-full space-y-6">
-    <h1 class="w-min whitespace-nowrap text-3xl font-bold">Mijn favorieten</h1>
-    <section class="w-full flex flex-col md:flex-row md:space-x-4">
-        <app-collegues [favoriteColleagues]="favoriteColleaguesList" class="w-full"></app-collegues>
-        <app-building [favoriteLocation]="favoriteBuildingList" class="w-full"></app-building>
-    </section>
+  <h1 class="w-min whitespace-nowrap text-3xl font-bold">Mijn favorieten</h1>
+  <section class="w-full flex flex-col md:flex-row md:space-x-4">
+    <app-collegues
+      [favoriteColleagues]="favoriteColleaguesList"
+      class="w-full"
+    ></app-collegues>
+    <div id="favorite-building" class="w-full flex flex-col">
+        <app-default-location
+        [defaultLocation]="favoriteBuildingList"
+        class="w-full"
+      ></app-default-location>
+      <app-building
+        [favoriteLocation]="favoriteBuildingList"
+        class="w-full"
+      ></app-building>
+    </div>
+  </section>
 </article>
-
-
