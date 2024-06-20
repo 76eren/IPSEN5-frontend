@@ -134,7 +134,8 @@ export class LocationComponent implements OnInit {
       (wing) =>
         wing.floor.building.id ===
           this.favoriteLocationForm.get('building')?.value &&
-        wing.floor.id === this.favoriteLocationForm.get('floor')?.value
+        wing.floor.id === this.favoriteLocationForm.get('floor')?.value &&
+        wing.name === this.favoriteLocationForm.get('wing')?.value
     )?.id;
 
     this.favoriteLocationService.saveStandardLocation(WingId).subscribe(
@@ -142,7 +143,9 @@ export class LocationComponent implements OnInit {
         this.toastr.success('Standaard locatie is opgeslagen.');
       },
       (error) => {
-        this.toastr.error('Er is iets misgegaan bij het opslaan van de standaardlocatie. Probeer het later opnieuw.');
+        this.toastr.error(
+          'Er is iets misgegaan bij het opslaan van de standaardlocatie. Probeer het later opnieuw.'
+        );
       }
     );
   }

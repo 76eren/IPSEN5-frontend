@@ -1,0 +1,11 @@
+<div class="rounded-lg p-4 border-2 border-secondary-purple-light space-y-2 mb-6" *ngIf="defaultLocation">
+    <div class="flex justify-between items-center">
+      <h2 class="text-xl font-semibold">Standaard locatie</h2>
+    </div>
+    <div>
+      <h3>Locatie: {{ defaultLocation.floor.building.name }}</h3>
+      <p>Verdieping: {{ defaultLocation.floor.number }}</p>
+      <p>Vleugel: {{ defaultLocation.name }}</p>
+    </div>
+  </div>
+  
