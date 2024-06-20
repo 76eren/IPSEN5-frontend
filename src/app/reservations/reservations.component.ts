@@ -5,9 +5,11 @@ import {Reservation} from "../shared/model/reservation.model";
 import {ReservationService} from "../shared/service/reservation.service";
 import {ToastrService} from "ngx-toastr";
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import {ActivatedRoute, RouterModule} from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
 import { locationTypeTranslations } from '../shared/model/location.model';
+import {Subscription} from "rxjs";
+import {AuthService} from "../shared/service/auth.service";
 
 @Component({
   selector: 'app-reservations',
@@ -27,17 +29,72 @@ export class ReservationsComponent implements OnInit{
   protected reservations: Reservation[] = [];
   public locationTypeTranslation = locationTypeTranslations;
   protected reservationId!: string;
+  public isCheckingOwnReservations: boolean = true;
+  private id?: string;
 
-  constructor(private reservationService: ReservationService,
-              private toastr: ToastrService,
-              private changeDetectorRef: ChangeDetectorRef,){
-  }
+  constructor(
+      private reservationService: ReservationService,
+      private toastr: ToastrService,
+      private changeDetectorRef: ChangeDetectorRef,
+      private route: ActivatedRoute,
+      private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+
+      if (params['id'] == null || params['id'] == undefined) {
+        this.getOwnReservations();
+        this.isCheckingOwnReservations = true;
+
+      }
+      else {
+        this.getReservationsFromOther(params['id']);
+        this.checkIfUserIsCheckingOwnReservation();
+      }
+
+    });
     this.refreshLessonsList();
     this.reservationService.reservationDeleted$.subscribe(() => {
       this.refreshLessonsList();
     });
+
+  }
+
+  checkIfUserIsCheckingOwnReservation() {
+    this.authService.isIdOfLoggedInUser(this.id!).subscribe(
+      (isOwnId) => {
+        this.isCheckingOwnReservations = isOwnId;
+      }
+    )
+  }
+
+  getReservationsFromOther(id: string) {
+    this.reservationService.getReservationsByUserId(id).subscribe(
+      (reservations) => {
+        this.reservations = reservations;
+      },
+      (error) => {
+        this.toastr
+          .error("Probeer het later nog een keer", "Fout bij ophalen van reserveringen van collega")
+      }
+    );
+  }
+
+  getOwnReservations(): void {
+    this.reservationService.getAllReservations2().subscribe(
+      data => {
+        this.reservations = data.payload;
+        this.reservations = this.sortByDate(this.reservations);
+      }, error => {
+        if (error && (error as any).error) {
+          this.toastr.error((error as any).error.message);
+        } else {
+          this.toastr.error('Fout bij het ophalen van reserveringen');
+        }
+      }
+    );
   }
 
   sortByDate(items: Reservation[]): Reservation[] {
