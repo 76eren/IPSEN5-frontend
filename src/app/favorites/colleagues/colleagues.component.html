@@ -65,7 +65,7 @@
     <!--SEARCH BAR end -->
     <ul class="space-y-4 max-h-48 md:max-h-96 overflow-scroll" *ngIf="!this.favoriteListSelected">
         <li
-                *ngIf="allUsers.length === 0"
+                *ngIf="allUsers?.length === 0"
                 class="flex justify-center items-center p-4 border-2 border-secondary-purple-light rounded-lg"
         >
             <p>Er zijn geen collega's gevonden</p>
@@ -92,7 +92,7 @@
 
     <ul class="space-y-4 max-h-48 md:max-h-96 overflow-scroll" *ngIf="this.favoriteListSelected">
         <li
-                *ngIf="favoriteColleagues.length === 0"
+                *ngIf="favoriteColleagues?.length === 0"
                 class="flex justify-center items-center p-4 border-2 border-secondary-purple-light rounded-lg"
         >
             <p>U heeft nog geen favoriete collega</p>
