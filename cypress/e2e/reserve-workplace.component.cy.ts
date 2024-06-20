@@ -7,7 +7,7 @@ describe('reserve-workplace', () => {
     describe('Workplace Reservation', () => {
       beforeEach(() => {
         cy.intercept('GET', "/api/v1/building", {fixture: 'report-dashboard-fixtures/get-buildings.fixture.json'}).as('getBuildings');
-        cy.intercept('GET', "/api/v1/floor/building/%E2%89%88", {fixture: 'manage-locations-fixtures/get-floor-by-building.fixture.json'}).as('getFloors');
+        cy.intercept('GET', "/api/v1/floor/building/7b527137-a259-4740-9fa5-f6a4810cc5e3", {fixture: 'manage-locations-fixtures/get-floor-by-building.fixture.json'}).as('getFloors');
         cy.intercept('GET', "/api/v1/wing/floor/a1a6acb8-797f-4547-8b0c-feae164d3590", {fixture: 'manage-locations-fixtures/get-wings-by-building.fixture.json'}).as('getWings');
         cy.visit('http://localhost:4200/#/create-reservation'); // Update this with the correct path to your component
       });

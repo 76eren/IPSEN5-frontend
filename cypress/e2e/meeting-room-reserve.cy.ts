@@ -7,7 +7,7 @@ describe('reserve-workplace', () => {
     describe('MeetingRoom Reservation', () => {
       beforeEach(() => {
         cy.intercept('GET', "/api/v1/building", {fixture: 'report-dashboard-fixtures/get-buildings.fixture.json'}).as('getBuildings');
-        cy.intercept('GET', "/api/v1/location/available-rooms?buildingId=%E2%89%88&numberOfPeople=5&startDateTime=2024-07-01T09:00:00&endDateTime=2024-07-01T10:00:00", {fixture: 'get-available-rooms.fixture.json'}).as('getAvailableRooms');
+        cy.intercept('GET', "/api/v1/location/available-rooms?buildingId=7b527137-a259-4740-9fa5-f6a4810cc5e3&numberOfPeople=5&startDateTime=2024-07-01T09:00:00&endDateTime=2024-07-01T10:00:00", {fixture: 'get-available-rooms.fixture.json'}).as('getAvailableRooms');
         cy.visit('http://localhost:4200/#/create-reservation'); // Update this with the correct path to your component
       });
       it('should complete a workplace reservation', () => {
