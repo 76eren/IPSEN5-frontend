@@ -44,6 +44,17 @@ export class ReservationsComponent implements OnInit{
     return items.sort((a, b) => new Date(a.startDateTime).getTime() - new Date(b.startDateTime).getTime());
   }
 
+  sortByExpired(items: Reservation[]): Reservation[] {
+    let now = new Date();
+
+    let upcomingReservations = items.filter((reservation) => {
+      let startDateTime = new Date(reservation.startDateTime);
+      return startDateTime >= now;
+    });
+
+    return upcomingReservations;
+  }
+
   protected getDate(dateToFormat: Date) {
     const date = new Date(dateToFormat);
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
@@ -65,6 +76,7 @@ export class ReservationsComponent implements OnInit{
       data => {
         this.reservations = data.payload;
         this.reservations = this.sortByDate(this.reservations);
+        this.reservations = this.sortByExpired(this.reservations);
       }, error => {
         if (error && (error as any).error) {
           this.toastr.error((error as any).error.message);
