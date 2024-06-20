@@ -63,11 +63,10 @@ export class AuthService {
     this.apiService.post<any>('/auth/logout')
       .subscribe({
         next: () => {
-          this.toastr.success('Logout successful!');
           this.router.navigate(['/login']);
         },
         error: (error) => {
-          this.toastr.error('Logout failed.');
+          this.toastr.error('Er is iets misgegaan tijdens het uitloggen. \nProbeer het opnieuw.');
         }
       });
   }
