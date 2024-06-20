@@ -190,7 +190,7 @@ export class ReportDashboardComponent implements OnInit, OnDestroy {
     this.roomOccupancyData.forEach((item) => {
       const room = rooms.indexOf(item.room);
       const month = new Date(item.date).getMonth();
-      matrix[room][month] += item.numberOfUsages;
+      matrix[room][month] = item.numberOfUsages;
     });
 
     for (let i = 0; i < rooms.length; i++) {
