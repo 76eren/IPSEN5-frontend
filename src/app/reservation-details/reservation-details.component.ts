@@ -6,8 +6,8 @@ import {AuthService} from "../shared/service/auth.service";
 import {from} from "rxjs";
 import {ReservationService} from '../shared/service/reservation.service';
 import {locationTypeTranslations} from '../shared/model/location.model';
-import {DeleteModalComponent} from "../shared/utilities/delete-modal/delete-modal.component";
 import {Observable} from "rxjs";
+import {DeleteModalComponent} from "../shared/utilities/delete-modal/delete-modal.component";
 
 
 @Component({
